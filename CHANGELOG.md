@@ -1,5 +1,12 @@
 # Changelog
 
+## 8 November 2026 — Phase 10 privacy-safe experimental preparation
+
+- Tagged the clean Phase 9 commit as `phase10-start-2026-11-08` and rechecked the OSF node license metadata, README, article and publisher guidance without downloading respondent files or contacting researchers.
+- Found no documented source-specific rights for the proposed local retention, model training and derivatives, or a compatible explicitly licensed replacement; trained no new model and reported no invented effects or holdout scores.
+- Added a research-only fail-closed rights/intake module, study-specific treatment coding, pre-exposure feature validation, respondent-disjoint partition helper, restricted-file Git safeguards and synthetic regression tests.
+- Added five Phase 10 reports. Preserved existing research artifacts, the marketer app and the five-level `insufficient_evidence` contract.
+
 ## 8 November 2026 — Phase 9 research-data eligibility
 
 - Tagged the clean pre-change Git commit `phase9-start-2026-11-08` and recorded SHA-256 for 570 source, eight saved-model and 26 saved-result files.

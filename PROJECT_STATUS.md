@@ -1,5 +1,9 @@
 # 49C project status — secondary data only
 
+## Phase 10 status — 8 November 2026
+
+The OSF location-targeting project is publicly readable, but source-specific rights for respondent retention, new academic model training, derivatives and publication remain unverified. No OSF respondent records were processed or new experimental model trained. Phase 10 adds a research-only, in-memory fail-closed intake, source-specific treatment coding, pre-exposure feature gate, respondent partition helper, restricted-file staging guard and synthetic tests. The five reports beginning `PHASE10_` document the rights decision, prior descriptive evidence, prospective model protocol, STP boundaries and verification. The marketer app and five-level `insufficient_evidence` behaviour remain unchanged.
+
 ## Phase 9 status — 8 November 2026
 
 The OSF location-targeting project still has no explicit dataset license in its API metadata or README and lists only respondent workbooks containing identifiers. No use/derivative-model permission or minimized release was verified; a permission email is drafted but unsent. Seven candidate sources were screened, including licensed alternatives; none supports the specific direct-intrusion × randomized-personalization target with usable records. **No Phase 9 model or holdout metric was produced.** A pre-change Git tag and SHA-256 manifest protect 570 source, eight model and 26 saved-result files. The Mode A app, offline Mode B contract and five-level `insufficient_evidence` outcome are unchanged. See the five Phase 9 deliverables and `phase9_research/candidate_matrix.csv`.

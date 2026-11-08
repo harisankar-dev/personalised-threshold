@@ -19,3 +19,12 @@ venv/
 Thumbs.db
 .vscode/
 .idea/
+
+# Phase 10 restricted research intake (never stage respondent-level exports)
+/phase10_research/private_data/
+/phase10_research/derived_data/
+/phase10_research/restricted_models/
+**/study1_data.xlsx
+**/study2_data.xlsx
+**/study3_data.xlsx
+**/study1_2.xlsx
