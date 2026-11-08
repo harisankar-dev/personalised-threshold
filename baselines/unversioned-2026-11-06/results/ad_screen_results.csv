@@ -1,0 +1,61 @@
+Ad_ID,Ad_Content,Ad_Targeting_Criteria,tier,raw_cue_score,score_out_of_10,matched_cues
+1,Elevate your style with our new Fall collection! 🍁 Shop now and get 20% off!,age:18-60 & Country :Colombia,low_intrusive,1,1,broad_targeting
+2," Your wardrobe deserves a refresh. Start with us—trendy, affordable, and sustainable.",age:18-60 & Country :Honduras,low_intrusive,1,1,broad_targeting
+3, Outfit on point. Confidence unmatched. Discover your next go-to look today .,age:18-60 & Country :Laos,low_intrusive,1,1,broad_targeting
+4," New season, new you! Transform your look with our eco-friendly fashion line .",age:18-60 & Country :China,low_intrusive,1,1,broad_targeting
+5, Feeling the fall vibes? Check out our cozy sweaters and save 15% on your first order!,age:18-60 & Country :Sweden,low_intrusive,1,1,broad_targeting
+6, Flat lay of the season's trendiest boots with bold text overlay: Step into the Future. Shop Now!,age:18-60 & Country :Senegal,low_intrusive,1,1,broad_targeting
+7," 15-second reel of models switching outfits seamlessly, showcasing the versatility of the brand.",age:18-60 & Country :Colombia,low_intrusive,1,1,broad_targeting
+8,"Affordable fashion, delivered fast. Shop the latest trends today and get free shipping!",age:18-60 & Country :China,low_intrusive,1,1,broad_targeting
+9,Be bold. Be you. Our new collection is made for those who dare to stand out .,age:18-60 & Country :Nigeria,low_intrusive,1,1,broad_targeting
+10, Make a statement this season with the best from our fashion-forward collection .,age:18-60 & Country :Indonesia,low_intrusive,1,1,broad_targeting
+11,Upgrade to the future of tech. Shop the latest smart devices now!,age:18-60 & Country :Thailand,low_intrusive,1,1,broad_targeting
+12, Get lightning-fast performance. Explore our new line of gaming laptops.,age:18-60 & Country :Azerbaijan,low_intrusive,1,1,broad_targeting
+13, Cutting-edge smartphones at unbeatable prices. Limited time only!,age:18-60 & Country :Indonesia,low_intrusive,1,1,broad_targeting
+14, Innovation meets affordability. Discover the latest gadgets today!,age:18-60 & Country :Panama,low_intrusive,1,1,broad_targeting
+15, Power your life with top-tier tech. Check out our deals on smart home devices.,age:18-60 & Country :France,low_intrusive,1,1,broad_targeting
+16, Maximize productivity with our best-selling office tech. Shop now!,age:18-60 & Country :China,low_intrusive,1,1,broad_targeting
+17, The future is wireless. Browse our top Bluetooth headphones!,age:18-60 & Country :China,low_intrusive,1,1,broad_targeting
+18,Level up your home entertainment with our 4K Ultra HD TVs.,age:18-60 & Country :Poland,low_intrusive,1,1,broad_targeting
+19, Looking for powerful performance? Shop our desktop computers now!,age:18-60 & Country :Japan,low_intrusive,1,1,broad_targeting
+20,Get connected. Shop high-speed routers and networking solutions.,age:18-60 & Country :Portugal,low_intrusive,1,1,broad_targeting
+21,Get fit at home! Join our online workout community and start your free trial today ,age:18-60 & Country :Cuba,low_intrusive,1,1,broad_targeting
+22,. Feel the burn. Crush your fitness goals with our expert-guided classes,age:18-60 & Country :China,low_intrusive,1,1,broad_targeting
+23,Want to lose weight fast? Our personalized plans are designed for you!,age:18-60 & Country :China,low_intrusive,1,1,broad_targeting
+24,[Image Idea] Before/After transformation of a customer with text overlay: Results You Can See. Join Now!,age:18-60 & Country :Iran,low_intrusive,1,1,broad_targeting
+25,Unlock your best self. Get 50% off your first month of training!,age:18-60 & Country :Honduras,low_intrusive,1,1,broad_targeting
+26, Health is wealth. Sign up for our yoga classes today and enjoy peace of mind.,age:18-60 & Country :China,low_intrusive,1,1,broad_targeting
+27," [Video Ad] A 30-second testimonial from a client who achieved their fitness goals, showcasing their progress.",age:18-60 & Country :Democratic Republic of the Congo,low_intrusive,1,1,broad_targeting
+28, Nutrition matters. Fuel your body right with our meal prep services,age:18-60 & Country :Brazil,low_intrusive,1,1,broad_targeting
+29, Find your strength. Join our strength training program and see real results!,age:18-60 & Country :South Africa,low_intrusive,1,1,broad_targeting
+30, Ready for a new challenge? Try our high-intensity interval training and torch fat fast,age:18-60 & Country :Indonesia,low_intrusive,1,1,broad_targeting
+31,Transform your workflow with our all-in-one project management software.,age:18-60 & Country :Japan,low_intrusive,1,1,broad_targeting
+32," Work smarter, not harder. Discover automation tools that save you time and money.",age:18-60 & Country :China,low_intrusive,1,1,broad_targeting
+33, Increase productivity across teams with our seamless collaboration platform.,age:18-60 & Country :Palestinian Territory,low_intrusive,1,1,broad_targeting
+34,Scale your business effortlessly with our cloud-based solutions.,age:18-60 & Country :Philippines,low_intrusive,1,1,broad_targeting
+35,Simplify HR processes with our powerful software. Request a demo today!,age:18-60 & Country :Poland,low_intrusive,1,1,broad_targeting
+36, Say goodbye to data chaos. Organize your business with our powerful CRM system.,age:18-60 & Country :Czech Republic,low_intrusive,1,1,broad_targeting
+37, Optimize your marketing efforts with our AI-driven tools. Get started now.,age:18-60 & Country :Paraguay,low_intrusive,1,1,broad_targeting
+38, Boost revenue with our cutting-edge eCommerce software. Request a free trial today!,age:18-60 & Country :Indonesia,low_intrusive,1,1,broad_targeting
+39, Enhance customer satisfaction with our user-friendly support ticketing system.,age:18-60 & Country :Sweden,low_intrusive,1,1,broad_targeting
+40," Data-driven decisions, simplified. Explore our advanced analytics solutions.",age:18-60 & Country :Canada,low_intrusive,1,1,broad_targeting
+41,Ready for an adventure? Discover hidden gems in Europe this summer #TravelGoals.,age:18-60 & Country :France,low_intrusive,1,1,broad_targeting
+42, [Video Ad] Fast-paced montage of different beach destinations with upbeat music and text: Your dream vacation awaits .,age:18-60 & Country :China,low_intrusive,1,1,broad_targeting
+43, Pack your bags! Explore top destinations at unbeatable prices.,age:18-60 & Country :Thailand,low_intrusive,1,1,broad_targeting
+44, Explore beyond the ordinary. Book your adventure now and save big!,age:18-60 & Country :Slovenia,low_intrusive,1,1,broad_targeting
+45," [Video Ad] 15-second clip of travelers enjoying a tropical vacation, with a call to action: Book your escape today.",age:18-60 & Country :Indonesia,low_intrusive,1,1,broad_targeting
+46,Adventure is calling! Explore our curated travel packages for an unforgettable experience .,age:18-60 & Country :Japan,low_intrusive,1,1,broad_targeting
+47,Get out and explore! Find exclusive deals on flights and hotels now.,age:18-60 & Country :Portugal,low_intrusive,1,1,broad_targeting
+48, Wanderlust is real. Book your next getaway today and enjoy early bird savings!,age:18-60 & Country :Poland,low_intrusive,1,1,broad_targeting
+49, Discover the world on a budget. Plan your dream trip today .,age:18-60 & Country :China,low_intrusive,1,1,broad_targeting
+50, Embark on your next journey. Exclusive travel deals just for you!,age:18-60 & Country :Sweden,low_intrusive,1,1,broad_targeting
+51,Spruce up your space with our latest home decor trends .,age:18-60 & Country :Albania,low_intrusive,1,1,broad_targeting
+52, From blank walls to bold statements. Shop unique wall art now!,age:18-60 & Country :Indonesia,low_intrusive,1,1,broad_targeting
+53, Transform your living room with our stylish and affordable furniture.,age:18-60 & Country :Portugal,low_intrusive,1,1,broad_targeting
+54, DIY made easy! Check out our tools and supplies for your next project.,age:18-60 & Country :Portugal,low_intrusive,1,1,broad_targeting
+55," Cozy vibes, all year round. Shop soft blankets and pillows today.",age:18-60 & Country :Nigeria,low_intrusive,1,1,broad_targeting
+56," A cozy, minimalist living room with text overlay: Your dream space is just a click away!",age:18-60 & Country :Nigeria,low_intrusive,1,1,broad_targeting
+57," Upgrade your kitchen with our range of modern, sleek appliances.",age:18-60 & Country :Albania,low_intrusive,1,1,broad_targeting
+58, Create the perfect outdoor oasis. Shop garden decor and furniture now!,age:18-60 & Country :France,low_intrusive,1,1,broad_targeting
+59, Style meets function. Discover our best-selling storage solutions today.,age:18-60 & Country :Venezuela,low_intrusive,1,1,broad_targeting
+60," Give your bedroom a makeover. Shop bedding, lighting, and more!",age:18-60 & Country :Indonesia,low_intrusive,1,1,broad_targeting

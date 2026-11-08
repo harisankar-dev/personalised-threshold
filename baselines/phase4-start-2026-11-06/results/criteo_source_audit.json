@@ -1,0 +1,65 @@
+{
+  "source": "https://huggingface.co/datasets/criteo/criteo-uplift",
+  "license": "CC BY-NC-SA 4.0",
+  "sha256": "2716e1bf0fd157a93b5bf86924d9088419dfbac2022c6cd90030220634f616dc",
+  "seed": 49,
+  "sampling": "uniform row indices without replacement across the full gzip CSV",
+  "sample_size": 200000,
+  "columns": [
+    "f0",
+    "f1",
+    "f2",
+    "f3",
+    "f4",
+    "f5",
+    "f6",
+    "f7",
+    "f8",
+    "f9",
+    "f10",
+    "f11",
+    "treatment",
+    "conversion",
+    "visit",
+    "exposure"
+  ],
+  "rows": 13979592,
+  "missing_by_column": {
+    "f0": 0,
+    "f1": 0,
+    "f2": 0,
+    "f3": 0,
+    "f4": 0,
+    "f5": 0,
+    "f6": 0,
+    "f7": 0,
+    "f8": 0,
+    "f9": 0,
+    "f10": 0,
+    "f11": 0,
+    "treatment": 0,
+    "conversion": 0,
+    "visit": 0,
+    "exposure": 0
+  },
+  "treatment_visit_conversion_counts": {
+    "t1_v0_c0": 11305831,
+    "t1_v1_c0": 540113,
+    "t1_v1_c1": 36711,
+    "t0_v0_c0": 2016832,
+    "t0_v1_c0": 76042,
+    "t0_v1_c1": 4063
+  },
+  "exposure_by_treatment": {
+    "t1_e0": 11454443,
+    "t1_e1": 428212,
+    "t0_e0": 2096937
+  },
+  "limitations": [
+    "12 features are anonymized and cannot be interpreted as 49C user traits",
+    "treatment is binary ad targeting versus control, not personalization level 0-4",
+    "no intrusion, consent, ad creative, or join key to 49C",
+    "publisher reports non-uniform subsampling of original trials",
+    "exposure is post-assignment and excluded from model predictors"
+  ]
+}

@@ -1,0 +1,80 @@
+{
+  "version": "survey_phase_v3_uncertainty",
+  "source_sha256": "a3b2d6a56d89d163f11150b5e6bf7ec14d54e60998a7f371a099cdeb7dc3a267",
+  "recipe": {
+    "origin": "Phase 3 training-only CV",
+    "candidate": "quadratic_privacy",
+    "alpha": 0.1,
+    "features": [
+      "Age",
+      "Gender",
+      "Frequency",
+      "benefits_mean",
+      "privacy_mean",
+      "privacy_distance_squared"
+    ]
+  },
+  "split": {
+    "original_training": 670,
+    "model_fit": 536,
+    "calibration": 134,
+    "previously_examined_holdout": 167,
+    "outer_seed": 49,
+    "calibration_seed": 4905,
+    "exact_answer_vector_grouped": true
+  },
+  "nominal_marginal_coverage": 0.9,
+  "absolute_calibration_quantile": 1.1710694960223949,
+  "one_sided_upper_calibration_quantile": 0.65878346609842,
+  "point_metrics_on_reused_holdout": {
+    "n": 167,
+    "mae": 0.508807687520411,
+    "rmse": 0.7558616547576312,
+    "r2_vs_test_mean": 0.42407495491427527,
+    "mean_error_prediction_minus_observed": -0.13648581396500317
+  },
+  "two_sided_interval": {
+    "covered": 149,
+    "empirical_coverage": 0.8922155688622755,
+    "wilson_95pct_interval_for_observed_coverage": [
+      0.8360662655768416,
+      0.9307265311148003
+    ],
+    "median_width": 2.3421389920447897,
+    "mean_width": 2.1926917933064023,
+    "segments": {
+      "below_neutral_lt_4": {
+        "n": 10,
+        "covered": 5,
+        "empirical_coverage": 0.5,
+        "mae": 1.302617136064728
+      },
+      "neutral_to_below_agreement_4_to_lt_5": {
+        "n": 31,
+        "covered": 29,
+        "empirical_coverage": 0.9354838709677419,
+        "mae": 0.5114081879949461
+      },
+      "agreement_ge_5": {
+        "n": 126,
+        "covered": 115,
+        "empirical_coverage": 0.9126984126984127,
+        "mae": 0.4451671319636352
+      }
+    }
+  },
+  "one_sided_upper_audit": {
+    "upper_below_agreement_5": 19,
+    "observed_high_ge_5_with_upper_below_5": 6,
+    "observed_high_ge_5_n": 126,
+    "upper_covers_observed": 143,
+    "empirical_upper_coverage": 0.8562874251497006
+  },
+  "limitations": [
+    "The outer holdout was examined in V1/V2, so this is not fresh validation.",
+    "Split-conformal guarantees require exchangeability; this convenience survey cannot establish it for future people or ads.",
+    "Marginal interval coverage does not imply coverage for high- or low-intrusion subgroups.",
+    "Predictors are contemporaneous questionnaire answers and cannot be extracted from uploaded ad creatives.",
+    "No personalization treatments, consent contexts, or engagement outcomes are linked to these respondents."
+  ]
+}

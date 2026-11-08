@@ -1,0 +1,7 @@
+{
+  "private": true,
+  "description": "Local OCR dependency for the 49C creative screen",
+  "dependencies": {
+    "tesseract.js": "7.0.0"
+  }
+}

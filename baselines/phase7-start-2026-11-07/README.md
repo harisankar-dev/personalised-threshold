@@ -1,0 +1,70 @@
+# The Personalization Threshold: Predicting When Hyper-Personalized Advertising Becomes Intrusive (49-C)
+
+**Implemented portfolio application:** Privacy-Aware Advertising Analytics and Creative Intrusiveness Screening  
+**Research status:** secondary-data feasibility study. The five-level personalization threshold is **not validated**.
+
+This project combines a local marketer-facing creative screen with a separate research dashboard. The screen accepts ad text or an image, reads printed English text from images with local OCR, and flags observable privacy references and pressure tactics. It returns a low/moderate/high **screening tier**, an exploratory **0–10 rubric score**, matched cues, and editing suggestions. The score is not a probability, a consumer rating, or a statistically validated prediction of how a particular person will feel. An image with no matched cues abstains with `needs_review`.
+
+The dashboard displays **saved aggregate results** from isolated secondary-data experiments. It never applies survey or Criteo models to an uploaded ad. The threshold decision engine remains `insufficient_evidence` because no available dataset measures direct intrusiveness and engagement for the five defined personalization levels on the same exposures.
+
+## Start the application
+
+Requirements: Python 3.11+ with the packages in `requirements-research.txt`; Node.js and `tesseract.js` 7.0.0 for image OCR; the existing `models/eng.traineddata` English language file. From the project directory:
+
+```powershell
+python -m pip install -r requirements-research.txt
+npm install
+python marketer_app.py
+```
+
+The app binds to `127.0.0.1` and opens `http://127.0.0.1:8765/`. If that port is occupied, run `python marketer_app.py --no-browser --port 8767` and visit the printed local URL. Text-only screening does not need OCR; image screening does. The current workspace already contains the language file and a bundled OCR dependency fallback. The app does not call a cloud AI service.
+
+### Marketer walkthrough
+
+1. Open **Creative screen**. Paste the exact ad copy, or switch to **Image ad** and choose a PNG, JPEG, WebP, BMP, or TIFF file under 10 MB. You can also describe important visual details in text; the program does not recognize visual objects itself.
+2. Optionally enter targeting details *only if known*. Press **Analyze ad**. The form checks empty input and file type/size; the server checks the actual image signature and rejects malformed requests.
+3. Read the tier and **Creative Intrusiveness Screening Score — Exploratory (0–10)**. Review the input summary, separate privacy/pressure cue totals, exact matched phrases, and suggested edits. A 0 on text means no current rule matched; it is not evidence of consumer comfort.
+4. Review the **Personalization threshold** notice. It does not recommend a level. Use **Research evidence** to see why, plus the distinct engagement, intrusion, privacy and trust findings.
+
+For a short demonstration, try **Generic offer**, **Cart reminder**, and **Combined signals**. The supplied aggressive ad screenshot gives a high screening tier with a 10/10 displayed cap, driven by countdown, scarcity, extreme discount, urgency and alarmist copy. Its privacy cue total is 0; its pressure cue total is 12 before the display cap. That case is a regression example, not evidence of general accuracy.
+
+## Architecture
+
+| Layer | Files | Responsibility |
+| --- | --- | --- |
+| Local HTTP app | `marketer_app.py` | Serves the two browser pages and JSON endpoints; validates text/image input; uses temporary image files; binds to localhost. |
+| Creative screen | `intrusive_ad_model.py`, `ocr_ad.cjs` | Local English OCR plus an explicit privacy/pressure cue rubric. No fitted consumer-intrusion classifier. |
+| Browser UI | `web/index.html`, `web/app.js`, `web/app.css` | Accessible text/image workflow, cue explanations, error/loading states, responsive layout. |
+| Research dashboard | `research_dashboard.py`, `web/research.html`, `web/research.js` | Reads **only saved aggregate JSON results** into separate, source-labeled research sections. No respondent pooling or live ML inference. |
+| Threshold contract | `threshold_engine.py` | Defines Levels 0–4 and hard evidence/consent/risk gates; current data return `insufficient_evidence`. |
+| Research experiments | `analysis.py`, `survey_phase_v*.py`, `criteo_*.py`, `ad_blockers_intrusion_v1.py`, `vietnam_privacy_trust_v1.py` | Versioned analyses using secondary sources. Research outputs are not application predictors. |
+
+`POST /api/analyze` retains its previous result fields (`tier`, `score_out_of_10`, `privacy_score`, `pressure_score`, `evidence`, `recommendations`, `threshold_decision`, etc.). `GET /api/research` serves aggregate dashboard data; it sends no respondent records. Static routes are `/`, `/research`, `/app.css`, `/app.js`, and `/research.js`.
+
+## Research evidence at a glance
+
+| Component | Supported result | Important limit |
+| --- | --- | --- |
+| Original 49-C actions | On 49,940 user-disjoint held-out recorded actions, logistic click-versus-other-action AUC **0.499** versus constant **0.500**. | No useful gain, no non-action impression denominator, no intrusion labels. |
+| Romano–Han unsolicited-social-ad survey | 837 respondents; 167 held out. General-ad intrusion MAE: training-mean **0.815**, V1 **0.521**, V2 **0.509** on a 1–7 target. | V2's gain interval includes zero; same-wave privacy/intrusion overlap and high-case false reassurance. |
+| Independent Redondo–Aznar web-ad survey | 1,511 respondents; 302 held out. Within-source MAE **0.840** versus baseline **0.955**, on a −3 to +3 target. | Different scale and predictors; negative-intrusion subgroup MAE **2.528**. Not coefficient-level external validation of Romano–Han. |
+| Criteo Uplift | 39,983 held-out rows. Binary-treatment visit prediction beats constant Brier baselines in both arms. | Uplift ranking gain interval includes zero; no intrusion or five-level treatment. |
+| Vietnam online-market survey | 467 selected respondents; online trust/purchase-intention Spearman rho **0.450**. | Descriptive association, no ad or direct intrusion target. |
+| Gen Z personalized-ad survey | 296 self-report records; perceived personalization/privacy rho **0.209**. | No assigned treatment or direct intrusion rating. |
+| Marketer creative screen | Working, explainable text/OCR rubric and three tiers. | No calibrated accuracy against consumer ratings of these creatives. |
+| Five-level threshold | Explicit evidence gate and `insufficient_evidence` outcome. | No scientifically valid recommendation from current secondary data. |
+
+The dashboard links each source record and shows its saved result file. See `PHASE5_MODEL_VALIDATION_REPORT.md` for the full evidence matrix and extreme-error analysis, `THREE_DATASETS_EVALUATION_REPORT.md` for the supplied ZIP audit, and `PHASE6_PRODUCT_READINESS_REPORT.md` for the implementation and verification record. The Criteo source is **CC BY-NC-SA 4.0**; check its noncommercial/share-alike terms before reusing its data in an external product. The other named survey sources have their own licenses documented in the reports.
+
+## Reproduce and verify
+
+From the project root, with dependencies installed:
+
+```powershell
+python -m unittest discover -q
+python -c "from phase6_preservation_audit import verify; print(verify())"
+```
+
+Saved experiment scripts intentionally refuse to overwrite their versioned outputs. To rerun research, use a **fresh copy** of the project or direct outputs to a new versioned destination. `results/phase6_repro_audit.json` records an exact replay of seven prior research experiments after the Phase 6 product edits. `results/phase6_preservation_audit.json` compares checkpoint hashes for research code, saved outputs, models, and selected original sources. `baselines/phase6-start-2026-11-07/` is the recoverable pre-change checkpoint. The folder currently has no Git repository.
+
+No primary survey or participant collection was performed. No unrelated survey respondents were joined, no five-level outcomes were invented, and no experimental survey model was promoted into the marketer screen.

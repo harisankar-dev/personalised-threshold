@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>49-C · Research evidence</title>
+  <link rel="stylesheet" href="/app.css">
+  <script src="/research.js" defer></script>
+</head>
+<body>
+  <div class="page-shell">
+    <header class="site-header">
+      <div class="brand" aria-label="49-C research evidence">
+        <span class="brand-mark" aria-hidden="true">49<span>C</span></span>
+        <span class="brand-name">Privacy-aware advertising analytics</span>
+      </div>
+      <nav class="header-nav" aria-label="Main navigation">
+        <a class="header-link" href="/">Creative screen</a>
+        <a class="header-link current" href="/research" aria-current="page">Research evidence</a>
+      </nav>
+    </header>
+
+    <main class="research-page">
+      <section class="research-hero" aria-labelledby="research-title">
+        <p class="eyebrow">49-C · RESEARCH EVIDENCE</p>
+        <h1 id="research-title">What the evidence supports.</h1>
+        <p>Independent secondary datasets answer different questions. Explore the held-out results, descriptive associations, and the data gap behind the five-level personalization threshold.</p>
+        <div class="hero-actions"><a class="primary-link" href="/">Screen a creative <span aria-hidden="true">→</span></a><a class="secondary-link" href="#engagement">Explore findings ↓</a></div>
+      </section>
+
+      <div id="dashboard-loading" class="dashboard-message" role="status">Loading verified research results…</div>
+      <div id="dashboard-error" class="dashboard-message dashboard-error" role="alert" hidden></div>
+      <div id="dashboard-content" hidden>
+        <aside class="research-notice"><strong>Research and product use different evidence.</strong><span>The marketer screen uses visible text cues. It does not run the survey or Criteo models on an uploaded ad.</span></aside>
+        <nav class="section-nav" aria-label="Research sections"><a href="#engagement">Engagement</a><a href="#intrusiveness">Intrusiveness</a><a href="#privacy">Privacy & trust</a><a href="#threshold">Threshold</a></nav>
+
+        <section id="engagement" class="research-section" aria-labelledby="engagement-title">
+          <div class="section-heading"><div><p class="eyebrow">01 · PREDICTIVE BENCHMARKS</p><h2 id="engagement-title">Engagement research</h2></div><span class="evidence-tag">Separate datasets</span></div>
+          <p class="section-intro">These models predict recorded actions or visits. Neither dataset contains a direct intrusiveness response.</p>
+          <div class="research-grid">
+            <article class="research-card">
+              <div class="card-heading"><span class="card-icon">U</span><div><h3>Original 49-C events</h3><p>Click versus other recorded actions</p></div></div>
+              <p class="card-source">Source: <code>results/baseline.json</code> · <a href="https://zenodo.org/records/15717451" target="_blank" rel="noopener noreferrer">Dataset record ↗</a></p>
+              <p class="card-context"><strong id="upad-n">—</strong> user-disjoint holdout actions. This is conditional action classification, not click-through rate.</p>
+              <table><caption>Held-out comparison</caption><thead><tr><th>Model</th><th>ROC-AUC</th><th>Brier ↓</th></tr></thead><tbody><tr><td>Constant</td><td id="upad-base-auc">—</td><td id="upad-base-brier">—</td></tr><tr><td>Logistic</td><td id="upad-model-auc">—</td><td id="upad-model-brier">—</td></tr></tbody></table>
+              <p class="card-limit">No predictive gain over the constant baseline; no intrusion labels or assigned personalization levels.</p>
+            </article>
+            <article class="research-card">
+              <div class="card-heading"><span class="card-icon">C</span><div><h3>Criteo uplift benchmark</h3><p>Binary ad treatment and visit outcome</p></div></div>
+              <p class="card-source">Sources: <code>results/criteo_visit_uplift_v3.json</code> + validation v3 · <a href="https://huggingface.co/datasets/criteo/criteo-uplift" target="_blank" rel="noopener noreferrer">Dataset record ↗</a></p>
+              <p class="card-context"><strong id="criteo-n">—</strong> exact-feature-vector-disjoint holdout rows; no user ID is available.</p>
+              <table><caption>Held-out visit prediction</caption><thead><tr><th>Arm</th><th>Constant Brier ↓</th><th>Logistic Brier ↓</th></tr></thead><tbody><tr><td>Control</td><td id="criteo-c-base">—</td><td id="criteo-c-model">—</td></tr><tr><td>Treated</td><td id="criteo-t-base">—</td><td id="criteo-t-model">—</td></tr></tbody></table>
+              <p class="metric-line">Uplift ranking gain <strong id="criteo-auuc">—</strong> <span id="criteo-ci"></span></p>
+              <p class="card-limit">The gain interval spans zero. Binary treatment, anonymized features, and visits do not establish a five-level intrusion threshold.</p>
+            </article>
+          </div>
+        </section>
+
+        <section id="intrusiveness" class="research-section" aria-labelledby="intrusion-title">
+          <div class="section-heading"><div><p class="eyebrow">02 · SURVEY RESEARCH</p><h2 id="intrusion-title">General-ad intrusiveness</h2></div><span class="evidence-tag experimental">Experimental</span></div>
+          <p class="section-intro">These are respondent questionnaire ratings of ads in general. The two surveys differ in context, scale and predictors, and neither rates a creative uploaded to the app.</p>
+          <div class="research-grid">
+            <article class="research-card">
+              <div class="card-heading"><span class="card-icon">R</span><div><h3>Romano–Han survey</h3><p>Six direct intrusion items · 1–7 scale</p></div></div>
+              <p class="card-source">Sources: <code>results/survey_phase_v1.json</code>, v2 and v3 uncertainty · <a href="https://data.mendeley.com/datasets/zcp5httw5c/1" target="_blank" rel="noopener noreferrer">Dataset record ↗</a></p>
+              <p class="card-context"><strong id="survey-n">—</strong> respondents; <span id="survey-test-n">—</span> held out. The holdout has been examined across phases.</p>
+              <table><caption>Held-out mean absolute error (lower is better)</caption><thead><tr><th>Model</th><th>MAE ↓</th><th>High ratings predicted below 5</th></tr></thead><tbody><tr><td>Training-mean baseline</td><td id="survey-base">—</td><td>—</td></tr><tr><td>V1 ridge</td><td id="survey-v1">—</td><td id="survey-v1-high">—</td></tr><tr><td>V2 ridge</td><td id="survey-v2">—</td><td id="survey-v2-high">—</td></tr></tbody></table>
+              <p class="metric-line">Privacy/intrusion Pearson <strong id="survey-overlap">—</strong></p>
+              <p class="card-limit">V2's small average gain has an interval including zero. Same-wave privacy answers overlap with the target; V2 gives more false reassurance at the high boundary.</p>
+            </article>
+            <article class="research-card">
+              <div class="card-heading"><span class="card-icon">I</span><div><h3>Independent web-ad survey</h3><p>General intrusion · −3 to +3 scale</p></div></div>
+              <p class="card-source">Source: <code>results/ad_blockers_intrusion_v1.json</code> · <a href="https://data.mendeley.com/datasets/89nk3kp8tg/1" target="_blank" rel="noopener noreferrer">Dataset record ↗</a></p>
+              <p class="card-context"><strong id="independent-n">—</strong> respondents; <span id="independent-test-n">—</span> held out.</p>
+              <table><caption>Within-source held-out comparison</caption><thead><tr><th>Model</th><th>MAE ↓</th></tr></thead><tbody><tr><td>Training-mean baseline</td><td id="independent-base">—</td></tr><tr><td>Selected ridge</td><td id="independent-model">—</td></tr></tbody></table>
+              <p class="metric-line">Negative-intrusion subgroup: <strong id="independent-negative">—</strong> MAE across <span id="independent-negative-n">—</span> people</p>
+              <p class="card-limit">This is a separate benchmark, not an external validation of Romano–Han coefficients. Low-response errors remain large.</p>
+            </article>
+          </div>
+          <div class="research-callout"><strong>Uncertainty matters</strong><span>V3's 90% two-sided interval covered <b id="interval-overall">—</b> held-out responses overall, but only <b id="interval-low">—</b> below-neutral responses. Its upper bound fell below 5 for <b id="interval-high">—</b> genuinely high-intrusion responses. This reused holdout is not a deployment guarantee.</span></div>
+        </section>
+
+        <section id="privacy" class="research-section" aria-labelledby="privacy-title">
+          <div class="section-heading"><div><p class="eyebrow">03 · DESCRIPTIVE STUDIES</p><h2 id="privacy-title">Privacy, trust and perceived personalization</h2></div><span class="evidence-tag descriptive">Associations only</span></div>
+          <p class="section-intro">The survey populations are unrelated. Correlations below describe responses within each source; they are not causal effects or ad-intrusion scores.</p>
+          <div class="research-grid">
+            <article class="research-card"><div class="card-heading"><span class="card-icon">V</span><div><h3>Vietnam online-market survey</h3><p>Privacy practices, trust and purchase intention</p></div></div><p class="card-source">Source: <code>results/vietnam_privacy_trust_v1.json</code> · <a href="https://data.mendeley.com/datasets/2x8xnfbsfd/2" target="_blank" rel="noopener noreferrer">Dataset record ↗</a></p><p class="feature-metric"><strong id="vietnam-rho">—</strong><span>Spearman rho: online trust / stated purchase intention</span></p><p class="card-context"><span id="vietnam-n">—</span> selected respondents; row-bootstrap interval <span id="vietnam-ci">—</span>.</p><p class="card-limit">No ad exposure or direct intrusion item. Screening questions select privacy-concerned online purchasers; do not generalize to all consumers.</p></article>
+            <article class="research-card"><div class="card-heading"><span class="card-icon">G</span><div><h3>Gen Z personalized-ad survey</h3><p>Perceived tailoring, privacy and purchase reaction</p></div></div><p class="card-source">Source: <code>results/survey_phase_v1.json</code> · Gen Z audit · <a href="https://data.mendeley.com/datasets/czgx8b793m/1" target="_blank" rel="noopener noreferrer">Dataset record ↗</a></p><p class="feature-metric"><strong id="genz-rho">—</strong><span>Spearman rho: perceived personalization / privacy concern</span></p><p class="card-context"><span id="genz-n">—</span> self-report records. Personalization / purchase-reaction rho: <span id="genz-purchase">—</span>.</p><p class="card-limit">No assigned treatment or direct intrusion rating. Click/purchase code direction and some birth-year metadata require caution.</p></article>
+          </div>
+        </section>
+
+        <section id="threshold" class="research-section" aria-labelledby="threshold-title">
+          <div class="section-heading"><div><p class="eyebrow">04 · BROADER RESEARCH OBJECTIVE</p><h2 id="threshold-title">Five-level personalization threshold</h2></div><span id="threshold-badge" class="evidence-tag unsupported">Insufficient evidence</span></div>
+          <p class="section-intro">The levels are a conceptual decision framework. The available secondary data do not measure valid engagement and direct intrusion responses at every level on the same exposure.</p>
+          <ol id="level-list" class="level-list"></ol>
+          <div class="research-callout threshold-callout"><strong>Current decision: <span id="threshold-value">—</span></strong><span id="threshold-reason">—</span><span>Needed for validation: direct intrusion labels, engagement outcomes, per-level exposure variation and held-out validation on compatible records. No level is recommended.</span></div>
+        </section>
+      </div>
+    </main>
+    <footer>49-C · The Personalization Threshold · Research dashboard shows saved aggregate results only</footer>
+  </div>
+</body>
+</html>

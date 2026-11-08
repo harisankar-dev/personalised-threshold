@@ -1,0 +1,226 @@
+{
+  "source": "https://huggingface.co/datasets/criteo/criteo-uplift",
+  "sample_seed": 49,
+  "split": "seeded random row 80/20; no user ID is available for grouping",
+  "train_rows": 160000,
+  "test_rows": 40000,
+  "model": "two L2-logistic visit models, one per randomized treatment arm",
+  "features": [
+    "f0",
+    "f1",
+    "f2",
+    "f3",
+    "f4",
+    "f5",
+    "f6",
+    "f7",
+    "f8",
+    "f9",
+    "f10",
+    "f11"
+  ],
+  "excluded_predictors": [
+    "treatment",
+    "visit",
+    "conversion",
+    "exposure"
+  ],
+  "regularization": 0.001,
+  "newton_iterations_by_arm": {
+    "0": 7,
+    "1": 7
+  },
+  "visit_outcome_metrics_by_arm": {
+    "0": {
+      "constant": {
+        "n": 6004,
+        "positives": 228,
+        "rate": 0.0379746835443038,
+        "roc_auc": 0.5,
+        "brier": 0.036537252997604,
+        "log_loss": 0.16151465699285558
+      },
+      "logistic": {
+        "n": 6004,
+        "positives": 228,
+        "rate": 0.0379746835443038,
+        "roc_auc": 0.9348840635175195,
+        "brier": 0.02723578011517891,
+        "log_loss": 0.09771783083772079
+      }
+    },
+    "1": {
+      "constant": {
+        "n": 33996,
+        "positives": 1574,
+        "rate": 0.046299564654665254,
+        "roc_auc": 0.5,
+        "brier": 0.044160713047884985,
+        "log_loss": 0.18752465511087707
+      },
+      "logistic": {
+        "n": 33996,
+        "positives": 1574,
+        "rate": 0.046299564654665254,
+        "roc_auc": 0.930352403974994,
+        "brier": 0.03175684724912758,
+        "log_loss": 0.1132244963355423
+      }
+    }
+  },
+  "observed_test_visit_rate_difference": {
+    "treated_n": 33996,
+    "control_n": 6004,
+    "treated_rate": 0.046299564654665254,
+    "control_rate": 0.0379746835443038,
+    "rate_difference": 0.008324881110361455,
+    "normal_95pct_interval": [
+      0.0029990278398032543,
+      0.013650734380919656
+    ]
+  },
+  "observed_test_conversion_rate_difference_descriptive": {
+    "treated_n": 33996,
+    "control_n": 6004,
+    "treated_rate": 0.00261795505353571,
+    "control_rate": 0.0018321119253830779,
+    "rate_difference": 0.0007858431281526322,
+    "normal_95pct_interval": [
+      -0.0004245987038479747,
+      0.001996284960153239
+    ]
+  },
+  "visit_uplift_slices": [
+    {
+      "fraction_selected": 0.1,
+      "treated_n": 3470,
+      "control_n": 530,
+      "treated_rate": 0.23688760806916426,
+      "control_rate": 0.1830188679245283,
+      "rate_difference": 0.05386874014463597,
+      "normal_95pct_interval": [
+        0.01803693617408378,
+        0.08970054411518816
+      ]
+    },
+    {
+      "fraction_selected": 0.2,
+      "treated_n": 6865,
+      "control_n": 1135,
+      "treated_rate": 0.14770575382374362,
+      "control_rate": 0.11013215859030837,
+      "rate_difference": 0.03757359523343526,
+      "normal_95pct_interval": [
+        0.01751980852135891,
+        0.057627381945511605
+      ]
+    },
+    {
+      "fraction_selected": 0.3,
+      "treated_n": 10244,
+      "control_n": 1756,
+      "treated_rate": 0.10796563842249121,
+      "control_rate": 0.08314350797266515,
+      "rate_difference": 0.024822130449826063,
+      "normal_95pct_interval": [
+        0.010578303321887613,
+        0.039065957577764515
+      ]
+    },
+    {
+      "fraction_selected": 0.4,
+      "treated_n": 13622,
+      "control_n": 2378,
+      "treated_rate": 0.0839083834972838,
+      "control_rate": 0.06349873843566022,
+      "rate_difference": 0.020409645061623585,
+      "normal_95pct_interval": [
+        0.009558621529295272,
+        0.0312606685939519
+      ]
+    },
+    {
+      "fraction_selected": 0.5,
+      "treated_n": 16991,
+      "control_n": 3009,
+      "treated_rate": 0.06856571125890178,
+      "control_rate": 0.05051512130275839,
+      "rate_difference": 0.018050589956143386,
+      "normal_95pct_interval": [
+        0.009351482867188211,
+        0.02674969704509856
+      ]
+    },
+    {
+      "fraction_selected": 0.6,
+      "treated_n": 20400,
+      "control_n": 3600,
+      "treated_rate": 0.0578921568627451,
+      "control_rate": 0.0425,
+      "rate_difference": 0.015392156862745095,
+      "normal_95pct_interval": [
+        0.00806443506682644,
+        0.022719878658663747
+      ]
+    },
+    {
+      "fraction_selected": 0.7,
+      "treated_n": 23803,
+      "control_n": 4197,
+      "treated_rate": 0.049867663739864725,
+      "control_rate": 0.03716940671908506,
+      "rate_difference": 0.012698257020779667,
+      "normal_95pct_interval": [
+        0.0063418262832013895,
+        0.019054687758357947
+      ]
+    },
+    {
+      "fraction_selected": 0.8,
+      "treated_n": 27204,
+      "control_n": 4796,
+      "treated_rate": 0.044037641523305394,
+      "control_rate": 0.033152627189324435,
+      "rate_difference": 0.01088501433398096,
+      "normal_95pct_interval": [
+        0.0052618657406763485,
+        0.01650816292728557
+      ]
+    },
+    {
+      "fraction_selected": 0.9,
+      "treated_n": 30590,
+      "control_n": 5410,
+      "treated_rate": 0.039555410264792416,
+      "control_rate": 0.029390018484288356,
+      "rate_difference": 0.01016539178050406,
+      "normal_95pct_interval": [
+        0.0051626638642651166,
+        0.015168119696743004
+      ]
+    },
+    {
+      "fraction_selected": 1.0,
+      "treated_n": 33996,
+      "control_n": 6004,
+      "treated_rate": 0.046299564654665254,
+      "control_rate": 0.0379746835443038,
+      "rate_difference": 0.008324881110361455,
+      "normal_95pct_interval": [
+        0.0029990278398032543,
+        0.013650734380919656
+      ]
+    }
+  ],
+  "auuc": 0.007768076385583157,
+  "random_ranking_auuc": 0.004162440555180728,
+  "auuc_gain_over_random": 0.0036056358304024294,
+  "limits": [
+    "This is a binary ad-treatment uplift benchmark, not personalization-level optimization.",
+    "No ad creative, privacy preferences, consent, or intrusiveness labels are present.",
+    "Anonymized features cannot be mapped to 49C users or interpreted as business traits.",
+    "Original trials were non-uniformly subsampled by the publisher; rates are benchmark-sample results, not original-population causal effects.",
+    "No user ID is available for grouped validation; row split may be optimistic if latent users repeat.",
+    "Individual treatment effects are unobserved; uplift ranking is evaluated through randomized-arm aggregates."
+  ]
+}

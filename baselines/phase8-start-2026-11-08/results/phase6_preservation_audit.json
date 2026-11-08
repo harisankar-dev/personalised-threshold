@@ -1,0 +1,27 @@
+{
+  "version": "phase6_preservation_audit",
+  "checkpoint": "baselines\\phase6-start-2026-11-07\\sha256.json",
+  "manifest_entries": 72,
+  "unchanged_entries": 65,
+  "intentional_product_or_documentation_changes": [
+    "CHANGELOG.md",
+    "PROJECT_STATUS.md",
+    "marketer_app.py",
+    "phase5_repro_audit.py",
+    "web/app.css",
+    "web/app.js",
+    "web/index.html"
+  ],
+  "unexpected_changes": [],
+  "missing_files": [],
+  "research_replays": [
+    "criteo_uplift_validation_v3",
+    "criteo_visit_v3",
+    "independent_ad_blockers",
+    "original_49c_event_analysis",
+    "survey_v1",
+    "survey_v2",
+    "survey_v3_uncertainty"
+  ],
+  "conclusion": "Checkpointed research code, saved results, model artifacts and four selected original sources are unchanged."
+}

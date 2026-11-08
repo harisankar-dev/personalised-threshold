@@ -1,0 +1,608 @@
+{
+  "checkpoint": "phase8-start-2026-11-08",
+  "copied_files": 87,
+  "files": [
+    {
+      "path": "49C_V2_DRAFT.md",
+      "sha256": "86181108ddd9d0a8d06deb46f9b8b363732cb2319b1f724c0732de57e6fdfd22",
+      "bytes": 19138
+    },
+    {
+      "path": "ad_blockers_intrusion_v1.py",
+      "sha256": "6113f5b9da7bdb14890d07843c67e35f86ae2f699d3a81e04eb2cbe9e52b1712",
+      "bytes": 8570
+    },
+    {
+      "path": "analysis.py",
+      "sha256": "4d2627216b696199569fb0b966d4b16c84bff641533784d5302aeaeab624c8c8",
+      "bytes": 10436
+    },
+    {
+      "path": "CHANGELOG.md",
+      "sha256": "45f4d78fdfb90ffe0a6f0031c59aab6cdbafa9307d032d782df73ba212643eda",
+      "bytes": 8396
+    },
+    {
+      "path": "criteo_uplift_prepare.py",
+      "sha256": "9f2ea1ba826f0739f542349f51082e12135c6a2cda4cee72746de4159ec832c1",
+      "bytes": 4097
+    },
+    {
+      "path": "CRITEO_UPLIFT_REPORT.md",
+      "sha256": "8c8d2efba70c4a68950c7a28cdeba2ec3358b6defb6e41d2ce82908b908ee97e",
+      "bytes": 5480
+    },
+    {
+      "path": "criteo_uplift_validation.py",
+      "sha256": "6970572d75c33ab8e25890dc35a6033d119d8510fc43620cd96e1d67daa9565f",
+      "bytes": 4037
+    },
+    {
+      "path": "criteo_visit_uplift.py",
+      "sha256": "cdfa25ae56e19dc8543f15f626fc24e3f4a0afa59a84bba69b662d09089bfc92",
+      "bytes": 9122
+    },
+    {
+      "path": "external_dataset_audit_v1.py",
+      "sha256": "4e378a342e43c7a98fbba4cb28000dd1e66da448a69f781735b6f26159ee1cc4",
+      "bytes": 2655
+    },
+    {
+      "path": "external_screen_audit.py",
+      "sha256": "beafe82f5bb27443e5627e415cdf59233829ff1f5a360d75b2ef3dc2c507a5a1",
+      "bytes": 3599
+    },
+    {
+      "path": "intrusive_ad_model.py",
+      "sha256": "823a9af5d98aebbdf9da7dee85d74b66440b972ea2cdb11a9a95d4f4d2c3c413",
+      "bytes": 13924
+    },
+    {
+      "path": "marketer_app.py",
+      "sha256": "355c64ea4ac683cd8157bca64b323c34a54c6e709116ba3edc431a2d15399124",
+      "bytes": 7923
+    },
+    {
+      "path": "MODEL_README.md",
+      "sha256": "f797fcac2b2307e05f5676a038e6e62d2ee0b478e341d090c92d6caa29b15ad0",
+      "bytes": 6066
+    },
+    {
+      "path": "package.json",
+      "sha256": "1fee42b01f962184fbcfb9494e2d61874372fdf8762923db1241c7f69d04b8b3",
+      "bytes": 144
+    },
+    {
+      "path": "PHASE4_SECONDARY_DATA_REPORT.md",
+      "sha256": "2e0eed87dd54e4f4708fbe213bf3f0611c1b838fae83d797fb7b53fb853f418b",
+      "bytes": 14247
+    },
+    {
+      "path": "PHASE5_MODEL_VALIDATION_REPORT.md",
+      "sha256": "7423e218788acf48a162c07a10364421be13b713cda29108c5221be9be8acc13",
+      "bytes": 15078
+    },
+    {
+      "path": "phase5_repro_audit.py",
+      "sha256": "5d8dfbabad9b9fbed9e474ae29bcca9a686bc052ae6ae964e2d971e5f22e56fc",
+      "bytes": 8838
+    },
+    {
+      "path": "phase6_preservation_audit.py",
+      "sha256": "d2b8f72245350222a4aae16573cce5f56543f0e7c2f0cbe4cfafdb246e8dc984",
+      "bytes": 2268
+    },
+    {
+      "path": "PHASE6_PRODUCT_READINESS_REPORT.md",
+      "sha256": "ead79e24c6841515f67a2dce7d849b583d5908566537ed25df25397edaf59545",
+      "bytes": 13031
+    },
+    {
+      "path": "PHASE7_BUDGET_AWARE_STP_REPORT.md",
+      "sha256": "b72e76a363000248a198609bda1556d86d7b4c11153e1f1d55718be73761ad7b",
+      "bytes": 18376
+    },
+    {
+      "path": "phase7_segmentation.py",
+      "sha256": "6c19ed03879b6bb42b32447854004a726f4e99ec30a3686817a686b160d963a4",
+      "bytes": 8067
+    },
+    {
+      "path": "PHASE7_SEGMENTATION_EVIDENCE.md",
+      "sha256": "30c67a834c71d56d28f03add005ebd63e54fe7aad2834e178984a4c7e0251182",
+      "bytes": 6436
+    },
+    {
+      "path": "PHASE7_STP_DECISION_LOGIC.md",
+      "sha256": "a7ec2e23e4fa03082be4dfc5ac17f0822980ef94e511a60d36ae7f86691539c2",
+      "bytes": 8055
+    },
+    {
+      "path": "PROJECT_STATUS.md",
+      "sha256": "73aef4583aadc0cdd306a162dd71ff7cfcee63072403500615ec08728bb10a23",
+      "bytes": 11175
+    },
+    {
+      "path": "README.md",
+      "sha256": "007d3b78231df74eaa2fc59ddb5cc1133fa61068601c29561f04849679e2d4ee",
+      "bytes": 10018
+    },
+    {
+      "path": "requirements-research.txt",
+      "sha256": "8ba1e527d9e0a3f75885fbcd8220bfce42b666feff7a2e76c0630ded9f3a934f",
+      "bytes": 54
+    },
+    {
+      "path": "requirements.txt",
+      "sha256": "f36cb59b3a3402cf36f4481c9f15fb2fd98e9961bf4b23cf18473155f5f02de9",
+      "bytes": 27
+    },
+    {
+      "path": "research_dashboard.py",
+      "sha256": "bf6c94959584a203ffee6395a271498c6c5460258ccbafdcc038582251fc6c96",
+      "bytes": 6232
+    },
+    {
+      "path": "screen_dataset.py",
+      "sha256": "3cb975d1128231e6ee16424e1a314fa4a38f4725ee15c435917c3ea1baa014fd",
+      "bytes": 995
+    },
+    {
+      "path": "SECONDARY_SURVEY_PHASE_V1.md",
+      "sha256": "e68f031f15cc2bb472395b9af11c45fe0d1ce368d1b55d0384ae3124d8eeb4df",
+      "bytes": 10594
+    },
+    {
+      "path": "stp_advisory.py",
+      "sha256": "1e8024bb7c964ca5536fa3b35bd7bf82a963786fc6e8d14252c9ed1b6fbe66d3",
+      "bytes": 13160
+    },
+    {
+      "path": "STP_DATA_MODEL_FEASIBILITY_AUDIT.md",
+      "sha256": "d3aa7d8843ec3543b7cbdd6c199987eb8958bc3ee023739a9518da0b6ca452b1",
+      "bytes": 55632
+    },
+    {
+      "path": "survey_phase_v1.py",
+      "sha256": "4d6d2b77afc2f3429d34bd51f084c3324db1ab324c97e29f88a8b675ae9ed855",
+      "bytes": 11967
+    },
+    {
+      "path": "survey_phase_v2.py",
+      "sha256": "3b40f8af41c7d4376ba41194c4c539da223fe7d9e1eb53ed8df0ee8102acff05",
+      "bytes": 14241
+    },
+    {
+      "path": "SURVEY_PHASE_V2_REPORT.md",
+      "sha256": "f4ded3d883aaeb9a952caa9075eaa67b4fae2bcaae1e0f289def41d038ff9ca2",
+      "bytes": 12861
+    },
+    {
+      "path": "survey_phase_v3_uncertainty.py",
+      "sha256": "c7a1535883749218079836a9f720bd504ddbdca75410ce76568dae4e29dfb456",
+      "bytes": 7096
+    },
+    {
+      "path": "survey_sanity_cases.json",
+      "sha256": "41a2a80b89825407616ee937c5172bbd01052a145917b440eaea919abbee60d9",
+      "bytes": 2493
+    },
+    {
+      "path": "test_ad_blockers_intrusion_v1.py",
+      "sha256": "19d90d224f686975163100d0ce7694cdd51aebbb7dd6cc2d8be90b0e6d64d93b",
+      "bytes": 770
+    },
+    {
+      "path": "test_criteo_uplift.py",
+      "sha256": "d3fbddd9f52be4681834d52561e5fd713a1a29c0c3301e5460e9a5719a182cfd",
+      "bytes": 1273
+    },
+    {
+      "path": "test_model.py",
+      "sha256": "aa5077040e0d9a184fe519b15515b5a92082f6883eb1d61cca6540affe8b065c",
+      "bytes": 5689
+    },
+    {
+      "path": "test_phase5_repro_audit.py",
+      "sha256": "0ffb76ef1010a4166a7389629219fd111ad9fb7481ad2c40c6f0c55eae83d3bd",
+      "bytes": 591
+    },
+    {
+      "path": "test_phase6_product.py",
+      "sha256": "98be56bf6c1a238c3860ded9b25c1e5296ec0178c34e49a4eeacd33fe699021e",
+      "bytes": 4476
+    },
+    {
+      "path": "test_phase7_stp.py",
+      "sha256": "f7cd526178043f76c0cdd7e01e2a0538c5a08377581bf1f740c5356b540a4324",
+      "bytes": 8086
+    },
+    {
+      "path": "test_survey_phase.py",
+      "sha256": "d49c1da7258fcee2309cde2f21ab06535c82415d0c4cec8bb58c31ec67c56d1a",
+      "bytes": 1283
+    },
+    {
+      "path": "test_survey_phase_v2.py",
+      "sha256": "3ed00b60ba4621cc05b2489b8c787fdf957cceb8d121aa07768d7f578637e7b6",
+      "bytes": 1460
+    },
+    {
+      "path": "test_survey_phase_v3_uncertainty.py",
+      "sha256": "091c8e057afb99047d2918dd38a358524a134fa4d01e12ac6def619f7d3fd35c",
+      "bytes": 1537
+    },
+    {
+      "path": "test_three_user_datasets_audit.py",
+      "sha256": "37dbe283cd6774e071a8deeb1aa6b07b0a236ee6a06dc82bd9d8fcdf5354db04",
+      "bytes": 749
+    },
+    {
+      "path": "test_threshold_engine.py",
+      "sha256": "3aca6406c15581d14ec6f419a00fe92b9654935c971255fa242468aa1c273ec0",
+      "bytes": 2494
+    },
+    {
+      "path": "test_vietnam_privacy_trust_v1.py",
+      "sha256": "c4c5e61f6d2b7175a60f37df2be3541dd234e9bbc418b5a975cb1331b879c442",
+      "bytes": 454
+    },
+    {
+      "path": "THREE_DATASETS_EVALUATION_REPORT.md",
+      "sha256": "9829233cdc19e5102acdb8e1afa6a05d55fd6553c69a8935d9d677152a65a67b",
+      "bytes": 11413
+    },
+    {
+      "path": "three_user_datasets_audit.py",
+      "sha256": "18a41388115b354b1ca48cc800c63d325ca32571ead58adc39989889bd261150",
+      "bytes": 5429
+    },
+    {
+      "path": "threshold_engine.py",
+      "sha256": "97962f8b84c37bb2d20e6ae5a588b1811f10806f071b45cdb47a5d91c048ffe2",
+      "bytes": 4772
+    },
+    {
+      "path": "UPGRADE_V0_1_0.md",
+      "sha256": "451a4adc13f2035bb28d2b39a8c1b3381d7e466b42bb16303607aabba6b918c5",
+      "bytes": 13789
+    },
+    {
+      "path": "vietnam_privacy_trust_v1.py",
+      "sha256": "c7547b11bf2b9b3012e7bfcc1976402da8341fc5255a27a4d330d93d8288585f",
+      "bytes": 5923
+    },
+    {
+      "path": "models/ad_blockers_intrusion_v1.npz",
+      "sha256": "ae94b6303a24b2e63efb0194ee0d7bb62502a750404d63cfcab4402d6a8fe6a4",
+      "bytes": 1734
+    },
+    {
+      "path": "models/criteo_visit_uplift_v1.npz",
+      "sha256": "cc3b73dd47a064a09888ef26544a91f1030416d41651485c6dff68f15e436b9c",
+      "bytes": 1605
+    },
+    {
+      "path": "models/criteo_visit_uplift_v2.npz",
+      "sha256": "b784de9453f9950d0611e973d2a05e03f099dbd21a4de64b0ca5e35693bb393d",
+      "bytes": 1608
+    },
+    {
+      "path": "models/criteo_visit_uplift_v3.npz",
+      "sha256": "05a86f36cecc4177009209cf5b23dfb50a97c9dabb96be8c795598324e331aae",
+      "bytes": 1819
+    },
+    {
+      "path": "models/unsolicited_intrusiveness_respondent_v1.npz",
+      "sha256": "9a3c91b358b7a801d9e7d49900a2408fe2a387150aa16c8b46fc8c0f7235a61a",
+      "bytes": 1662
+    },
+    {
+      "path": "models/unsolicited_intrusiveness_respondent_v2.npz",
+      "sha256": "795723b0fffcb8e609a6907b7947a192e91ce1d7dbe4d7f6e33c4677c7b9d68e",
+      "bytes": 1901
+    },
+    {
+      "path": "models/unsolicited_intrusiveness_respondent_v3_calibrated.npz",
+      "sha256": "5002a285281f5e1a543158ecf9f25397efc4de03ec9bc7c9002e88543b47132e",
+      "bytes": 1957
+    },
+    {
+      "path": "results/ad_blockers_intrusion_v1.json",
+      "sha256": "2c6453342bb7f2c489ecba059bef341182155871f75e5a45a3fce62af8e735e2",
+      "bytes": 4899
+    },
+    {
+      "path": "results/associations.json",
+      "sha256": "a8e8eea8e18bd086c74451b2669467fadec6711f005cb618b78489e2f3427683",
+      "bytes": 4733
+    },
+    {
+      "path": "results/audit.json",
+      "sha256": "8021303e853d93bee38afe2e8e6d48646b79bd091c67d591619d4f42f84ff913",
+      "bytes": 4235
+    },
+    {
+      "path": "results/baseline.json",
+      "sha256": "3d8512f8f76275229b28ec522556cc7e8cda32967d2eef42562090a02d963d6b",
+      "bytes": 1256
+    },
+    {
+      "path": "results/criteo_source_audit.json",
+      "sha256": "19eb2c80a06c13aeea830523ee662280719022c29ecdf3e9666cc0eb0166a20e",
+      "bytes": 1530
+    },
+    {
+      "path": "results/criteo_uplift_validation_v3.json",
+      "sha256": "759f78331bfa583bb12df1a526ac76276463a166761156872b2fb63ea59f4560",
+      "bytes": 1048
+    },
+    {
+      "path": "results/criteo_visit_uplift.json",
+      "sha256": "0a904628291d9990590cdf112728e616c29f0487ed07135bf8d9c7a094f56986",
+      "bytes": 6540
+    },
+    {
+      "path": "results/criteo_visit_uplift_v2.json",
+      "sha256": "14c76562f23a685de77d66054464ef5aef4c2dc599a2b7f5be463cc8104c45fa",
+      "bytes": 6539
+    },
+    {
+      "path": "results/criteo_visit_uplift_v3.json",
+      "sha256": "5b2ab3eb2c84b854c9896b10a21499a18f1f487d876e5b27968f21b3e27f90d6",
+      "bytes": 6571
+    },
+    {
+      "path": "results/external_creative_audit.json",
+      "sha256": "f5a20751341feaf0399c48fca9f5dd0f2f4c4411ef034435f6c2a17ded23dc08",
+      "bytes": 768
+    },
+    {
+      "path": "results/external_creative_audit_before_abstention.json",
+      "sha256": "29dea05370f544fb7e51f2c94f234966ee1b1f2e3b2129dac021616666363399",
+      "bytes": 768
+    },
+    {
+      "path": "results/phase3_external_dataset_audit_v1.json",
+      "sha256": "6730a0432cc5edcd8f4b78661605de2f717bfd7ba4e9b04198f86fcff4862a89",
+      "bytes": 1672
+    },
+    {
+      "path": "results/phase5_repro_audit.json",
+      "sha256": "94985a128f367f119647c5c797a50bd4ee6a73a60c8971f801532af0f01ce1c1",
+      "bytes": 3851
+    },
+    {
+      "path": "results/phase6_preservation_audit.json",
+      "sha256": "9a01ae03ea620cd97fba0204b0aeecb1ceef634c52691f1783ec9d459bfcd462",
+      "bytes": 796
+    },
+    {
+      "path": "results/phase6_repro_audit.json",
+      "sha256": "799707ddbe97c403a84451a9843be22ae555420a94d4eaea84cdd2e917b9830a",
+      "bytes": 3914
+    },
+    {
+      "path": "results/phase7_segmentation_v1.json",
+      "sha256": "db14ac008ca42e9512043f961b154d0edf4b5ee3b47641dd1d77bac4b1da690c",
+      "bytes": 6796
+    },
+    {
+      "path": "results/survey_phase_v1.json",
+      "sha256": "e361801e440b2fc5b3c825e351d226d1490d0d5b98cb3cc5170a1d65bd43596f",
+      "bytes": 10213
+    },
+    {
+      "path": "results/survey_phase_v2.json",
+      "sha256": "ff928df8eb105184f8a97eb256ebe8a240275ff05d35acdf6c0f24ea15108e9d",
+      "bytes": 22759
+    },
+    {
+      "path": "results/survey_phase_v3_uncertainty.json",
+      "sha256": "c90d54a9daf8f586604ac467e9de86c7143e4cbdaaffc7c21c85338137603aad",
+      "bytes": 11633
+    },
+    {
+      "path": "results/three_user_datasets_audit_v1.json",
+      "sha256": "8a89228a25aa834cba4c4bc61f53e14d78e9a1ef90ddf73214dfcdc8624ef66d",
+      "bytes": 9442
+    },
+    {
+      "path": "results/vietnam_privacy_trust_v1.json",
+      "sha256": "b3fba083a9c8dde423a2955df7402d10a4c34329b66ae65b3179d92dcec47e9d",
+      "bytes": 4046
+    },
+    {
+      "path": "web/app.css",
+      "sha256": "3853fe48a9af955368c72fe014f34e91c691d877df4f2498f46490a92eef7ba0",
+      "bytes": 25992
+    },
+    {
+      "path": "web/app.js",
+      "sha256": "91f6c0578034c56a97812c25ec8dbbbec15185a147c7d62c7eb137765649dfdf",
+      "bytes": 17726
+    },
+    {
+      "path": "web/index.html",
+      "sha256": "b1697a9dfe9925c4f338764ef298cab84cd40ba2451dbc5ecb85d8b795991ff9",
+      "bytes": 19138
+    },
+    {
+      "path": "web/research.html",
+      "sha256": "eff597cb0a07382bd8159b031dc55f942ea73f13365deebb98f07643342cb347",
+      "bytes": 12261
+    },
+    {
+      "path": "web/research.js",
+      "sha256": "9ced092d1e1841fe2756c374c3c152b340ebca2825615a5a4cefcb26698de699",
+      "bytes": 3968
+    }
+  ],
+  "top_level_source_files": [
+    {
+      "path": "AdCharacteristicsTable - Copy (2).csv",
+      "sha256": "bb127dd0b64a6ceac983e9d5fac970ded9d5113474852a8166f2c3280111a27e",
+      "bytes": 6700
+    },
+    {
+      "path": "AdCharacteristicsTable - Copy - Copy.csv",
+      "sha256": "bb127dd0b64a6ceac983e9d5fac970ded9d5113474852a8166f2c3280111a27e",
+      "bytes": 6700
+    },
+    {
+      "path": "AdCharacteristicsTable - Copy.csv",
+      "sha256": "bb127dd0b64a6ceac983e9d5fac970ded9d5113474852a8166f2c3280111a27e",
+      "bytes": 6700
+    },
+    {
+      "path": "AdCharacteristicsTable.csv",
+      "sha256": "bb127dd0b64a6ceac983e9d5fac970ded9d5113474852a8166f2c3280111a27e",
+      "bytes": 6700
+    },
+    {
+      "path": "Coding_Table - Copy.csv",
+      "sha256": "af6cae944b789eecd208df4ff88a273a55fd7483168c5cbf25ead3967d2cd9d8",
+      "bytes": 1029
+    },
+    {
+      "path": "Coding_Table.csv",
+      "sha256": "af6cae944b789eecd208df4ff88a273a55fd7483168c5cbf25ead3967d2cd9d8",
+      "bytes": 1029
+    },
+    {
+      "path": "Database. Customer privacy concern (1) (1) - Copy - Copy.xlsx",
+      "sha256": "f93fe1f4da292511c0cd69232808c4d7f23756d5c90bc2f71d12a220481ad543",
+      "bytes": 127776
+    },
+    {
+      "path": "Database. Customer privacy concern (1) (1) - Copy.xlsx",
+      "sha256": "f93fe1f4da292511c0cd69232808c4d7f23756d5c90bc2f71d12a220481ad543",
+      "bytes": 127776
+    },
+    {
+      "path": "Database. Customer privacy concern (1) (1).xlsx",
+      "sha256": "f93fe1f4da292511c0cd69232808c4d7f23756d5c90bc2f71d12a220481ad543",
+      "bytes": 127776
+    },
+    {
+      "path": "Database. Customer privacy concern (2) (1) - Copy.xlsx",
+      "sha256": "f93fe1f4da292511c0cd69232808c4d7f23756d5c90bc2f71d12a220481ad543",
+      "bytes": 127776
+    },
+    {
+      "path": "Database. Customer privacy concern (2).xlsx",
+      "sha256": "f93fe1f4da292511c0cd69232808c4d7f23756d5c90bc2f71d12a220481ad543",
+      "bytes": 127776
+    },
+    {
+      "path": "interaction - Copy.csv",
+      "sha256": "15683ec487acc5d4b2b9ae07f55dfc651b34538ef6f5ade9298f48cc262ae176",
+      "bytes": 7472
+    },
+    {
+      "path": "interaction.csv",
+      "sha256": "15683ec487acc5d4b2b9ae07f55dfc651b34538ef6f5ade9298f48cc262ae176",
+      "bytes": 7472
+    },
+    {
+      "path": "intercation_Per_AD_Table.csv",
+      "sha256": "cb31031719e78bff4dc0b8799080e4f7851359e27d730d434b20eddbf73d0455",
+      "bytes": 5963
+    },
+    {
+      "path": "Privacy-Related_Features - Copy.csv",
+      "sha256": "09d66376dcc4091b6780932c41a987b095b3dfcbfab9f78c09ad22c9bb1233b4",
+      "bytes": 977924
+    },
+    {
+      "path": "Privacy-Related_Features.csv",
+      "sha256": "09d66376dcc4091b6780932c41a987b095b3dfcbfab9f78c09ad22c9bb1233b4",
+      "bytes": 977924
+    },
+    {
+      "path": "Structure.csv",
+      "sha256": "55454a0195f1c73ff3278e935e62977ca86396d1d76fbf83d6512e85b09c4b71",
+      "bytes": 959
+    },
+    {
+      "path": "UserBehaviorTable - Copy.csv",
+      "sha256": "afc13c08dac41682be1010ba4c00d94117d4c0bae0776f85c276a30df91ccdbb",
+      "bytes": 37785838
+    },
+    {
+      "path": "UserBehaviorTable.csv",
+      "sha256": "afc13c08dac41682be1010ba4c00d94117d4c0bae0776f85c276a30df91ccdbb",
+      "bytes": 37785838
+    },
+    {
+      "path": "UserTable.csv",
+      "sha256": "c8ecf3b60fe1d6a12d4647f247fd4fa0a4325e5ad7418953795f931e8e21ba66",
+      "bytes": 538948
+    },
+    {
+      "path": "User_Interaction_Table - Copy.csv",
+      "sha256": "f4c2eb388537f504f265446265712eb8875ff477fc82de35c964def4bf464b4e",
+      "bytes": 5488742
+    },
+    {
+      "path": "User_Interaction_Table.csv",
+      "sha256": "f4c2eb388537f504f265446265712eb8875ff477fc82de35c964def4bf464b4e",
+      "bytes": 5488742
+    },
+    {
+      "path": "try these dataset/AdCharacteristicsTable.csv",
+      "sha256": "bb127dd0b64a6ceac983e9d5fac970ded9d5113474852a8166f2c3280111a27e",
+      "bytes": 6700
+    },
+    {
+      "path": "try these dataset/Coding_Table.csv",
+      "sha256": "af6cae944b789eecd208df4ff88a273a55fd7483168c5cbf25ead3967d2cd9d8",
+      "bytes": 1029
+    },
+    {
+      "path": "try these dataset/Consumer perceptions towards unsolicited ads on social media.sav",
+      "sha256": "a3b2d6a56d89d163f11150b5e6bf7ec14d54e60998a7f371a099cdeb7dc3a267",
+      "bytes": 43859
+    },
+    {
+      "path": "try these dataset/Dataset of Concerns for Privacy Information Practices and Consumer Behavior in Online Market_A survey in Vietnam.csv",
+      "sha256": "3c49ec6134f03f7c08cc89129c9aecd8baba5e300dbfda18bf1b4cc5e169aa8a",
+      "bytes": 31332
+    },
+    {
+      "path": "try these dataset/GenZ_Personalized_Ads_Purchase_Dataset_N296.xlsx",
+      "sha256": "a90b27698b116127c4e0850c77137a348b6201d4fc78241e4ac540012ebf865e",
+      "bytes": 45045
+    },
+    {
+      "path": "try these dataset/interaction.csv",
+      "sha256": "15683ec487acc5d4b2b9ae07f55dfc651b34538ef6f5ade9298f48cc262ae176",
+      "bytes": 7472
+    },
+    {
+      "path": "try these dataset/intercation_Per_AD_Table.csv",
+      "sha256": "cb31031719e78bff4dc0b8799080e4f7851359e27d730d434b20eddbf73d0455",
+      "bytes": 5963
+    },
+    {
+      "path": "try these dataset/online+shoppers+purchasing+intention+dataset.zip",
+      "sha256": "2972e6184d3ad7beaaa831d9fc2b059dc3ee29df69d1ec593c466a5cd8485d14",
+      "bytes": 1072219
+    },
+    {
+      "path": "try these dataset/Structure.csv",
+      "sha256": "55454a0195f1c73ff3278e935e62977ca86396d1d76fbf83d6512e85b09c4b71",
+      "bytes": 959
+    },
+    {
+      "path": "try these dataset/UserTable.csv",
+      "sha256": "c8ecf3b60fe1d6a12d4647f247fd4fa0a4325e5ad7418953795f931e8e21ba66",
+      "bytes": 538948
+    },
+    {
+      "path": "try these dataset/User_Interaction_Table.csv",
+      "sha256": "f4c2eb388537f504f265446265712eb8875ff477fc82de35c964def4bf464b4e",
+      "bytes": 5488742
+    }
+  ]
+}

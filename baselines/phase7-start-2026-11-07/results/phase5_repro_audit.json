@@ -1,0 +1,46 @@
+{
+  "version": "phase5_repro_audit",
+  "checkpoint_manifest_entries": 81,
+  "unchanged_checkpoint_entries": 78,
+  "expected_copy_and_documentation_edits": [
+    "CHANGELOG.md",
+    "PROJECT_STATUS.md",
+    "web/index.html"
+  ],
+  "experiments": {
+    "survey_v1": "source, metrics, coefficients and Gen Z audit reproduced",
+    "survey_v2": "selection, metrics and model arrays reproduced",
+    "survey_v3_uncertainty": "fit/calibration split, coverage and model arrays reproduced",
+    "independent_ad_blockers": "source, training selection, metrics and model arrays reproduced",
+    "criteo_visit_v3": "grouped split, arm metrics and model arrays reproduced",
+    "criteo_uplift_validation_v3": "ranking and bootstrap outputs reproduced",
+    "original_49c_event_analysis": "audit, baseline and associations reproduced"
+  },
+  "source_hashes": {
+    "try these dataset/AdCharacteristicsTable.csv": "bb127dd0b64a6ceac983e9d5fac970ded9d5113474852a8166f2c3280111a27e",
+    "try these dataset/CODEBOOK.pdf": "b2f1b6c9adec5403634223356265f8bf62c3d8ec0686f5668a1821d07c956f29",
+    "try these dataset/Coding_Table.csv": "af6cae944b789eecd208df4ff88a273a55fd7483168c5cbf25ead3967d2cd9d8",
+    "try these dataset/Consumer perceptions towards unsolicited ads on social media.sav": "a3b2d6a56d89d163f11150b5e6bf7ec14d54e60998a7f371a099cdeb7dc3a267",
+    "try these dataset/Dataset of Concerns for Privacy Information Practices and Consumer Behavior in Online Market_A survey in Vietnam.csv": "3c49ec6134f03f7c08cc89129c9aecd8baba5e300dbfda18bf1b4cc5e169aa8a",
+    "try these dataset/GenZ_Personalized_Ads_Purchase_Dataset_N296.xlsx": "a90b27698b116127c4e0850c77137a348b6201d4fc78241e4ac540012ebf865e",
+    "try these dataset/interaction.csv": "15683ec487acc5d4b2b9ae07f55dfc651b34538ef6f5ade9298f48cc262ae176",
+    "try these dataset/intercation_Per_AD_Table.csv": "cb31031719e78bff4dc0b8799080e4f7851359e27d730d434b20eddbf73d0455",
+    "try these dataset/online+shoppers+purchasing+intention+dataset.zip": "2972e6184d3ad7beaaa831d9fc2b059dc3ee29df69d1ec593c466a5cd8485d14",
+    "try these dataset/Questionnaire for data.pdf": "8d4839e24cff4e7e64eddb54c20f2b9131b612b5841a8e04f988a4589b7842b5",
+    "try these dataset/README (1).pdf": "f9d7c71b631adaa0ea8945a3972669ef7bfebded14b3fe8aba30cf281e280849",
+    "try these dataset/Structure.csv": "55454a0195f1c73ff3278e935e62977ca86396d1d76fbf83d6512e85b09c4b71",
+    "try these dataset/UserTable.csv": "c8ecf3b60fe1d6a12d4647f247fd4fa0a4325e5ad7418953795f931e8e21ba66",
+    "try these dataset/User_Interaction_Table.csv": "f4c2eb388537f504f265446265712eb8875ff477fc82de35c964def4bf464b4e",
+    "secondary_data/research_candidates/redondo_aznar_ad_blockers_2018.xlsx": "7da6b2c4c178b675ad69339bc6f3e18d7eef52e8e70e87ee7e4a79767c2c439d",
+    "secondary_data/research_candidates/zenodo_visual_presentation_dataset1.xlsx": "603485aaaf32b43b91e46d293c5d3efe4e4673a627897ea3b6532f77a5445b22",
+    "secondary_data/research_candidates/zenodo_visual_presentation_dataset2.xlsx": "6cdc9bd56e729920dd66b8768623474521ae612e7dc9bb1ac9404607c46a681c",
+    "secondary_data/research_candidates/zenodo_visual_presentation_dataset3.xlsx": "7114147cc35982b1cd5be653f6daa87737b776f249bea90d433df5e11dae34f8",
+    "secondary_data/criteo-uplift/criteo-research-uplift-v2.1.csv.gz": "2716e1bf0fd157a93b5bf86924d9088419dfbac2022c6cd90030220634f616dc",
+    "secondary_data/chi-bad-ads-data/data/ads_all_labels.json": "1de5f862d3c1225286b9215f695ca000fce1ba7c170ebc9a2978b1e6524f8353"
+  },
+  "limits": [
+    "This replays prior experiment designs; it is not independent external validation.",
+    "Previously examined holdouts remain previously examined even when scores reproduce.",
+    "No five-level personalization treatment or direct linked intrusion/engagement outcome is created."
+  ]
+}

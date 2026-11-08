@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>49C · Ad intrusiveness screen</title>
+  <link rel="stylesheet" href="/app.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <div class="page-shell">
+    <header class="site-header">
+      <div class="brand" aria-label="49C Ad intrusiveness screen">
+        <span class="brand-mark" aria-hidden="true">49<span>C</span></span>
+        <span class="brand-name">Ad intrusiveness screen</span>
+      </div>
+      <a class="header-link" href="#about-score">How scoring works <span aria-hidden="true">↗</span></a>
+    </header>
+
+    <main>
+      <section class="intro" aria-labelledby="page-title">
+        <p class="eyebrow">PERSONALIZATION REVIEW</p>
+        <h1 id="page-title">See when an ad goes too far.</h1>
+        <p>Check an ad for privacy cues and high-pressure tactics. Add text or an image, then review the risk tier and the cues behind it.</p>
+      </section>
+
+      <div class="workspace">
+        <section class="panel input-panel" aria-labelledby="input-title">
+          <div class="panel-heading">
+            <div>
+              <p class="step-label">YOUR AD</p>
+              <h2 id="input-title">Add the creative</h2>
+            </div>
+            <button type="button" id="clear-btn" class="text-button">Clear</button>
+          </div>
+
+          <div class="mode-tabs" role="tablist" aria-label="Ad input type">
+            <button id="text-tab" class="mode-tab active" type="button" role="tab" aria-selected="true" aria-controls="text-panel">Text ad</button>
+            <button id="image-tab" class="mode-tab" type="button" role="tab" aria-selected="false" aria-controls="image-panel">Image ad</button>
+          </div>
+
+          <form id="ad-form">
+            <div id="text-panel" role="tabpanel" aria-labelledby="text-tab">
+              <label for="ad-text" class="field-label">Ad copy</label>
+              <textarea id="ad-text" placeholder="Paste the exact words a customer would see…" maxlength="20000"></textarea>
+              <div class="field-footer"><span>Include the headline and body copy.</span><span id="char-count">0 characters</span></div>
+              <div class="examples">
+                <span class="examples-label">Try an example</span>
+                <div class="example-row">
+                  <button type="button" class="example-chip" data-example="generic">Generic offer</button>
+                  <button type="button" class="example-chip" data-example="cart">Cart reminder</button>
+                  <button type="button" class="example-chip" data-example="combined">Combined signals</button>
+                </div>
+              </div>
+            </div>
+
+            <div id="image-panel" role="tabpanel" aria-labelledby="image-tab" hidden>
+              <label class="field-label" for="image-file">Ad image</label>
+              <div id="drop-zone" class="drop-zone">
+                <input id="image-file" type="file" accept="image/png,image/jpeg,image/webp,image/bmp,image/tiff" aria-describedby="image-help">
+                <div id="drop-content" class="drop-content">
+                  <span class="upload-symbol" aria-hidden="true">↑</span>
+                  <strong>Drop an image here</strong>
+                  <span>or <span class="browse-word">browse files</span></span>
+                  <small id="image-help">PNG, JPG, WebP, BMP or TIFF · up to 10 MB</small>
+                </div>
+                <div id="image-preview" class="image-preview" hidden>
+                  <img id="preview-img" alt="Selected ad preview">
+                  <div><strong id="file-name"></strong><small id="file-size"></small></div>
+                  <button type="button" id="remove-image" class="remove-image" aria-label="Remove selected image">×</button>
+                </div>
+              </div>
+              <label class="field-label visual-label" for="visual-description">Describe anything important that is not written in the image <span class="optional">Optional</span></label>
+              <textarea id="visual-description" class="short-textarea" placeholder="For example: a map pin showing the customer's home"></textarea>
+              <p class="field-hint">Image analysis reads printed text. Add a description to include visual context.</p>
+            </div>
+
+            <details class="details-block">
+              <summary>Targeting details <span class="optional">Optional</span></summary>
+              <div class="details-content">
+                <label class="field-label" for="targeting">Data used to target this ad</label>
+                <input id="targeting" type="text" placeholder="For example: purchase history, age:25–34" maxlength="5000">
+                <p class="field-hint">Include this only if you know how the ad is targeted.</p>
+              </div>
+            </details>
+
+            <p id="form-error" class="form-error" role="alert" hidden></p>
+            <button id="analyze-btn" class="primary-button" type="submit"><span id="button-text">Analyze ad</span><span class="button-arrow" aria-hidden="true">→</span></button>
+          </form>
+        </section>
+
+        <section class="panel result-panel" aria-labelledby="result-title">
+          <div class="panel-heading">
+            <div>
+              <p class="step-label">ASSESSMENT</p>
+              <h2 id="result-title">Ad intrusiveness risk</h2>
+            </div>
+            <span class="result-meta">0–10 rubric score</span>
+          </div>
+
+          <div id="result-empty" class="result-empty">
+            <div class="empty-symbol" aria-hidden="true"><span></span><span></span><span></span></div>
+            <h3>Your result appears here</h3>
+            <p>Add an ad and select <strong>Analyze ad</strong>. The score flags personal-data references and pressure tactics found in its words.</p>
+          </div>
+
+          <div id="result-loading" class="result-loading" role="status" hidden>
+            <span class="spinner" aria-hidden="true"></span>
+            <p>Reading the ad and checking its cues…</p>
+          </div>
+
+          <div id="result-content" aria-live="polite" hidden>
+            <div class="score-topline">
+              <span id="tier-pill" class="tier-pill">Low intrusion risk</span>
+              <span id="score-context">Ad copy risk score</span>
+            </div>
+            <div class="score-display"><span id="score-number">0</span><span class="score-denominator">/10</span></div>
+            <div id="score-scale" class="score-scale" aria-label="Intrusion risk score out of 10"></div>
+            <div class="scale-labels"><span>Lower risk</span><span>Higher risk</span></div>
+            <div id="score-breakdown" class="score-breakdown" hidden>
+              <span>Privacy cue points <strong id="privacy-score">0</strong></span>
+              <span>Pressure cue points <strong id="pressure-score">0</strong></span>
+            </div>
+
+            <div class="result-divider"></div>
+            <div class="evidence-heading"><h3>Why this result</h3><span id="evidence-count"></span></div>
+            <div id="evidence-list" class="evidence-list"></div>
+            <div id="repair-section" class="repair-section" hidden>
+              <div class="repair-heading"><h3>Ways to lower risk</h3><span>Review and revise</span></div>
+              <ul id="repair-list" class="repair-list"></ul>
+              <p class="repair-hint">These are editing suggestions, not a prediction of how people will respond. Recheck the revised ad to see its rubric score.</p>
+            </div>
+            <details id="ocr-details" class="ocr-details" hidden>
+              <summary>Text read from the image</summary>
+              <p id="ocr-text"></p>
+            </details>
+            <p id="result-note" class="result-note"></p>
+          </div>
+        </section>
+      </div>
+
+      <section id="about-score" class="about-score" aria-labelledby="about-title">
+        <div><p class="eyebrow">ABOUT THE SCORE</p><h2 id="about-title">A transparent screen, not a consumer verdict.</h2></div>
+        <p>The 0–10 number combines privacy cues and high-pressure wording, capped at 10. It is not a probability or a measured reaction. The supplied dataset has no consumer intrusiveness ratings. Image analysis reads printed words; it does not judge the visual layout or whether an ad obstructs a page. Describe visual details you want considered.</p>
+      </section>
+    </main>
+    <footer>49C · Personalization Threshold project</footer>
+  </div>
+</body>
+</html>

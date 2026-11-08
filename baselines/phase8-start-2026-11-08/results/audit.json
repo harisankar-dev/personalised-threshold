@@ -1,0 +1,142 @@
+{
+  "runtime": {
+    "python": "3.12.14",
+    "pandas": "3.0.1",
+    "numpy": "2.3.5",
+    "seed": 49
+  },
+  "sources": {
+    "users": {
+      "rows": 50000,
+      "columns": [
+        "User_ID",
+        "Gender",
+        "Race_Ethnicity"
+      ],
+      "missing_by_column": {
+        "User_ID": 0,
+        "Gender": 0,
+        "Race_Ethnicity": 0
+      },
+      "unique_primary_or_user_key": 50000,
+      "duplicate_primary_or_user_key_rows": 0
+    },
+    "behavior": {
+      "rows": 50000,
+      "columns": [
+        "ID",
+        "User_ID",
+        "Browsing_History",
+        "Interaction_Data",
+        "Purchase_History"
+      ],
+      "missing_by_column": {
+        "ID": 0,
+        "User_ID": 0,
+        "Browsing_History": 0,
+        "Interaction_Data": 0,
+        "Purchase_History": 0
+      },
+      "unique_primary_or_user_key": 31600,
+      "duplicate_primary_or_user_key_rows": 18400
+    },
+    "privacy": {
+      "rows": 50000,
+      "columns": [
+        "ID",
+        "User_ID",
+        "Data_Sharing_Permissions",
+        "Privacy_Settings",
+        "user_consent"
+      ],
+      "missing_by_column": {
+        "ID": 0,
+        "User_ID": 0,
+        "Data_Sharing_Permissions": 0,
+        "Privacy_Settings": 0,
+        "user_consent": 0
+      },
+      "unique_primary_or_user_key": 50000,
+      "duplicate_primary_or_user_key_rows": 0
+    },
+    "ads": {
+      "rows": 60,
+      "columns": [
+        "Ad_ID",
+        "Ad_Content",
+        "Ad_Targeting_Criteria"
+      ],
+      "missing_by_column": {
+        "Ad_ID": 0,
+        "Ad_Content": 0,
+        "Ad_Targeting_Criteria": 0
+      },
+      "unique_primary_or_user_key": 60,
+      "duplicate_primary_or_user_key_rows": 0
+    },
+    "events": {
+      "rows": 300000,
+      "columns": [
+        "ID",
+        "User_ID",
+        "Ad_ID",
+        "interaction_Type"
+      ],
+      "missing_by_column": {
+        "ID": 0,
+        "User_ID": 0,
+        "Ad_ID": 0,
+        "interaction_Type": 0
+      },
+      "unique_primary_or_user_key": 300000,
+      "duplicate_primary_or_user_key_rows": 0
+    }
+  },
+  "joins": {
+    "behavior_rows_matching_user": 50000,
+    "behavior_distinct_users_matching_user": 31600,
+    "behavior_rows_unmatched_user": 0,
+    "behavior_users_with_multiple_rows": 13183,
+    "privacy_rows_matching_user": 50000,
+    "event_rows_matching_user": 249831,
+    "event_rows_matching_ad": 300000,
+    "event_rows_matching_both": 249831,
+    "distinct_event_users_matching_user": 49690,
+    "interaction_type_counts": {
+      "32": 74782,
+      "33": 74978,
+      "34": 75086,
+      "35": 75154
+    },
+    "distinct_user_ad_pairs": 288091,
+    "duplicate_user_ad_pair_rows": 11909,
+    "analytic_event_rows_after_privacy_join": 249831,
+    "excluded_event_rows": 50169
+  },
+  "interpretation": {
+    "unit": "recorded user-ad interaction event, not an impression or exposed user-ad pair",
+    "outcome": "1 if recorded interaction type is click (code 35), 0 if like/share/comment (32/33/34)",
+    "unavailable": [
+      "non-interactions/impressions",
+      "personalization intensity",
+      "perceived intrusiveness",
+      "user age/location",
+      "exposure time"
+    ],
+    "behavior_note": "Browsing_History is URL-like text and Purchase_History contains device models; neither is verified as product interest or purchases.",
+    "privacy_note": "Data_Sharing_Permissions codes 2-6 are named level1-level5 but direction is unspecified; Privacy_Settings codes 20-31 name departments, not privacy strength. No composite sensitivity score is justified."
+  },
+  "ad_summary_reconciliation": {
+    "rows": 60,
+    "per_action_ad_counts_matching_event_table": {
+      "Likes": 0,
+      "shares": 0,
+      "comments": 0,
+      "clicks": 0
+    },
+    "ads_with_all_action_counts_matching": 0,
+    "ads_where_summary_clicks_exceed_summary_impressions": 4,
+    "ads_where_summary_total_actions_exceed_summary_impressions": 31,
+    "note": "Ad summary counts do not reconcile with the event table. Summary impressions cannot be attached to individual events or used as a user-level non-click denominator."
+  }
+}

@@ -1,0 +1,180 @@
+{
+  "version": "phase7_segmentation_v1",
+  "method": "Predeclared midpoint-based two-axis survey description; no clustering, treatment inference, cross-source join or operational audience label.",
+  "source_sha256": {
+    "genz": "a90b27698b116127c4e0850c77137a348b6201d4fc78241e4ac540012ebf865e",
+    "romano_han": "a3b2d6a56d89d163f11150b5e6bf7ec14d54e60998a7f371a099cdeb7dc3a267"
+  },
+  "genz": {
+    "source_file": "try these dataset\\GenZ_Personalized_Ads_Purchase_Dataset_N296.xlsx",
+    "respondents": 296,
+    "unit": "one unlinked self-reported survey answer row",
+    "value_items": [
+      "Sosyal medyadaki kişiselleştirilmiş reklamların benimle alakalı olduğunu düşünüyorum.",
+      "Sosyal medyadaki kişiselleştirilmiş reklamların benim için önemli olduğunu düşünüyorum.",
+      "Sosyal medyadaki kişiselleştirilmiş reklamlar benim için anlamlıdır.",
+      "Sosyal medyadaki kişiselleştirilmiş reklamların ilgi alanlarıma uygun olduğunu düşünüyorum.",
+      "Sosyal medyadaki kişiselleştirilmiş reklamların tercihlerime uygun olduğunu düşünüyorum."
+    ],
+    "concern_items": [
+      "Sosyal medyada kişiselleştirilmiş reklamlar gördüğümde gizlilik konusunda endişelenirim.",
+      "Sosyal medyada kişiselleştirilmiş reklamlar gördüğümde kişisel bilgilerimi paylaşma konusunda daha hassas davranırım.",
+      "Sosyal medyada kişiselleştirilmiş reklamlar gördüğümde hakkımda hangi bilgilerin toplandığı konusunda endişelenirim.",
+      "Sosyal medyada kişiselleştirilmiş reklamlar gördüğümde kimliğimi belirleyebilecek bilgileri paylaşma konusunda endişelenirim."
+    ],
+    "value_mean": 3.1709,
+    "concern_mean": 3.5431,
+    "value_alpha": 0.8712,
+    "concern_alpha": 0.8723,
+    "value_concern_spearman": 0.1772,
+    "rule": "Higher means item-average >= 3.5; lower means item-average < 3.5 on the source scale.",
+    "counts": {
+      "higher_value_lower_concern": 33,
+      "higher_value_higher_concern": 88,
+      "lower_value_lower_concern": 82,
+      "lower_value_higher_concern": 93
+    },
+    "shares": {
+      "higher_value_lower_concern": 0.1115,
+      "higher_value_higher_concern": 0.2973,
+      "lower_value_lower_concern": 0.277,
+      "lower_value_higher_concern": 0.3142
+    },
+    "respondent_bootstrap_95pct_share_intervals": {
+      "higher_value_lower_concern": [
+        0.0777,
+        0.1486
+      ],
+      "higher_value_higher_concern": [
+        0.2466,
+        0.348
+      ],
+      "lower_value_lower_concern": [
+        0.2297,
+        0.3278
+      ],
+      "lower_value_higher_concern": [
+        0.2601,
+        0.3682
+      ]
+    },
+    "leave_one_item_out_assignment_agreement_range": [
+      0.9088,
+      0.9696
+    ],
+    "cutoff_sensitivity": {
+      "-0.25": {
+        "agreement_with_primary_rule": 0.8851,
+        "counts": {
+          "higher_value_lower_concern": 32,
+          "higher_value_higher_concern": 109,
+          "lower_value_lower_concern": 69,
+          "lower_value_higher_concern": 86
+        }
+      },
+      "+0.25": {
+        "agreement_with_primary_rule": 0.8851,
+        "counts": {
+          "higher_value_lower_concern": 29,
+          "higher_value_higher_concern": 74,
+          "lower_value_lower_concern": 104,
+          "lower_value_higher_concern": 89
+        }
+      }
+    },
+    "source_scale": "1 strongly disagree to 5 strongly agree; publisher description",
+    "exact_duplicate_full_rows_retained": 1,
+    "birth_year_2009_or_later": 18,
+    "construct": "perceived relevance of personalized social-media ads versus privacy concern"
+  },
+  "romano_han": {
+    "source_file": "try these dataset\\Consumer perceptions towards unsolicited ads on social media.sav",
+    "respondents": 837,
+    "unit": "one unlinked self-reported survey answer row",
+    "value_items": [
+      "PAB1",
+      "PAB2",
+      "PAB3",
+      "PAB4"
+    ],
+    "concern_items": [
+      "PC1",
+      "PC2",
+      "PC3",
+      "PC4",
+      "PC5",
+      "PC6"
+    ],
+    "value_mean": 4.8345,
+    "concern_mean": 5.2786,
+    "value_alpha": 0.9482,
+    "concern_alpha": 0.9211,
+    "value_concern_spearman": 0.1599,
+    "rule": "Higher means item-average >= 4.5; lower means item-average < 4.5 on the source scale.",
+    "counts": {
+      "higher_value_lower_concern": 110,
+      "higher_value_higher_concern": 500,
+      "lower_value_lower_concern": 46,
+      "lower_value_higher_concern": 181
+    },
+    "shares": {
+      "higher_value_lower_concern": 0.1314,
+      "higher_value_higher_concern": 0.5974,
+      "lower_value_lower_concern": 0.055,
+      "lower_value_higher_concern": 0.2162
+    },
+    "respondent_bootstrap_95pct_share_intervals": {
+      "higher_value_lower_concern": [
+        0.1087,
+        0.1553
+      ],
+      "higher_value_higher_concern": [
+        0.5639,
+        0.6308
+      ],
+      "lower_value_lower_concern": [
+        0.0406,
+        0.0705
+      ],
+      "lower_value_higher_concern": [
+        0.1876,
+        0.2449
+      ]
+    },
+    "leave_one_item_out_assignment_agreement_range": [
+      0.9498,
+      0.9737
+    ],
+    "cutoff_sensitivity": {
+      "-0.25": {
+        "agreement_with_primary_rule": 0.9438,
+        "counts": {
+          "higher_value_lower_concern": 96,
+          "higher_value_higher_concern": 539,
+          "lower_value_lower_concern": 36,
+          "lower_value_higher_concern": 166
+        }
+      },
+      "+0.25": {
+        "agreement_with_primary_rule": 0.8817,
+        "counts": {
+          "higher_value_lower_concern": 127,
+          "higher_value_higher_concern": 436,
+          "lower_value_lower_concern": 96,
+          "lower_value_higher_concern": 178
+        }
+      }
+    },
+    "source_scale": "1 to 7 agreement responses; source item interpretation in prior survey audit",
+    "exact_duplicate_full_rows_retained": 2,
+    "construct": "perceived benefits of unsolicited social-media ads versus privacy concern"
+  },
+  "limitations": [
+    "These are descriptive survey quadrants, not empirical classes, optimized clusters, or consented targetable audiences.",
+    "Bootstrap intervals describe sampling variability within each convenience source; they do not correct sampling bias.",
+    "Item-drop and cutoff sensitivity are rule robustness checks, not external or temporal validation.",
+    "Gen Z relevance is not a direct preference for a targeting method or personalization intensity.",
+    "Romano benefits refer to unsolicited ads generally; its respondent IDs cannot join Gen Z, UPAD or campaign audiences.",
+    "No ad-specific response or segment-level uplift is estimated."
+  ]
+}

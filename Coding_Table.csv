@@ -1,0 +1,21 @@
+Unnamed: 0,Gender,Unnamed: 2,Unnamed: 3,Unnamed: 4,Race_Ethnicity,Unnamed: 6,Unnamed: 7,Data_Sharing_Permissions,Unnamed: 9,Unnamed: 10,Unnamed: 11,Privacy_Settings,Unnamed: 13
+,Male,0,,,Native Hawaiian,10,,level1,2.000000,,,Sales,20.000000
+,Female,1,,,American Indian,11,,level2,3.000000,,,Services,21.000000
+,,,,,Crow,12,,level3,4.000000,,,Human Resources,22.000000
+,,,,,Apache,13,,level4,5.000000,,,Product Management,23.000000
+,,,,,Uruguayan,14,,level5,6.000000,,,Accounting,24.000000
+,,,,,Chinese,15,,,,,,Business Development,25.000000
+,,,,,Alaskan Athabascan,16,,,,,,Research and Development,26.000000
+,,,,,Bolivian,17,,,,,,Support,27.000000
+,,,,,American Indian,18,,,,,,Training,28.000000
+,,,,,Native Hawaiian,19,,,,,,Engineering,29.000000
+,,,,,,,,,,,,Marketing,30.000000
+,,,,,,,,,,,,Legal,31.000000
+,,,,,,,,,,,,,
+,,,,,,,,,,,,,
+,,,,,,user consent ,,,,,,,
+,,Interaction Table,,,,yes,36.000000,,,,,,
+,,Like,32.000000,,,no,37.000000,,,,,,
+,,Share,33.000000,,,,,,,,,,
+,,comment,34.000000,,,,,,,,,,
+,,click,35.000000,,,,,,,,,,

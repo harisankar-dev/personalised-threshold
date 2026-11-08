@@ -1,0 +1,136 @@
+{
+  "version": "vietnam_privacy_trust_v1",
+  "source": "https://data.mendeley.com/datasets/2x8xnfbsfd/2",
+  "source_sha256": "3c49ec6134f03f7c08cc89129c9aecd8baba5e300dbfda18bf1b4cc5e169aa8a",
+  "license": "CC BY 4.0 (publisher record)",
+  "respondents": 467,
+  "scale_anchors": "1 strongly disagree to 5 strongly agree",
+  "scales": {
+    "collection_concern": {
+      "items": [
+        "COL1",
+        "COL2",
+        "COL3",
+        "COL4"
+      ],
+      "mean": 3.9700214132762315,
+      "sd": 0.6654088094251979,
+      "cronbach_alpha": 0.8591260729497741
+    },
+    "accuracy_concern": {
+      "items": [
+        "ERR1",
+        "ERR2",
+        "ERR3",
+        "ERR4"
+      ],
+      "mean": 3.7789079229122056,
+      "sd": 0.7590438177435407,
+      "cronbach_alpha": 0.8766503266507752
+    },
+    "secondary_use_concern": {
+      "items": [
+        "USU1",
+        "USU2",
+        "USU3",
+        "USU4"
+      ],
+      "mean": 3.911134903640257,
+      "sd": 0.8477907397549909,
+      "cronbach_alpha": 0.9291782710327052
+    },
+    "improper_access_concern": {
+      "items": [
+        "IMA1",
+        "IMA2",
+        "IMA3"
+      ],
+      "mean": 4.144896502498216,
+      "sd": 0.7422719042715463,
+      "cronbach_alpha": 0.8804863945199997
+    },
+    "online_trust": {
+      "items": [
+        "OT1",
+        "OT2",
+        "OT3",
+        "OT4"
+      ],
+      "mean": 3.8581370449678802,
+      "sd": 0.6747501194276617,
+      "cronbach_alpha": 0.900995191205815
+    },
+    "purchase_intention": {
+      "items": [
+        "IB1",
+        "IB2",
+        "IB3",
+        "IB4"
+      ],
+      "mean": 3.845289079229122,
+      "sd": 0.6588122293893208,
+      "cronbach_alpha": 0.8076452429413221
+    }
+  },
+  "predeclared_descriptive_associations": {
+    "collection_concern_vs_online_trust": {
+      "spearman_rho": 0.22399061987020213,
+      "row_bootstrap_95pct_interval": [
+        0.1326934159365499,
+        0.31693438007816055
+      ]
+    },
+    "secondary_use_concern_vs_online_trust": {
+      "spearman_rho": 0.33292050020735797,
+      "row_bootstrap_95pct_interval": [
+        0.2504342096769821,
+        0.415599413841109
+      ]
+    },
+    "online_trust_vs_purchase_intention": {
+      "spearman_rho": 0.4504632598651737,
+      "row_bootstrap_95pct_interval": [
+        0.3635961534766921,
+        0.5291172055299577
+      ]
+    },
+    "collection_concern_vs_purchase_intention": {
+      "spearman_rho": 0.4531531915787493,
+      "row_bootstrap_95pct_interval": [
+        0.3713842360239801,
+        0.5311543662397241
+      ]
+    }
+  },
+  "age_code_subgroups": {
+    "1": {
+      "n": 123,
+      "trust_purchase_spearman": 0.42900810815559176
+    },
+    "2": {
+      "n": 120,
+      "trust_purchase_spearman": 0.5075871087704537
+    },
+    "3": {
+      "n": 115,
+      "trust_purchase_spearman": 0.48319926646215466
+    },
+    "4": {
+      "n": 109,
+      "trust_purchase_spearman": 0.3782196070909307
+    }
+  },
+  "screening_items_q1_q2_q3": "all 467 responses are code 1 (yes); no variation for population prevalence estimates",
+  "excluded_fields": {
+    "No": "sequential record number, not a predictor",
+    "q1_q2_q3": "screening responses all yes",
+    "q5": "questionnaire says select all that apply, but CSV stores one code per respondent; multi-response meaning is not recoverable"
+  },
+  "limits": [
+    "Online-store privacy, trust and stated purchase intention; no ad exposure or direct intrusiveness item.",
+    "Cross-sectional self-report associations cannot establish direction or causality.",
+    "Screening selects only online purchasers affected by improper information use who say they care about privacy.",
+    "Bootstrap intervals resample the supplied respondents and do not correct non-probability sampling or common-method bias.",
+    "No train/test model was fitted because this dataset does not provide the project's target or a defensible deployment decision."
+  ]
+}
