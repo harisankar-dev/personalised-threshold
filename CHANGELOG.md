@@ -1,5 +1,13 @@
 # Changelog
 
+## 8 November 2026 — Phase 9 research-data eligibility
+
+- Tagged the clean pre-change Git commit `phase9-start-2026-11-08` and recorded SHA-256 for 570 source, eight saved-model and 26 saved-result files.
+- Rechecked the OSF node license metadata, README and file tree without retaining respondent workbooks; no explicit license or minimized release was found.
+- Screened seven documented secondary-data candidates and stopped experimental training at the rights/privacy/measurement gate. No new model, holdout score or app integration was fabricated.
+- Prepared an unsent permission request to the publisher-verified corresponding-author address and added Phase 9 rights, experiment, STP and verification reports plus preservation regression checks.
+- Kept the marketer app, Mode B contract, prior experiments and five-level `insufficient_evidence` behaviour unchanged.
+
 ## 8 November 2026 — Phase 8
 
 - Located Anaconda Python 3.14 and installed only a compatible `pyreadstat` wheel in separate `.phase8_vendor`; restored the full research test command (59/59 baseline, 72/72 after changes).

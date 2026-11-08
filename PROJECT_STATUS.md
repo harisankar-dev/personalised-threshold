@@ -1,5 +1,9 @@
 # 49C project status — secondary data only
 
+## Phase 9 status — 8 November 2026
+
+The OSF location-targeting project still has no explicit dataset license in its API metadata or README and lists only respondent workbooks containing identifiers. No use/derivative-model permission or minimized release was verified; a permission email is drafted but unsent. Seven candidate sources were screened, including licensed alternatives; none supports the specific direct-intrusion × randomized-personalization target with usable records. **No Phase 9 model or holdout metric was produced.** A pre-change Git tag and SHA-256 manifest protect 570 source, eight model and 26 saved-result files. The Mode A app, offline Mode B contract and five-level `insufficient_evidence` outcome are unchanged. See the five Phase 9 deliverables and `phase9_research/candidate_matrix.csv`.
+
 ## Phase 8 status — 8 November 2026
 
 The default Mode A planner now includes structured category, channel and targeting-data-source declarations, an evidence-labelled consumer–ad compatibility review, and conservative holds for mismatched or unresolved personal data use. It produces **no compatibility score, consumer fit prediction or survey-to-customer segment match**. The budget comparison remains A–E with no automatic multi-variant recommendation. Mode B has an **offline in-memory schema validator only**, with no customer upload or real-audience demonstration. A new OSF location-targeting experiment was inspected at aggregate/schema level (Study 1: 409 rows, Study 2: 401 rows) but no raw records or model were retained because the repository lacks an explicit data license and contains direct identifiers. The five-level threshold remains `insufficient_evidence`. Phase 8 started from a recoverable 87-file checkpoint and the full suite currently passes **72/72** under Anaconda Python 3.14 plus local `pyreadstat`. See `PHASE8_VERIFICATION_REPORT.md` and the three companion Phase 8 reports.
