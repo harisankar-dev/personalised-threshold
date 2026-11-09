@@ -1,5 +1,9 @@
 # 49C project status — secondary data only
 
+## Phase 11 status — 9 November 2026
+
+Mode A remains an exploratory pre-launch advisor. A frozen 26-case **synthetic software** cue set showed micro F1 0.800 before and 0.923 after a narrow negation fix; these are not independent real-ad or consumer-intrusion metrics. An 18-state synthetic STP matrix and financial stress tests passed. The app now rejects fractional-cent inputs, warns about missing targeting context and tiny reach, labels self-reported permissions as declarations, and uses clearer edit/scenario wording. Real-browser text/image, budget, consent, error-recovery and 390-pixel checks were completed. The full suite ran 90 tests but four pre-existing survey tests could not import `pyreadstat` because Windows Application Control blocked its DLL; the focused 69-test product/privacy/API/threshold suite passed. All 604 protected files remain hash-identical; the five-level threshold stays `insufficient_evidence`. See the six Phase 11 reports.
+
 ## Phase 10 status — 8 November 2026
 
 The OSF location-targeting project is publicly readable, but source-specific rights for respondent retention, new academic model training, derivatives and publication remain unverified. No OSF respondent records were processed or new experimental model trained. Phase 10 adds a research-only, in-memory fail-closed intake, source-specific treatment coding, pre-exposure feature gate, respondent partition helper, restricted-file staging guard and synthetic tests. The five reports beginning `PHASE10_` document the rights decision, prior descriptive evidence, prospective model protocol, STP boundaries and verification. The marketer app and five-level `insufficient_evidence` behaviour remain unchanged.

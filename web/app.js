@@ -211,8 +211,9 @@ function renderStrategy(strategy) {
       const item = scenario.results[label];
       const row = document.createElement('div');
       const title = document.createElement('strong'); title.textContent = label[0].toUpperCase() + label.slice(1);
-      const value = document.createElement('span'); value.textContent = item.user_entered_incremental_conversions === null
-        ? 'Not entered' : `${item.user_entered_incremental_conversions} extra conversions · net ${displayMoney(item.net_incremental_value, strategy.currency)}`;
+      const count = item.user_entered_incremental_conversions;
+      const value = document.createElement('span'); value.textContent = count === null
+        ? 'Not entered' : `${count} extra ${count === 1 ? 'conversion' : 'conversions'} · net ${displayMoney(item.net_incremental_value, strategy.currency)}`;
       row.append(title, value); box.append(row);
     });
   }

@@ -1,5 +1,13 @@
 # Changelog
 
+## 9 November 2026 — Phase 11 product validation
+
+- Tagged the clean Phase 10 commit `phase11-start-2026-11-09`; rechecked 604 protected source/model/result hashes without modifying them.
+- Froze 26 synthetic semantic cue fixtures before changing rules; local denial handling reduced false positives from seven to one while retaining 18 true positives and two false negatives. This is software diagnostic performance, not consumer validation.
+- Added 18-state keep/revise/hold tests and financial stress checks; rejected fractional-cent money, added a tiny-reach warning, and made the keep reason caution about missing targeting context.
+- Clarified self-reported permission labels and suggested-edit wording; corrected singular what-if conversion copy. Verified text, OCR images, consent, budget, error recovery and mobile geometry in a real browser.
+- Added six Phase 11 reports and versioned synthetic evaluation artifacts. The full suite's four pre-existing survey import errors stem from a Windows Application Control block on `pyreadstat`; the focused 69-test suite passed. The threshold continues abstaining.
+
 ## 8 November 2026 — Phase 10 privacy-safe experimental preparation
 
 - Tagged the clean Phase 9 commit as `phase10-start-2026-11-08` and rechecked the OSF node license metadata, README, article and publisher guidance without downloading respondent files or contacting researchers.

@@ -33,6 +33,7 @@ OPTION_NAMES = {
 }
 COST_INPUTS = ("revision_cost", "targeting_cost", "variant_cost", "segmentation_cost", "management_cost")
 BASELINE_INPUTS = ("cpc", "cpm", "conversion_rate_pct", "contribution_margin", "audience_reach")
+MONEY_INPUTS = {"total_budget", "committed_spend", *COST_INPUTS, "cpc", "cpm", "contribution_margin"}
 SCENARIO_INPUTS = ("worst_incremental_conversions", "central_incremental_conversions", "best_incremental_conversions")
 PERSONA_SOURCE = Path(__file__).resolve().parent / "results" / "phase7_segmentation_v1.json"
 
@@ -49,6 +50,8 @@ def _number(data: dict, name: str, *, integer: bool = False, ceiling: Decimal = 
         raise ValueError(f"{name.replace('_', ' ').capitalize()} must be a non-negative number.") from exc
     if not number.is_finite() or number < 0 or number > ceiling or (integer and number != number.to_integral_value()):
         raise ValueError(f"{name.replace('_', ' ').capitalize()} is outside the allowed range.")
+    if name in MONEY_INPUTS and number * 100 != (number * 100).to_integral_value():
+        raise ValueError(f"{name.replace('_', ' ').capitalize()} must use at most two decimal places.")
     return number
 
 
@@ -190,7 +193,10 @@ def evaluate(campaign: dict, creative: dict) -> dict:
             reason = "Review the matched wording and test one revised creative within the existing campaign; its performance benefit is unverified."
     else:
         action = "keep_current_campaign"
-        reason = "Keep the current campaign. Available evidence does not justify additional segmentation costs."
+        reason = ("Use the current campaign as the cost comparator. Review missing targeting information "
+                  "before launch; additional segmentation is not justified."
+                  if method == "unknown" or data_source == "unknown" else
+                  "Keep the current campaign. Available evidence does not justify additional segmentation costs.")
 
     missing = [name for name in ("total_budget", "committed_spend", *COST_INPUTS, *BASELINE_INPUTS,
                                 "variant_count", *SCENARIO_INPUTS) if
@@ -219,6 +225,8 @@ def evaluate(campaign: dict, creative: dict) -> dict:
         warnings.append("Audience reach is unknown; fragmentation risk cannot be quantified.")
     else:
         warnings.append("Reach alone does not establish enough responses per variant; no multi-variant recommendation is made.")
+        if variant_count is not None and baseline["audience_reach"] < variant_count + 1:
+            warnings.append("Declared reach is smaller than the current creative plus additional variants; even one distinct person per variant is not available.")
     return {
         "status": "exploratory_advisory",
         "action": action,

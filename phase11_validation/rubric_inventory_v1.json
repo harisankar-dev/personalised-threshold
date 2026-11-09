@@ -1,0 +1,143 @@
+{
+  "source": "intrusive_ad_model.py",
+  "label": "heuristic cue rubric; not calibrated to consumer ratings",
+  "ad_copy": [
+    {
+      "cue": "direct_identifier",
+      "weight": 6,
+      "regex": "\\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,}\\b|\\b(?:\\+?\\d[\\d .()\\-]{8,}\\d)\\b"
+    },
+    {
+      "cue": "sensitive_personal_fact",
+      "weight": 6,
+      "regex": "\\b(?:your|you have|we know (?:your|about your))\\s+(?:diagnosis|medical history|pregnancy|fertility|debt|credit score|income|religion|sexual orientation|mental health|prescription|bank balance)\\b"
+    },
+    {
+      "cue": "explicit_surveillance",
+      "weight": 5,
+      "regex": "\\b(?:we(?:'|\u2019)ve been keeping track|we (?:are )?(?:tracking|monitoring|watching|tracked|monitored) (?:you|your)|we (?:keep|kept) track of your (?:activity|visits)|keeping track of your activity|we know (?:where you are|what you did|you (?:are|(?:'|\u2019)re) in [A-Z][a-z]+)|we(?:'|\u2019)ve followed your activity)\\b"
+    },
+    {
+      "cue": "precise_location",
+      "weight": 6,
+      "regex": "\\b(?:near your (?:home|office|current location)|at your (?:address|home)|you are (?:now |currently )?(?:at|near)|we know you(?:'|\u2019)re currently at)\\b"
+    },
+    {
+      "cue": "approximate_location",
+      "weight": 2,
+      "regex": "\\b(?:available near you|stores? near you|deals? near you|looking for .{0,60}? in [A-Z][a-z]+|(?:your|you(?:'|\u2019)re) (?:in|near) [A-Z][a-z]+|location in [A-Z][a-z]+|(?:we )?(?:also )?know you(?: are|(?:'|\u2019)re)(?: currently)? in [A-Z][a-z]+)\\b"
+    },
+    {
+      "cue": "browsing_history",
+      "weight": 3,
+      "regex": "\\b(?:we (?:noticed|saw) (?:that )?you(?:'|\u2019)?(?:ve)? (?:were |have been )?(?:searched|searching|browsed|browsing|visited|visiting|viewed|viewing|checking)|we noticed your recent interest|your recent (?:searches|browsing|views|interest)|based on your (?:recent )?(?:.{0,35}? )?(?:searches|browsing|viewing)|you (?:recently |have been |were )?(?:searched for|searching for|browsed|browsing|viewed|viewing|visited|visiting)|you checked several .{0,60}?websites|sites? you visited|your visits to .{0,35}?sites?)\\b"
+    },
+    {
+      "cue": "purchase_history",
+      "weight": 3,
+      "regex": "\\b(?:your (?:recent|last|previous|past) (?:.{0,30}? )?(?:purchases?|orders?)|previous .{0,30}? purchases?|based on your (?:past|previous|recent|last) (?:purchase|order)|you (?:bought|purchased)|your (?:shopping )?cart|left .{0,50}? in your cart)\\b"
+    },
+    {
+      "cue": "interest_targeting",
+      "weight": 2,
+      "regex": "\\b(?:based on your interests?|because you like|you told us you like)\\b"
+    },
+    {
+      "cue": "personalized_claim",
+      "weight": 1,
+      "regex": "\\b(?:(?:personalized|tailored)\\s+(?:collection|plan|experience|for you|to you|recommendations?|offers?)|(?:selected|recommended) (?:just )?for you)\\b"
+    }
+  ],
+  "targeting_text": [
+    {
+      "cue": "sensitive_personal_fact",
+      "weight": 6,
+      "regex": "\\b(?:health condition|medical history|pregnancy|religion|credit score|financial hardship)\\b"
+    },
+    {
+      "cue": "browsing_history",
+      "weight": 3,
+      "regex": "\\b(?:browsing|search history|retargeting|website visits?)\\b"
+    },
+    {
+      "cue": "purchase_history",
+      "weight": 3,
+      "regex": "\\b(?:purchase history|past purchases|cart abandon)\\b"
+    },
+    {
+      "cue": "precise_location",
+      "weight": 6,
+      "regex": "\\b(?:gps|precise location|real.time location|home address)\\b"
+    },
+    {
+      "cue": "approximate_location",
+      "weight": 2,
+      "regex": "\\b(?:approximate location|current city|current region)\\b"
+    },
+    {
+      "cue": "broad_targeting",
+      "weight": 1,
+      "regex": "\\b(?:age|country|city|region|interest)\\s*[:=]"
+    }
+  ],
+  "pressure": [
+    {
+      "cue": "countdown_pressure",
+      "weight": 3,
+      "regex": "\\b\\d{1,2}\\s*:\\s*\\d{2}\\s*:\\s*\\d{2}(?:\\s*:\\s*\\d{2})?\\b|\\b(?:timer|countdown)\\s+(?:runs?\\s+out|ends?|expires?)\\b"
+    },
+    {
+      "cue": "scarcity_claim",
+      "weight": 2,
+      "regex": "\\b(?:limited stock|only\\s+\\d+\\s+(?:left|remaining)|while stocks last|selling out)\\b"
+    },
+    {
+      "cue": "extreme_discount",
+      "weight": 2,
+      "regex": "\\b(?:8\\d|9\\d|100)\\s*%\\s*off\\b"
+    },
+    {
+      "cue": "urgent_call_to_action",
+      "weight": 2,
+      "regex": "\\b(?:last chance|today only|click (?:the )?link now|act now|hurry|before the timer runs out)\\b"
+    },
+    {
+      "cue": "alarmist_claim",
+      "weight": 2,
+      "regex": "\\b(?:they do not want you to see|we get taken down|taken down|alert!{2,})\\b"
+    }
+  ],
+  "derived": {
+    "combined_signals": {
+      "weight": 1,
+      "condition": "at least two of browsing_history, purchase_history, approximate_location, precise_location, sensitive_personal_fact"
+    },
+    "specific_activity_detail": {
+      "weight": 1,
+      "condition": "browsing_history and a DETAIL_PATTERN match",
+      "regex": "\\b(?:last night|yesterday|compared prices|left without buying|didn(?:'|\u2019)t purchase|did not purchase|several .{0,30}? websites)\\b"
+    },
+    "no_consent": {
+      "weight": 2,
+      "regex": "\\b(?:without (?:your )?(?:consent|permission)|you (?:did not|didn(?:'|\u2019)t|haven(?:'|\u2019)t) (?:agree|consent)|consent\\s*[:=]\\s*(?:no|false)|not knowingly agreed)\\b"
+    },
+    "excessive_exclamation": {
+      "weight": 1,
+      "condition": "at least two runs of three or more exclamation marks",
+      "regex": "!{3,}"
+    },
+    "deny_scope_guard": {
+      "condition": "skip a cue with a local explicit denial; inspect later matches",
+      "regex": "(?:\\b(?:do\\s+not|don(?:'|\u2019)t|never|not)\\s+(?:use|using|say|said|claim|write|track|record|rely\\s+on)\\b[^.;!?]{0,30}?|\\bnot\\s+|\\bnever\\s+said\\s+)[\\s'\\\"\u201c\u201d\u2018\u2019]*$"
+    }
+  },
+  "score": {
+    "privacy_plus_pressure": true,
+    "per_cue_once": true,
+    "display_cap": 10,
+    "low": "sum < 2",
+    "moderate": "2 <= sum < 6",
+    "high": "sum >= 6",
+    "empty_or_unassessed_image": "needs_review"
+  }
+}

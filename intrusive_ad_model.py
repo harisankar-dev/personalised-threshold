@@ -41,6 +41,9 @@ PRESSURE_CUES = [
     ("alarmist_claim", 2, re.compile(r"\b(?:they do not want you to see|we get taken down|taken down|alert!{2,})\b", re.I)),
 ]
 EXCESSIVE_EXCLAMATION_PATTERN = re.compile(r"!{3,}")
+DENIAL_BEFORE_CUE = re.compile(
+    r"(?:\b(?:do\s+not|don(?:'|’)t|never|not)\s+(?:use|using|say|said|claim|write|track|record|rely\s+on)\b[^.;!?]{0,30}?|"
+    r"\bnot\s+|\bnever\s+said\s+)[\s'\"“”‘’]*$", re.I)
 
 TARGETING_CUES = [
     ("sensitive_personal_fact", 6, re.compile(r"\b(?:health condition|medical history|pregnancy|religion|credit score|financial hardship)\b", re.I)),
@@ -85,6 +88,20 @@ def suggest_repairs(evidence: list[dict]) -> list[dict]:
             if item["cue"] in REPAIR_ADVICE]
 
 
+def _asserted_match(pattern: re.Pattern[str], content: str) -> re.Match[str] | None:
+    """Skip a cue when a local explicit denial scopes over its phrase.
+
+    This is a narrow syntax guard, not full natural-language understanding.
+    A later positive mention in another clause can still be detected.
+    """
+    for match in pattern.finditer(content):
+        prefix = content[max(0, match.start() - 65):match.start()]
+        prefix = re.split(r"[.;!?\n]", prefix)[-1]
+        if not DENIAL_BEFORE_CUE.search(prefix):
+            return match
+    return None
+
+
 def classify(text: str, targeting: str = "") -> dict:
     if not text.strip() and not targeting.strip():
         return {"tier": "needs_review", "score": None, "score_out_of_10": None,
@@ -93,7 +110,7 @@ def classify(text: str, targeting: str = "") -> dict:
     found = {}
     for source, rules, content in [("ad_copy", COPY_CUES, text), ("targeting", TARGETING_CUES, targeting)]:
         for name, weight, pattern in rules:
-            match = pattern.search(content)
+            match = _asserted_match(pattern, content)
             if match and (name not in found or found[name]["weight"] < weight):
                 found[name] = {"cue": name, "source": source, "matched": match.group(0), "weight": weight}
     # A generic 'personalized' claim adds no extra risk when a concrete signal
@@ -113,7 +130,7 @@ def classify(text: str, targeting: str = "") -> dict:
     privacy_score = sum(item["weight"] for item in evidence)
     pressure_evidence = []
     for name, weight, pattern in PRESSURE_CUES:
-        match = pattern.search(text)
+        match = _asserted_match(pattern, text)
         if match:
             pressure_evidence.append({"cue": name, "source": "ad_copy", "matched": match.group(0), "weight": weight})
     marks = EXCESSIVE_EXCLAMATION_PATTERN.findall(text)
