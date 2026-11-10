@@ -1,0 +1,512 @@
+{
+  "evaluation_tier": "B: single-project-annotator labels on real source ads",
+  "source": "Salem et al. (2026), Advertising Images Dataset for Visual Analysis, Mendeley Data v1, DOI 10.17632/32grwbk6rv.1",
+  "license_listing": "CC BY 4.0 on publisher dataset page; original social-platform creative rights require care",
+  "source_csv_sha256": "cd5ad685312e6e365557166ad4b6d8e7a64825519c6edcb0044dfa0de7a8d0ca",
+  "source_zip_sha256": "b397f56216094a616a8e2b7a4b1af84afaf4155447d6f51801a9304406f8337c",
+  "labels_sha256": "7f6aafd2e3c06ff60f54211ab17eaa0cc14f84430330792b51d26084ea6b93b6",
+  "n_source_rows": 605,
+  "n_selected": 25,
+  "n_by_split": {
+    "test": 17,
+    "development": 8
+  },
+  "n_assessable_by_split": {
+    "development": 8,
+    "test": 11
+  },
+  "n_unassessable": 6,
+  "n_ambiguous_cue_instances": 1,
+  "excluded": [
+    {
+      "id": 12,
+      "reason": "Arabic-English creative; English '4 days only' and Arabic stock claim require bilingual annotation."
+    },
+    {
+      "id": 416,
+      "reason": "Mixed Arabic-English promotional copy; English Black Friday alone is not a cue."
+    },
+    {
+      "id": 463,
+      "reason": "Mixed Arabic-English copy; English order now alone is an ordinary CTA."
+    },
+    {
+      "id": 469,
+      "reason": "Arabic time-limit phrase; no bilingual cue adjudication."
+    },
+    {
+      "id": 476,
+      "reason": "Mixed Arabic-English copy; only the English fragment is assessable."
+    },
+    {
+      "id": 505,
+      "reason": "Mixed Arabic-English copy; English 75% off is below extreme-discount boundary."
+    }
+  ],
+  "by_split": {
+    "development": {
+      "micro": {
+        "tp": 0,
+        "fp": 1,
+        "fn": 0,
+        "tn": 143,
+        "precision": 0.0,
+        "recall": null,
+        "f1": 0.0,
+        "precision_wilson_95": [
+          0.0,
+          0.7935
+        ],
+        "recall_wilson_95": null
+      },
+      "by_cue": {
+        "alarmist_claim": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 8,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "precision_wilson_95": null,
+          "recall_wilson_95": null
+        },
+        "approximate_location": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 8,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "precision_wilson_95": null,
+          "recall_wilson_95": null
+        },
+        "browsing_history": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 8,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "precision_wilson_95": null,
+          "recall_wilson_95": null
+        },
+        "combined_signals": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 8,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "precision_wilson_95": null,
+          "recall_wilson_95": null
+        },
+        "countdown_pressure": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 8,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "precision_wilson_95": null,
+          "recall_wilson_95": null
+        },
+        "direct_identifier": {
+          "tp": 0,
+          "fp": 1,
+          "fn": 0,
+          "tn": 7,
+          "precision": 0.0,
+          "recall": null,
+          "f1": 0.0,
+          "precision_wilson_95": [
+            0.0,
+            0.7935
+          ],
+          "recall_wilson_95": null
+        },
+        "excessive_exclamation": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 8,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "precision_wilson_95": null,
+          "recall_wilson_95": null
+        },
+        "explicit_surveillance": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 8,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "precision_wilson_95": null,
+          "recall_wilson_95": null
+        },
+        "extreme_discount": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 8,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "precision_wilson_95": null,
+          "recall_wilson_95": null
+        },
+        "interest_targeting": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 8,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "precision_wilson_95": null,
+          "recall_wilson_95": null
+        },
+        "no_consent": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 8,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "precision_wilson_95": null,
+          "recall_wilson_95": null
+        },
+        "personalized_claim": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 8,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "precision_wilson_95": null,
+          "recall_wilson_95": null
+        },
+        "precise_location": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 8,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "precision_wilson_95": null,
+          "recall_wilson_95": null
+        },
+        "purchase_history": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 8,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "precision_wilson_95": null,
+          "recall_wilson_95": null
+        },
+        "scarcity_claim": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 8,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "precision_wilson_95": null,
+          "recall_wilson_95": null
+        },
+        "sensitive_personal_fact": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 8,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "precision_wilson_95": null,
+          "recall_wilson_95": null
+        },
+        "specific_activity_detail": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 8,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "precision_wilson_95": null,
+          "recall_wilson_95": null
+        },
+        "urgent_call_to_action": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 8,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "precision_wilson_95": null,
+          "recall_wilson_95": null
+        }
+      }
+    },
+    "test": {
+      "micro": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 2,
+        "tn": 195,
+        "precision": null,
+        "recall": 0.0,
+        "f1": 0.0,
+        "precision_wilson_95": null,
+        "recall_wilson_95": [
+          0.0,
+          0.6576
+        ]
+      },
+      "by_cue": {
+        "alarmist_claim": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 11,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "precision_wilson_95": null,
+          "recall_wilson_95": null
+        },
+        "approximate_location": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 11,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "precision_wilson_95": null,
+          "recall_wilson_95": null
+        },
+        "browsing_history": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 11,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "precision_wilson_95": null,
+          "recall_wilson_95": null
+        },
+        "combined_signals": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 11,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "precision_wilson_95": null,
+          "recall_wilson_95": null
+        },
+        "countdown_pressure": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 11,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "precision_wilson_95": null,
+          "recall_wilson_95": null
+        },
+        "direct_identifier": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 11,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "precision_wilson_95": null,
+          "recall_wilson_95": null
+        },
+        "excessive_exclamation": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 11,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "precision_wilson_95": null,
+          "recall_wilson_95": null
+        },
+        "explicit_surveillance": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 11,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "precision_wilson_95": null,
+          "recall_wilson_95": null
+        },
+        "extreme_discount": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 11,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "precision_wilson_95": null,
+          "recall_wilson_95": null
+        },
+        "interest_targeting": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 11,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "precision_wilson_95": null,
+          "recall_wilson_95": null
+        },
+        "no_consent": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 11,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "precision_wilson_95": null,
+          "recall_wilson_95": null
+        },
+        "personalized_claim": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 11,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "precision_wilson_95": null,
+          "recall_wilson_95": null
+        },
+        "precise_location": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 11,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "precision_wilson_95": null,
+          "recall_wilson_95": null
+        },
+        "purchase_history": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 11,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "precision_wilson_95": null,
+          "recall_wilson_95": null
+        },
+        "scarcity_claim": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 10,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "precision_wilson_95": null,
+          "recall_wilson_95": null
+        },
+        "sensitive_personal_fact": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 11,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "precision_wilson_95": null,
+          "recall_wilson_95": null
+        },
+        "specific_activity_detail": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 11,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "precision_wilson_95": null,
+          "recall_wilson_95": null
+        },
+        "urgent_call_to_action": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 2,
+          "tn": 9,
+          "precision": null,
+          "recall": 0.0,
+          "f1": 0.0,
+          "precision_wilson_95": null,
+          "recall_wilson_95": [
+            0.0,
+            0.6576
+          ]
+        }
+      }
+    }
+  },
+  "errors": [
+    {
+      "id": 379,
+      "split": "development",
+      "cue": "direct_identifier",
+      "error": "fp"
+    },
+    {
+      "id": 403,
+      "split": "test",
+      "cue": "urgent_call_to_action",
+      "error": "fn"
+    },
+    {
+      "id": 484,
+      "split": "test",
+      "cue": "urgent_call_to_action",
+      "error": "fn"
+    }
+  ],
+  "limitations": [
+    "Single annotator; no inter-rater reliability or consumer outcomes",
+    "Publisher-extracted CSV text is not an independent OCR transcription",
+    "English-dominant, non-random selected sample; cue positives are sparse",
+    "No ad-specific targeting declarations or product category metadata"
+  ]
+}

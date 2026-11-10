@@ -1,5 +1,11 @@
 # 49C project status — secondary data only
 
+## Phase 12 status — 10 November 2026
+
+An attributed, licensed-dataset-page source yielded 605 actual JPGs and 605 CSV rows, despite its publisher description of 606. The frozen 25-creative Tier B project annotation includes 17 held-out IDs; six mixed-language cases were unassessable, leaving 11 assessable English ads with two explicit time-pressure positives. The unchanged text rubric missed both (test recall 0/2, precision undefined). Its development set falsely flags a seller contact email as a viewer identifier. Ten actual images showed OCR loss and a seller phone yielding a false 6/10 image alert; no verified transcription or consumer-intrusion labels exist. No rule or app code was tuned to this tiny holdout.
+
+Windows still blocks the existing native `pyreadstat` module. An installed R 4.6.1 `foreign` reader, isolated behind an explicit test-only adapter, reads the original SAV faithfully enough to exactly reproduce the saved Phase 7 aggregate and run the full regression suite. The app, A–E budget safeguards, Mode B offline boundary and five-level `insufficient_evidence` outcome remain unchanged. The seven Phase 12 reports separate real-ad evidence, OCR observations and environment recovery from unsupported consumer-response claims.
+
 ## Phase 11 status — 9 November 2026
 
 Mode A remains an exploratory pre-launch advisor. A frozen 26-case **synthetic software** cue set showed micro F1 0.800 before and 0.923 after a narrow negation fix; these are not independent real-ad or consumer-intrusion metrics. An 18-state synthetic STP matrix and financial stress tests passed. The app now rejects fractional-cent inputs, warns about missing targeting context and tiny reach, labels self-reported permissions as declarations, and uses clearer edit/scenario wording. Real-browser text/image, budget, consent, error-recovery and 390-pixel checks were completed. The full suite ran 90 tests but four pre-existing survey tests could not import `pyreadstat` because Windows Application Control blocked its DLL; the focused 69-test product/privacy/API/threshold suite passed. All 604 protected files remain hash-identical; the five-level threshold stays `insufficient_evidence`. See the six Phase 11 reports.

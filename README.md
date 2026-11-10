@@ -9,7 +9,9 @@ Phase 9 checked the OSF location-targeting experiment's current data rights and 
 
 Phase 10 rechecked that source without downloading respondent records or contacting researchers. No source-specific permission for respondent-level modelling and derivative use was verified, so no new experimental model was trained. A separate fail-closed intake and synthetic safeguard tests prepare for a future authorized release. See [data eligibility and privacy](PHASE10_DATA_ELIGIBILITY_AND_PRIVACY_REPORT.md), [experimental analysis](PHASE10_EXPERIMENTAL_ANALYSIS.md), [model decision](PHASE10_INTRUSIVENESS_MODEL_REPORT.md), [STP implications](PHASE10_STP_RESEARCH_IMPLICATIONS.md) and [verification](PHASE10_VERIFICATION_AND_PRESERVATION.md). The marketer screen and five-level threshold are unchanged.
 
-Phase 11 checked the **product's software and decision rules** with a frozen 26-case synthetic cue set, an 18-state STP matrix, financial stress tests and a real-browser walkthrough. The cue set is not independent consumer validation. Local denial handling, cent-precision money checks and several explanations were improved without changing the score weights or connecting new research data. See the [creative validation](PHASE11_CREATIVE_SCREENING_VALIDATION.md), [decision reliability](PHASE11_STP_DECISION_RELIABILITY.md), [budget stress test](PHASE11_BUDGET_STRESS_TEST.md), [UX/claims audit](PHASE11_MARKETER_UX_AND_CLAIMS_AUDIT.md), [summary](PHASE11_PRODUCT_VALIDATION_SUMMARY.md) and [verification](PHASE11_VERIFICATION_AND_PRESERVATION.md). Four survey tests are currently blocked by Windows Application Control on the existing `pyreadstat` DLL; the focused product suite passes.
+Phase 11 checked the **product's software and decision rules** with a frozen 26-case synthetic cue set, an 18-state STP matrix, financial stress tests and a real-browser walkthrough. The cue set is not independent consumer validation. Local denial handling, cent-precision money checks and several explanations were improved without changing the score weights or connecting new research data. See the [creative validation](PHASE11_CREATIVE_SCREENING_VALIDATION.md), [decision reliability](PHASE11_STP_DECISION_RELIABILITY.md), [budget stress test](PHASE11_BUDGET_STRESS_TEST.md), [UX/claims audit](PHASE11_MARKETER_UX_AND_CLAIMS_AUDIT.md), [summary](PHASE11_PRODUCT_VALIDATION_SUMMARY.md) and [verification](PHASE11_VERIFICATION_AND_PRESERVATION.md). Its full suite had four Windows Application Control errors at the existing `pyreadstat` native import.
+
+Phase 12 downloaded an explicitly CC BY 4.0 listed social-ad image dataset for an **internal, bounded** creative evaluation. The publisher describes 606 ads; the actual downloaded files contain 605 images/CSV rows. A 25-creative project-authored annotation set yielded 11 assessable held-out English ads with **two missed time-limit pressure cues**; precision was undefined because the screen predicted none. A separate 10-image observational audit found severe OCR loss and a seller phone falsely treated as the viewer's identifier. These are not independent consumer ratings. The existing blocked native SPSS reader remains blocked, but an explicit, test-only R `foreign` adapter reads the same original SAV, exactly reproduces the saved Phase 7 aggregate, and lets the full regression suite run. The app, scores, threshold and saved research artifacts were not changed. See the [dataset audit](PHASE12_REAL_AD_DATASET_AUDIT.md), [codebook](PHASE12_CREATIVE_CUE_CODEBOOK.md), [real-ad evaluation](PHASE12_REAL_AD_EVALUATION.md), [OCR audit](PHASE12_OCR_RELIABILITY_REPORT.md), [environment recovery](PHASE12_REGRESSION_ENVIRONMENT_RECOVERY.md), [product summary](PHASE12_PRODUCT_VALIDATION_SUMMARY.md) and [verification](PHASE12_VERIFICATION_AND_PRESERVATION.md).
 
 Phase 8 adds a separate **consumer–ad evidence check** to the default research-informed planner. Marketers can declare a product category, channel and targeting data source; the app checks for source/method/permission conflicts and explains which consumer response measurements are still missing. It does **not** calculate a consumer-fit score or predict relevance, discomfort or conversions. An optional company-audience mode is **designed only**: `phase8_audience_contract.py` validates a strict schema offline, but the app has no customer-file upload or live audience analysis. The [compatibility report](PHASE8_CONSUMER_AD_COMPATIBILITY_REPORT.md), [secondary-evidence search](PHASE8_SECONDARY_EVIDENCE_SEARCH.md), [architecture](PHASE8_HYBRID_STP_ARCHITECTURE.md) and [verification report](PHASE8_VERIFICATION_REPORT.md) document the scope.
 
@@ -77,14 +79,25 @@ python -m unittest discover -q
 python -c "from phase6_preservation_audit import verify; print(verify())"
 ```
 
-On the inspected Windows workspace, bare `python` points to Python 3.15 without the research packages. A verified full-suite command is:
+On the inspected Windows workspace, bare `python` points to Python 3.15 without the research packages. The earlier Anaconda research command was:
 
 ```powershell
 $env:PYTHONPATH = '.phase8_vendor'
 & 'C:\ProgramData\anaconda3\python.exe' -m unittest discover -q
 ```
 
-This uses the installed Anaconda environment and a project-local `pyreadstat` wheel. It passed **72 tests** on 8 November 2026. Package versions differ slightly from `requirements.txt`; see the Phase 8 verification report before claiming exact environment reproduction.
+On this machine that original command currently hits four Windows Application Control errors in the native SPSS reader. Phase 12's **test-only** compatible command uses installed R 4.6.1 and `foreign` without changing Windows policy:
+
+```powershell
+$env:PYTHONPATH = 'phase12_validation/compat;.phase8_vendor'
+$env:PHASE12_AD_CSV = 'C:\Users\imhar\Downloads\Advertising Image Dataset for Visual Analysis.csv'
+$env:PHASE12_AD_ZIP = 'C:\Users\imhar\Downloads\ad_images.zip'
+& 'C:\ProgramData\anaconda3\python.exe' -m unittest discover -q
+```
+
+The two `PHASE12_AD_*` variables activate source-file reproducibility checks and can be omitted elsewhere (those tests then skip). Download the files from the linked Mendeley source and check the SHA-256 values in `phase12_validation/real_ad_labels_v1.json`. Original ad images and CSVs are local analysis inputs and are excluded from Git.
+
+The earlier command passed **72 tests** on 8 November 2026 before the Windows policy block appeared; that is a historical result. The Phase 12 R-backed command passed **93/93** with both downloaded source-file variables set. Package versions differ slightly from `requirements.txt`.
 
 Saved experiment scripts intentionally refuse to overwrite their versioned outputs. To rerun research, use a **fresh copy** of the project or direct outputs to a new versioned destination. `results/phase6_repro_audit.json` records an exact replay of seven prior research experiments after the Phase 6 product edits. `results/phase6_preservation_audit.json` compares checkpoint hashes for research code, saved outputs, models, and selected original sources. `baselines/phase6-start-2026-11-07/` is the recoverable pre-change checkpoint. The full Criteo source archive is stored with Git LFS; clone with Git LFS enabled to retrieve it.
 

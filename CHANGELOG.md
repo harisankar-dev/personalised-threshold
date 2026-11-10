@@ -1,5 +1,13 @@
 # Changelog
 
+## 10 November 2026 — Phase 12 real-ad evaluation and test recovery
+
+- Tagged the clean Phase 11 commit `phase12-start-2026-11-09`; the pre-change full suite reproduced 90 tests with four Windows Application Control errors.
+- Audited a CC BY 4.0 listed social-ad dataset: 605 downloaded images/CSV rows, 84 repeated text rows and ten exact duplicate images beyond first. Kept original creative files out of Git.
+- Froze a 25-creative project-authored cue codebook/split. On 11 assessable held-out ads, the unchanged text screen missed both limited-time pressure cues; precision is undefined. Ten actual-image OCR observations expose text loss and a public contact-number false alert. No consumer-intrusion accuracy is claimed.
+- Added an explicit test-only R `foreign` SAV adapter. It exactly reproduces the saved Phase 7 aggregate and restores full-suite execution without altering Windows security, native binaries, research code or models.
+- Added Phase 12 reproducibility scripts, regression guards and seven reports. No marketer app, scoring weights, budget logic or five-level threshold behaviour changed.
+
 ## 9 November 2026 — Phase 11 product validation
 
 - Tagged the clean Phase 10 commit `phase11-start-2026-11-09`; rechecked 604 protected source/model/result hashes without modifying them.
