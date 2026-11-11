@@ -39,7 +39,7 @@ PRESSURE_CUES = [
     ("countdown_pressure", 3, re.compile(r"\b\d{1,2}\s*:\s*\d{2}\s*:\s*\d{2}(?:\s*:\s*\d{2})?\b|\b(?:timer|countdown)\s+(?:runs?\s+out|ends?|expires?)\b", re.I)),
     ("scarcity_claim", 2, re.compile(r"\b(?:limited stock|only\s+\d+\s+(?:left|remaining)|while stocks last|selling out)\b", re.I)),
     ("extreme_discount", 2, re.compile(r"\b(?:8\d|9\d|100)\s*%\s*off\b", re.I)),
-    ("urgent_call_to_action", 2, re.compile(r"\b(?:last chance|today only|click (?:the )?link now|act now|hurry|before the timer runs out|limited[ -]time (?:offers?|deals?|sale)|(?:offer|sale|deal) ends? (?:tonight|tomorrow|today|at midnight|on (?:monday|tuesday|wednesday|thursday|friday|saturday|sunday))|this weekend only|final day|(?:offer|sale|deal) valid until (?:monday|tuesday|wednesday|thursday|friday|saturday|sunday|tonight|tomorrow)|ends? at midnight|\d{1,2}[ -]hour special|only until (?:monday|tuesday|wednesday|thursday|friday|saturday|sunday|tonight|tomorrow)|last day to claim)\b", re.I)),
+    ("urgent_call_to_action", 2, re.compile(r"\b(?:last chance|today only|click (?:the )?link now|act now|hurry|before the timer runs out|limited[ -]time (?:offers?|deals?|sale)|limited time only|(?:offer|sale|deal) ends? (?:tonight|tomorrow|today|at midnight|on (?:monday|tuesday|wednesday|thursday|friday|saturday|sunday))|this weekend only|final day|(?:offer|sale|deal) valid until (?:monday|tuesday|wednesday|thursday|friday|saturday|sunday|tonight|tomorrow)|ends? at midnight|\d{1,2}[ -]hour special|only until (?:monday|tuesday|wednesday|thursday|friday|saturday|sunday|tonight|tomorrow)|last day to claim)\b", re.I)),
     ("alarmist_claim", 2, re.compile(r"\b(?:they do not want you to see|we get taken down|taken down|alert!{2,})\b", re.I)),
 ]
 EXCESSIVE_EXCLAMATION_PATTERN = re.compile(r"!{3,}")
@@ -187,6 +187,38 @@ def classify(text: str, targeting: str = "") -> dict:
             "reason": note, "review_flags": review_flags}
 
 
+def _ocr_alpha_words(text: str) -> list[str]:
+    """Count Latin words without treating punctuation or numerals as English evidence."""
+    return re.findall(r"[A-Za-z]{3,}", text)
+
+
+def _select_ocr_transcript(first: dict, second: dict | None = None) -> dict:
+    """Keep a single transcript; never append speculative second-pass lines.
+
+    A rescue pass is eligible only when the first pass has no Latin words at all.
+    Tesseract confidence is not calibrated, so even a high-confidence second
+    pass needs several alphabetic words before being shown as extracted text.
+    """
+    first_text = first["text"].strip()
+    first_words = _ocr_alpha_words(first_text)
+    if first_words or second is None:
+        severe = first["confidence"] < 35 and len(first_text) > 800
+        warning = ("OCR is severely garbled; review the image manually." if severe else
+                   None if first["confidence"] > 65 and len(first_words) >= 4 else
+                   "OCR may be partial or garbled; check visible text against the image.")
+        return {**first, "text": first_text, "passes": 1, "quality_warning": warning,
+                "severely_garbled": severe}
+    second_text = second["text"].strip()
+    second_words = _ocr_alpha_words(second_text)
+    rescued = second["confidence"] >= 60 and len(second_words) >= 4
+    warning = "OCR may be partial or garbled; check visible text against the image."
+    return {"text": second_text if rescued else first_text,
+            "confidence": first["confidence"],
+            "enhanced_confidence": second["confidence"], "passes": 2,
+            "quality_warning": warning, "severely_garbled": False,
+            "rescue_accepted": rescued}
+
+
 def ocr_image(path: Path) -> dict:
     if not path.is_file():
         raise FileNotFoundError(path)
@@ -200,10 +232,9 @@ def ocr_image(path: Path) -> dict:
         return json.loads(proc.stdout)
 
     first = recognize(path)
-    first_text = first["text"].strip()
-    if first["confidence"] > 65 and len(re.findall(r"[A-Za-z]{3,}", first_text)) >= 4:
-        return {**first, "passes": 1, "quality_warning": None}
-    # A single bounded second pass is preferable to indiscriminate transforms.
+    if _ocr_alpha_words(first["text"]):
+        return _select_ocr_transcript(first)
+    # Only an empty/non-Latin first pass receives a bounded rescue attempt.
     scratch = ROOT / ".ocr_tmp"
     scratch.mkdir(exist_ok=True)
     with tempfile.TemporaryDirectory(dir=scratch) as temporary:
@@ -219,22 +250,7 @@ def ocr_image(path: Path) -> dict:
             enhanced = Path(temporary) / "enhanced.png"
             image.save(enhanced)
         second = recognize(enhanced, "11")
-    lines = []
-    seen = set()
-    for transcript in (first_text, second["text"]):
-        for line in transcript.splitlines():
-            line = re.sub(r"\s+", " ", line).strip()
-            key = re.sub(r"[^a-z0-9]+", "", line.lower())
-            if key and key not in seen:
-                seen.add(key)
-                lines.append(line)
-    merged = "\n".join(lines)[:5000]
-    severe = (max(first["confidence"], second["confidence"]) < 35 and len(merged) > 800)
-    warning = ("OCR is severely garbled; review the image manually."
-               if severe else "OCR may be partial; check visible text against the image.")
-    return {"text": merged, "confidence": first["confidence"],
-            "enhanced_confidence": second["confidence"], "passes": 2,
-            "quality_warning": warning, "severely_garbled": severe}
+    return _select_ocr_transcript(first, second)
 
 
 def predict(text: str = "", image: Path | None = None, targeting: str = "", visual_description: str = "") -> dict:

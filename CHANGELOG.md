@@ -1,5 +1,12 @@
 # Changelog
 
+## 11 November 2026 — Phase 14 conservative OCR and real-ad cue audit
+
+- Tagged the clean Phase 13 commit `phase14-start-2026-11-11`, froze two development and two fresh real-ad cases with source hashes and bounded visual references, and kept source images/OCR dumps out of Git.
+- Replaced append-all-lines second-pass OCR with single-transcript selection and a tightly gated rescue. Development-region CER/WER recovered to original-pass values; two fresh test regions showed no OCR accuracy or phrase-recovery gain over the original pass. Added a development-supported `limited time only` cue phrase without changing weights.
+- Detected one genuine real-ad deadline through the image pipeline. Found a separate real marketing-email surveillance phrase missed by text rules; no privacy-positive image recall is claimed.
+- Added eight Phase 14 tests, 23 real Chrome checks, aggregate-only metrics and seven reports. The full suite passed 110 tests; 604 protected artifacts remained unchanged. STP budget gates and five-level abstention remain.
+
 ## 11 November 2026 — Phase 13 OCR and creative-cue repair
 
 - Tagged the clean Phase 12 commit `phase13-start-2026-11-11`; preserved 604 protected source/model/result files.

@@ -1,0 +1,16 @@
+# Phase 14 English ad sources and rights
+
+## Selection
+
+| Source | What was checked | Rights and decision |
+| --- | --- | --- |
+| [Wikimedia Commons, Altair 8800 Byte ad (1976)](https://commons.wikimedia.org/wiki/File:Altair_8800_Computer_kit_-_Apr_1976_Byte_%22limited_time%22_advert.jpg) | Original 2448×3261 English scan; genuine limited-time headline and dated offer | Commons marks the US advertisement public domain because it was published without a copyright notice. One image used as fresh test. Rights assertion not independently adjudicated. |
+| [Wikimedia Commons, Gold Dust Washing Powder ad (1903)](https://commons.wikimedia.org/wiki/File:Gold_Dust_Washing_Powder_(1903)_(ADVERT_439).jpeg) | Original 1354×2000 English trade ad; actual limited-time wording and seller order instruction | Published before 1931 and marked public domain on Commons. One image used as development. |
+| [Salem et al., Advertising Images Dataset for Visual Analysis, Mendeley Data v1](https://data.mendeley.com/datasets/32grwbk6rv/1) | Existing 605-image local download; new IDs 540 and 532 have bounded English text amid Arabic artwork | Dataset page lists CC BY 4.0; underlying social creative rights were not independently established. One development and one fresh test image used locally; no original images committed. |
+| [Historical web banner dataset, Zenodo](https://zenodo.org/records/8408539) | 22,915 banner metadata records; 215 MB JSON, no released image files | Metadata CC BY 4.0 does not supply source-image reuse or independently checked transcripts. Excluded from image evaluation. |
+| [Pitt Image/Video Ads Dataset](https://huggingface.co/datasets/creative-graphic-design/PittImageVideoAdsDataset/blob/main/README.md) | Large ad collection candidate | Dataset card says license unknown. Excluded. |
+| [Ragtrader report of a YP Threads email](https://www.ragtrader.com.au/news/we-know-where-you-live-is-this-the-worst-fashion-campaign-of-2018) | Article quotes actual email wording implying personal location knowledge | Text-only, short excerpt used for a diagnostic; no image copied. Article context, not a licensed image set or independent privacy annotation. |
+
+All selected images are secondary material. The two Commons originals were downloaded to ignored `phase14_validation/local_source/`; the two Salem images were copied locally from the already downloaded archive. Their exact hashes and region boxes are in `phase14_validation/frozen_reference_v1.json`; dataset archive SHA-256 is `b397f56216094a616a8e2b7a4b1af84afaf4155447d6f51801a9304406f8337c`. No source image, downloaded archive, respondent record or full OCR dump is staged. The four creatives are distinct by source/brand and SHA-256, but a broad near-duplicate search of all advertising archives was not performed.
+
+No reuse-cleared real English **image** of a viewer-specific identity or browsing-history claim was found in this focused search. A modern screenshot, public webpage or image search result does not automatically confer redistribution rights. The historical ads are valid OCR and time-pressure examples but cannot represent modern personalized platform ads. The Salem source is mostly Arabic. The selected set is too small and source-skewed to estimate production performance.

@@ -1,5 +1,9 @@
 # 49C project status — secondary data only
 
+## Phase 14 status — 11 November 2026
+
+Conservative single-transcript English OCR removed a measured development-set insertion regression from Phase 13. It **did not improve** CER/WER or exact phrase recovery on two fresh real-ad test regions relative to the original pass. One genuine real limited-time image was detected end to end, while a reported real marketing email line implying knowledge of the recipient's location was a text-rule false negative and returned 0/10. No privacy-positive image recall can be claimed. The app remains human-reviewed, the STP budget/permission logic is preserved, and the five-level threshold remains `insufficient_evidence`. Post-change: 110 tests and 23 Chrome checks passed; 604 protected hashes unchanged. See the seven Phase 14 reports and versioned aggregate metrics.
+
 ## Phase 13 status — 11 November 2026
 
 The local OCR pipeline now conditionally adds a bounded enhanced pass and flags partial/garbled output. Seller contacts no longer automatically trigger a six-point viewer-identifier alarm; explicit viewer claims and common promotional deadlines are detected in synthetic functional tests. Six new reserved real ads improved exact checked-phrase recovery 4/18→6/18 and removed one seller-email false high, but two complete headline crops had worse CER/WER. No real positive urgency or viewer-identity examples were present, so real-ad recall is unknown. English image screening remains review-assisted, not generally dependable or consumer-validated. All 21 Chrome checks and 102 regression tests passed; all 604 protected files remained unchanged. STP costs, permission holds, Mode B's offline boundary and five-level `insufficient_evidence` remain. See the seven Phase 13 reports.
