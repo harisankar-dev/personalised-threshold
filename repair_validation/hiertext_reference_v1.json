@@ -1,0 +1,1579 @@
+{
+  "version": "english_ocr_repair_hiertext_v1",
+  "frozen_before_ocr": true,
+  "source": "HierText v1.0 validation split (Open Images JPGs)",
+  "source_url": "https://github.com/google-research-datasets/hiertext",
+  "license": "CC BY-SA 4.0",
+  "annotation_sha256": "ce7085d8bf24c2f13df852715c34494e6748cafcabb4bfc7a6e2bb320f58d23a",
+  "image_archive_md5": "6a055aff4c749e43fcfbe9027d017904",
+  "selection": "24 visually inspected advertising-relevant images; exact official legible printed line labels",
+  "metric_scope": "CER/WER on 48 complete bounded line crops; exact phrase recovery on 24 full images",
+  "annotation_provenance": "Official HierText labels; no project-authored transcription",
+  "closest_dhash_pair": {
+    "left": "6a45c292e1c487dc",
+    "right": "bdc508254b92ff40",
+    "hamming": 18
+  },
+  "cases": [
+    {
+      "image_id": "11863e2d22a0dc6f",
+      "split": "development",
+      "width": 1200,
+      "height": 1600,
+      "sha256": "7edfeae09b5ba4177185e64cc792a7aa63599fd310ea7ef9d7799a4857a21dee",
+      "lines": [
+        {
+          "reference": "WE WON'T CRUMBLE",
+          "vertices": [
+            [
+              501,
+              775
+            ],
+            [
+              639,
+              669
+            ],
+            [
+              655,
+              690
+            ],
+            [
+              516,
+              795
+            ]
+          ],
+          "crop_box": [
+            495,
+            663,
+            661,
+            801
+          ],
+          "local_crop": "11863e2d22a0dc6f_1.png"
+        },
+        {
+          "reference": "FREE",
+          "vertices": [
+            [
+              335,
+              989
+            ],
+            [
+              488,
+              1055
+            ],
+            [
+              449,
+              1146
+            ],
+            [
+              295,
+              1079
+            ]
+          ],
+          "crop_box": [
+            289,
+            983,
+            494,
+            1152
+          ],
+          "local_crop": "11863e2d22a0dc6f_2.png"
+        }
+      ]
+    },
+    {
+      "image_id": "30a7208a7004d7f4",
+      "split": "development",
+      "width": 1280,
+      "height": 960,
+      "sha256": "7b0f636a112b86a7a273075a14521ab8a60f040256b6c846fa16afb5a762b033",
+      "lines": [
+        {
+          "reference": "Get your FREE Cingular ringtone",
+          "vertices": [
+            [
+              39,
+              63
+            ],
+            [
+              1279,
+              92
+            ],
+            [
+              1277,
+              183
+            ],
+            [
+              36,
+              153
+            ]
+          ],
+          "crop_box": [
+            30,
+            57,
+            1280,
+            189
+          ],
+          "local_crop": "30a7208a7004d7f4_1.png"
+        },
+        {
+          "reference": "Visit www.cingularringtone.com",
+          "vertices": [
+            [
+              81,
+              530
+            ],
+            [
+              701,
+              538
+            ],
+            [
+              701,
+              581
+            ],
+            [
+              80,
+              572
+            ]
+          ],
+          "crop_box": [
+            74,
+            524,
+            707,
+            587
+          ],
+          "local_crop": "30a7208a7004d7f4_2.png"
+        }
+      ]
+    },
+    {
+      "image_id": "37e0eb8fecffbbac",
+      "split": "development",
+      "width": 1600,
+      "height": 1200,
+      "sha256": "9c1fcdc53014a6be41b7cd398caedd051898705886617919661c564380556fdf",
+      "lines": [
+        {
+          "reference": "Distributors",
+          "vertices": [
+            [
+              665,
+              201
+            ],
+            [
+              932,
+              219
+            ],
+            [
+              928,
+              273
+            ],
+            [
+              661,
+              255
+            ]
+          ],
+          "crop_box": [
+            655,
+            195,
+            938,
+            279
+          ],
+          "local_crop": "37e0eb8fecffbbac_1.png"
+        },
+        {
+          "reference": "Run your own business without the usual risks...",
+          "vertices": [
+            [
+              666,
+              352
+            ],
+            [
+              1029,
+              390
+            ],
+            [
+              1027,
+              413
+            ],
+            [
+              663,
+              374
+            ]
+          ],
+          "crop_box": [
+            657,
+            346,
+            1035,
+            419
+          ],
+          "local_crop": "37e0eb8fecffbbac_2.png"
+        }
+      ]
+    },
+    {
+      "image_id": "38b9387bf8718119",
+      "split": "development",
+      "width": 1224,
+      "height": 1595,
+      "sha256": "97253b1e7a5658be07a81b0403528d3f498dae921cf228275c585d81b4936441",
+      "lines": [
+        {
+          "reference": "Our Ceiling Prices",
+          "vertices": [
+            [
+              437,
+              307
+            ],
+            [
+              757,
+              302
+            ],
+            [
+              758,
+              347
+            ],
+            [
+              437,
+              351
+            ]
+          ],
+          "crop_box": [
+            431,
+            296,
+            764,
+            357
+          ],
+          "local_crop": "38b9387bf8718119_1.png"
+        },
+        {
+          "reference": "WHICH WE OFFER YOU",
+          "vertices": [
+            [
+              492,
+              230
+            ],
+            [
+              701,
+              228
+            ],
+            [
+              702,
+              240
+            ],
+            [
+              492,
+              242
+            ]
+          ],
+          "crop_box": [
+            486,
+            222,
+            708,
+            248
+          ],
+          "local_crop": "38b9387bf8718119_2.png"
+        }
+      ]
+    },
+    {
+      "image_id": "4ec11f80acf62dd9",
+      "split": "development",
+      "width": 1126,
+      "height": 1600,
+      "sha256": "468b2138b83d0ba9e9ebe8dc828fe1d5bbdbf25adba2372ce638b5bb5cf1f698",
+      "lines": [
+        {
+          "reference": "THIS AD IS WORTH $150.",
+          "vertices": [
+            [
+              66,
+              43
+            ],
+            [
+              1033,
+              39
+            ],
+            [
+              1034,
+              123
+            ],
+            [
+              66,
+              126
+            ]
+          ],
+          "crop_box": [
+            60,
+            33,
+            1040,
+            132
+          ],
+          "local_crop": "4ec11f80acf62dd9_1.png"
+        },
+        {
+          "reference": "MEMBERS' OFFER ONLY",
+          "vertices": [
+            [
+              92,
+              1257
+            ],
+            [
+              533,
+              1257
+            ],
+            [
+              533,
+              1281
+            ],
+            [
+              92,
+              1281
+            ]
+          ],
+          "crop_box": [
+            86,
+            1251,
+            539,
+            1287
+          ],
+          "local_crop": "4ec11f80acf62dd9_2.png"
+        }
+      ]
+    },
+    {
+      "image_id": "5dabe808217bfd83",
+      "split": "development",
+      "width": 1000,
+      "height": 667,
+      "sha256": "ce3812d33582ece7284963cfa7bab4197b4d01696e5a6217e9cfdfa4ca3beed4",
+      "lines": [
+        {
+          "reference": "HALF ORIGINAL PRICE",
+          "vertices": [
+            [
+              871,
+              621
+            ],
+            [
+              980,
+              627
+            ],
+            [
+              980,
+              634
+            ],
+            [
+              870,
+              627
+            ]
+          ],
+          "crop_box": [
+            864,
+            615,
+            986,
+            640
+          ],
+          "local_crop": "5dabe808217bfd83_1.png"
+        },
+        {
+          "reference": "MASSIVE SAVINGS",
+          "vertices": [
+            [
+              584,
+              582
+            ],
+            [
+              727,
+              589
+            ],
+            [
+              727,
+              603
+            ],
+            [
+              583,
+              595
+            ]
+          ],
+          "crop_box": [
+            577,
+            576,
+            733,
+            609
+          ],
+          "local_crop": "5dabe808217bfd83_2.png"
+        }
+      ]
+    },
+    {
+      "image_id": "7a7d0f471fe900e2",
+      "split": "development",
+      "width": 638,
+      "height": 597,
+      "sha256": "2d45cbaca748d9c8a970fadb566242dd9beb2220f22615c7aa20ba82589d0c4a",
+      "lines": [
+        {
+          "reference": "ANGELICA'S CLEANING",
+          "vertices": [
+            [
+              145,
+              17
+            ],
+            [
+              481,
+              17
+            ],
+            [
+              481,
+              40
+            ],
+            [
+              145,
+              40
+            ]
+          ],
+          "crop_box": [
+            139,
+            11,
+            487,
+            46
+          ],
+          "local_crop": "7a7d0f471fe900e2_1.png"
+        },
+        {
+          "reference": "Your One Stop Cleaning Source for your home-house or business buildings!",
+          "vertices": [
+            [
+              139,
+              307
+            ],
+            [
+              477,
+              307
+            ],
+            [
+              477,
+              316
+            ],
+            [
+              139,
+              316
+            ]
+          ],
+          "crop_box": [
+            133,
+            301,
+            483,
+            322
+          ],
+          "local_crop": "7a7d0f471fe900e2_2.png"
+        }
+      ]
+    },
+    {
+      "image_id": "8e7b2fac5ee696ce",
+      "split": "development",
+      "width": 1065,
+      "height": 1600,
+      "sha256": "0cf919f5e320c95d08993ee667fa5e2570d32f998b0ccb23fa3bfd51e97cfb05",
+      "lines": [
+        {
+          "reference": "FUn FACTORy ReUnIOn",
+          "vertices": [
+            [
+              15,
+              241
+            ],
+            [
+              957,
+              260
+            ],
+            [
+              955,
+              358
+            ],
+            [
+              12,
+              338
+            ]
+          ],
+          "crop_box": [
+            6,
+            235,
+            963,
+            364
+          ],
+          "local_crop": "8e7b2fac5ee696ce_1.png"
+        },
+        {
+          "reference": "17 OCTOBeR 2009",
+          "vertices": [
+            [
+              185,
+              184
+            ],
+            [
+              802,
+              198
+            ],
+            [
+              801,
+              248
+            ],
+            [
+              183,
+              233
+            ]
+          ],
+          "crop_box": [
+            177,
+            178,
+            808,
+            254
+          ],
+          "local_crop": "8e7b2fac5ee696ce_2.png"
+        }
+      ]
+    },
+    {
+      "image_id": "95c199bdff1a4128",
+      "split": "development",
+      "width": 1600,
+      "height": 1195,
+      "sha256": "8a863d31bd70527755ab18ccd732048babb382034a080885a24c6d2e85740e68",
+      "lines": [
+        {
+          "reference": "FREE",
+          "vertices": [
+            [
+              160,
+              128
+            ],
+            [
+              775,
+              115
+            ],
+            [
+              779,
+              284
+            ],
+            [
+              163,
+              297
+            ]
+          ],
+          "crop_box": [
+            154,
+            109,
+            785,
+            303
+          ],
+          "local_crop": "95c199bdff1a4128_1.png"
+        },
+        {
+          "reference": "Xbox Live Gold Trial",
+          "vertices": [
+            [
+              180,
+              455
+            ],
+            [
+              804,
+              432
+            ],
+            [
+              806,
+              480
+            ],
+            [
+              181,
+              502
+            ]
+          ],
+          "crop_box": [
+            174,
+            426,
+            812,
+            508
+          ],
+          "local_crop": "95c199bdff1a4128_2.png"
+        }
+      ]
+    },
+    {
+      "image_id": "a018d36e4dea2053",
+      "split": "development",
+      "width": 1000,
+      "height": 1499,
+      "sha256": "b69e0f6a69eaaca69ea242f64f2221173a56ec930004f8f6f9c17443cf7999de",
+      "lines": [
+        {
+          "reference": "SUBSCRIBE and SAVE",
+          "vertices": [
+            [
+              453,
+              43
+            ],
+            [
+              969,
+              43
+            ],
+            [
+              969,
+              122
+            ],
+            [
+              453,
+              122
+            ]
+          ],
+          "crop_box": [
+            447,
+            37,
+            975,
+            128
+          ],
+          "local_crop": "a018d36e4dea2053_1.png"
+        },
+        {
+          "reference": "SUBSCRIBE NOW! SAVE 25¢",
+          "vertices": [
+            [
+              490,
+              354
+            ],
+            [
+              969,
+              354
+            ],
+            [
+              969,
+              389
+            ],
+            [
+              490,
+              389
+            ]
+          ],
+          "crop_box": [
+            484,
+            348,
+            975,
+            395
+          ],
+          "local_crop": "a018d36e4dea2053_2.png"
+        }
+      ]
+    },
+    {
+      "image_id": "dd97f087faa88397",
+      "split": "development",
+      "width": 1186,
+      "height": 1600,
+      "sha256": "250a96995ab671e3a1d3aa3a1094d0742f076a6db3641b6b1c7d17db1ce7da24",
+      "lines": [
+        {
+          "reference": "ENTRÉE SPECIAL",
+          "vertices": [
+            [
+              399,
+              433
+            ],
+            [
+              792,
+              430
+            ],
+            [
+              793,
+              474
+            ],
+            [
+              399,
+              476
+            ]
+          ],
+          "crop_box": [
+            393,
+            424,
+            799,
+            482
+          ],
+          "local_crop": "dd97f087faa88397_1.png"
+        },
+        {
+          "reference": "Sriracha Glazed Snapper",
+          "vertices": [
+            [
+              436,
+              495
+            ],
+            [
+              778,
+              491
+            ],
+            [
+              779,
+              522
+            ],
+            [
+              436,
+              525
+            ]
+          ],
+          "crop_box": [
+            430,
+            485,
+            785,
+            531
+          ],
+          "local_crop": "dd97f087faa88397_2.png"
+        }
+      ]
+    },
+    {
+      "image_id": "e1558ad38983d294",
+      "split": "development",
+      "width": 1083,
+      "height": 1600,
+      "sha256": "77df98824f9abd1ad95e9fda2a827bc036774c79c1ad24cc975cb1cd7b7d4613",
+      "lines": [
+        {
+          "reference": "Don't try this",
+          "vertices": [
+            [
+              194,
+              957
+            ],
+            [
+              483,
+              957
+            ],
+            [
+              483,
+              1007
+            ],
+            [
+              194,
+              1007
+            ]
+          ],
+          "crop_box": [
+            188,
+            951,
+            489,
+            1013
+          ],
+          "local_crop": "e1558ad38983d294_1.png"
+        },
+        {
+          "reference": "with any other motor",
+          "vertices": [
+            [
+              117,
+              1014
+            ],
+            [
+              571,
+              1014
+            ],
+            [
+              571,
+              1063
+            ],
+            [
+              117,
+              1063
+            ]
+          ],
+          "crop_box": [
+            111,
+            1008,
+            577,
+            1069
+          ],
+          "local_crop": "e1558ad38983d294_2.png"
+        }
+      ]
+    },
+    {
+      "image_id": "3025b88f005c3de4",
+      "split": "test",
+      "width": 1200,
+      "height": 1600,
+      "sha256": "772065691d1d259a21f4221a6032d7aba0faa9cb69ad53528f1363a3e203aacb",
+      "lines": [
+        {
+          "reference": "35% Off!",
+          "vertices": [
+            [
+              553,
+              434
+            ],
+            [
+              631,
+              427
+            ],
+            [
+              632,
+              437
+            ],
+            [
+              553,
+              444
+            ]
+          ],
+          "crop_box": [
+            547,
+            421,
+            638,
+            450
+          ],
+          "local_crop": "3025b88f005c3de4_1.png"
+        },
+        {
+          "reference": "Buy today from",
+          "vertices": [
+            [
+              532,
+              448
+            ],
+            [
+              611,
+              443
+            ],
+            [
+              612,
+              451
+            ],
+            [
+              532,
+              456
+            ]
+          ],
+          "crop_box": [
+            526,
+            437,
+            618,
+            462
+          ],
+          "local_crop": "3025b88f005c3de4_2.png"
+        }
+      ]
+    },
+    {
+      "image_id": "48904c0fff1c7fcb",
+      "split": "test",
+      "width": 1200,
+      "height": 1600,
+      "sha256": "2a12eed65776919e9e8fd072db2bd2cd48f2882336b96eb4c9321ba8af6c8491",
+      "lines": [
+        {
+          "reference": "Organic foods",
+          "vertices": [
+            [
+              465,
+              271
+            ],
+            [
+              641,
+              296
+            ],
+            [
+              634,
+              340
+            ],
+            [
+              458,
+              315
+            ]
+          ],
+          "crop_box": [
+            452,
+            265,
+            647,
+            346
+          ],
+          "local_crop": "48904c0fff1c7fcb_1.png"
+        },
+        {
+          "reference": "EA AND COFFEE SELECTION",
+          "vertices": [
+            [
+              419,
+              209
+            ],
+            [
+              691,
+              267
+            ],
+            [
+              686,
+              293
+            ],
+            [
+              413,
+              234
+            ]
+          ],
+          "crop_box": [
+            407,
+            203,
+            697,
+            299
+          ],
+          "local_crop": "48904c0fff1c7fcb_2.png"
+        }
+      ]
+    },
+    {
+      "image_id": "4976c8479dc54b42",
+      "split": "test",
+      "width": 1600,
+      "height": 1265,
+      "sha256": "6f3e851113afee392cef8019e73f0cc36eaa9aa323b09440204dd92163f251ad",
+      "lines": [
+        {
+          "reference": "Here's why the new Inner Ford rides silent, solid and secure!",
+          "vertices": [
+            [
+              155,
+              60
+            ],
+            [
+              1413,
+              55
+            ],
+            [
+              1414,
+              90
+            ],
+            [
+              155,
+              94
+            ]
+          ],
+          "crop_box": [
+            149,
+            49,
+            1420,
+            100
+          ],
+          "local_crop": "4976c8479dc54b42_1.png"
+        },
+        {
+          "reference": "Six or V-8-the going is great! Pick your GO... and love it!",
+          "vertices": [
+            [
+              444,
+              980
+            ],
+            [
+              1134,
+              981
+            ],
+            [
+              1134,
+              1006
+            ],
+            [
+              443,
+              1004
+            ]
+          ],
+          "crop_box": [
+            437,
+            974,
+            1140,
+            1012
+          ],
+          "local_crop": "4976c8479dc54b42_2.png"
+        }
+      ]
+    },
+    {
+      "image_id": "58a0e272f66d774d",
+      "split": "test",
+      "width": 1600,
+      "height": 1200,
+      "sha256": "f246a81048e3755f590630f305b4e79006ac654026362a4aa61a7d7838e6aef1",
+      "lines": [
+        {
+          "reference": "$5 Launch Special",
+          "vertices": [
+            [
+              658,
+              847
+            ],
+            [
+              728,
+              849
+            ],
+            [
+              728,
+              857
+            ],
+            [
+              657,
+              854
+            ]
+          ],
+          "crop_box": [
+            651,
+            841,
+            734,
+            863
+          ],
+          "local_crop": "58a0e272f66d774d_1.png"
+        },
+        {
+          "reference": "Socialize over creativity.",
+          "vertices": [
+            [
+              1354,
+              357
+            ],
+            [
+              1517,
+              359
+            ],
+            [
+              1517,
+              374
+            ],
+            [
+              1353,
+              371
+            ]
+          ],
+          "crop_box": [
+            1347,
+            351,
+            1523,
+            380
+          ],
+          "local_crop": "58a0e272f66d774d_2.png"
+        }
+      ]
+    },
+    {
+      "image_id": "6a45c292e1c487dc",
+      "split": "test",
+      "width": 1007,
+      "height": 997,
+      "sha256": "4d1e082c82890d40ed602cc4dac236638736b932d8c5b34896f43b8b641996f6",
+      "lines": [
+        {
+          "reference": "For a very limited time we are offering the award-winning Ocean for only $99 when you sign",
+          "vertices": [
+            [
+              232,
+              455
+            ],
+            [
+              760,
+              455
+            ],
+            [
+              760,
+              468
+            ],
+            [
+              232,
+              468
+            ]
+          ],
+          "crop_box": [
+            226,
+            449,
+            766,
+            474
+          ],
+          "local_crop": "6a45c292e1c487dc_1.png"
+        },
+        {
+          "reference": "Get an Ocean on Helio.com, by calling us at 888.88.HELIO or at any Helio location.",
+          "vertices": [
+            [
+              232,
+              577
+            ],
+            [
+              698,
+              577
+            ],
+            [
+              698,
+              590
+            ],
+            [
+              232,
+              590
+            ]
+          ],
+          "crop_box": [
+            226,
+            571,
+            704,
+            596
+          ],
+          "local_crop": "6a45c292e1c487dc_2.png"
+        }
+      ]
+    },
+    {
+      "image_id": "7333961186f566fc",
+      "split": "test",
+      "width": 1600,
+      "height": 1066,
+      "sha256": "60c7582d31b32c9b9a572cbf0cb6a750ce4b9b3b78d7f305f6029f665ead7ffb",
+      "lines": [
+        {
+          "reference": "BUY ONE",
+          "vertices": [
+            [
+              1119,
+              427
+            ],
+            [
+              1163,
+              429
+            ],
+            [
+              1163,
+              447
+            ],
+            [
+              1118,
+              444
+            ]
+          ],
+          "crop_box": [
+            1112,
+            421,
+            1169,
+            453
+          ],
+          "local_crop": "7333961186f566fc_1.png"
+        },
+        {
+          "reference": "SPECIAL OFFER!",
+          "vertices": [
+            [
+              317,
+              615
+            ],
+            [
+              453,
+              613
+            ],
+            [
+              454,
+              628
+            ],
+            [
+              317,
+              630
+            ]
+          ],
+          "crop_box": [
+            311,
+            607,
+            460,
+            636
+          ],
+          "local_crop": "7333961186f566fc_2.png"
+        }
+      ]
+    },
+    {
+      "image_id": "77ae21eab2f51710",
+      "split": "test",
+      "width": 1116,
+      "height": 1600,
+      "sha256": "f296071b7aa3c3d57207b54ccb128335af2133bdaada2a3be7178401deb796f9",
+      "lines": [
+        {
+          "reference": "stay fresh in Frigidaire",
+          "vertices": [
+            [
+              20,
+              111
+            ],
+            [
+              696,
+              98
+            ],
+            [
+              698,
+              189
+            ],
+            [
+              21,
+              201
+            ]
+          ],
+          "crop_box": [
+            14,
+            92,
+            704,
+            207
+          ],
+          "local_crop": "77ae21eab2f51710_1.png"
+        },
+        {
+          "reference": "Visit the nearest Frigidaire sales office or",
+          "vertices": [
+            [
+              609,
+              1090
+            ],
+            [
+              1023,
+              1090
+            ],
+            [
+              1023,
+              1117
+            ],
+            [
+              609,
+              1117
+            ]
+          ],
+          "crop_box": [
+            603,
+            1084,
+            1029,
+            1123
+          ],
+          "local_crop": "77ae21eab2f51710_2.png"
+        }
+      ]
+    },
+    {
+      "image_id": "992966bb8f545ecb",
+      "split": "test",
+      "width": 1024,
+      "height": 1024,
+      "sha256": "dc8eebcb2136b3575eff372bbbd85c5f2bb2051f56290e4fd775d86925f688e1",
+      "lines": [
+        {
+          "reference": "SPRING SPECIAL!",
+          "vertices": [
+            [
+              220,
+              619
+            ],
+            [
+              341,
+              606
+            ],
+            [
+              342,
+              620
+            ],
+            [
+              221,
+              632
+            ]
+          ],
+          "crop_box": [
+            214,
+            600,
+            348,
+            638
+          ],
+          "local_crop": "992966bb8f545ecb_1.png"
+        },
+        {
+          "reference": "FREE RENT",
+          "vertices": [
+            [
+              71,
+              576
+            ],
+            [
+              161,
+              595
+            ],
+            [
+              157,
+              614
+            ],
+            [
+              66,
+              595
+            ]
+          ],
+          "crop_box": [
+            60,
+            570,
+            167,
+            620
+          ],
+          "local_crop": "992966bb8f545ecb_2.png"
+        }
+      ]
+    },
+    {
+      "image_id": "bdc508254b92ff40",
+      "split": "test",
+      "width": 1200,
+      "height": 1600,
+      "sha256": "d7a4ca7c31e7b870f309e5e362fcbb1179c35d11da8ed4eb5e38d1fb0a9a3375",
+      "lines": [
+        {
+          "reference": "INVEST IN YOUR",
+          "vertices": [
+            [
+              492,
+              274
+            ],
+            [
+              706,
+              271
+            ],
+            [
+              707,
+              292
+            ],
+            [
+              492,
+              294
+            ]
+          ],
+          "crop_box": [
+            486,
+            265,
+            713,
+            300
+          ],
+          "local_crop": "bdc508254b92ff40_1.png"
+        },
+        {
+          "reference": "Oregon Community Public Offering Law",
+          "vertices": [
+            [
+              354,
+              534
+            ],
+            [
+              842,
+              530
+            ],
+            [
+              843,
+              557
+            ],
+            [
+              354,
+              560
+            ]
+          ],
+          "crop_box": [
+            348,
+            524,
+            849,
+            566
+          ],
+          "local_crop": "bdc508254b92ff40_2.png"
+        }
+      ]
+    },
+    {
+      "image_id": "d19b4b14a1d1e02b",
+      "split": "test",
+      "width": 1600,
+      "height": 1195,
+      "sha256": "d6c66272070c0a5af38681cd0dae2ef6515030c9f18ae38e878039d4e2ced28d",
+      "lines": [
+        {
+          "reference": "sale limited time only",
+          "vertices": [
+            [
+              198,
+              951
+            ],
+            [
+              518,
+              957
+            ],
+            [
+              518,
+              1002
+            ],
+            [
+              197,
+              995
+            ]
+          ],
+          "crop_box": [
+            191,
+            945,
+            524,
+            1008
+          ],
+          "local_crop": "d19b4b14a1d1e02b_1.png"
+        },
+        {
+          "reference": "limited time only",
+          "vertices": [
+            [
+              778,
+              1160
+            ],
+            [
+              950,
+              1152
+            ],
+            [
+              952,
+              1187
+            ],
+            [
+              779,
+              1194
+            ]
+          ],
+          "crop_box": [
+            772,
+            1146,
+            958,
+            1195
+          ],
+          "local_crop": "d19b4b14a1d1e02b_2.png"
+        }
+      ]
+    },
+    {
+      "image_id": "e6038450c7e33596",
+      "split": "test",
+      "width": 899,
+      "height": 1599,
+      "sha256": "16fbe074a3669ce91da2b22883fe7a5e2192a7fb2893ff054e6520bad81e06d1",
+      "lines": [
+        {
+          "reference": "PROCLAIMERS",
+          "vertices": [
+            [
+              124,
+              215
+            ],
+            [
+              683,
+              203
+            ],
+            [
+              686,
+              347
+            ],
+            [
+              127,
+              359
+            ]
+          ],
+          "crop_box": [
+            118,
+            197,
+            692,
+            365
+          ],
+          "local_crop": "e6038450c7e33596_1.png"
+        },
+        {
+          "reference": "GATES 6PM. VISIT THE MAGNERS FANTASTIC FOOD & BARS",
+          "vertices": [
+            [
+              153,
+              60
+            ],
+            [
+              663,
+              41
+            ],
+            [
+              664,
+              61
+            ],
+            [
+              153,
+              79
+            ]
+          ],
+          "crop_box": [
+            147,
+            35,
+            670,
+            85
+          ],
+          "local_crop": "e6038450c7e33596_2.png"
+        }
+      ]
+    },
+    {
+      "image_id": "f4711b48d0b52640",
+      "split": "test",
+      "width": 1200,
+      "height": 1600,
+      "sha256": "490ba9a68c213584bdc312aa9b13867997d8fc70a67d8de2a2f5eaaed3b735a1",
+      "lines": [
+        {
+          "reference": "SIMMONS MATTRESS TRUCKLOAD SALE UNTIL",
+          "vertices": [
+            [
+              437,
+              115
+            ],
+            [
+              745,
+              94
+            ],
+            [
+              746,
+              117
+            ],
+            [
+              438,
+              137
+            ]
+          ],
+          "crop_box": [
+            431,
+            88,
+            752,
+            143
+          ],
+          "local_crop": "f4711b48d0b52640_1.png"
+        },
+        {
+          "reference": "UNBEATABLE VALUES!",
+          "vertices": [
+            [
+              599,
+              174
+            ],
+            [
+              783,
+              166
+            ],
+            [
+              784,
+              192
+            ],
+            [
+              600,
+              200
+            ]
+          ],
+          "crop_box": [
+            593,
+            160,
+            790,
+            206
+          ],
+          "local_crop": "f4711b48d0b52640_2.png"
+        }
+      ]
+    }
+  ]
+}

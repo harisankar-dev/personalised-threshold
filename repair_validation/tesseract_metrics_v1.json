@@ -1,0 +1,212 @@
+{
+  "development": {
+    "engine": "production Tesseract.js 7.0.0 through intrusive_ad_model.ocr_image",
+    "reference": "repair_validation\\hiertext_reference_v1.json",
+    "reference_version": "english_ocr_repair_hiertext_v1",
+    "split": "development",
+    "images": 12,
+    "line_crops": 24,
+    "cer": 0.4951,
+    "wer": 0.9157,
+    "character_insertions": 180,
+    "word_insertions": 51,
+    "phrase_recovery": 8,
+    "phrase_total": 24,
+    "empty_line_crops": 3,
+    "empty_full_images": 0,
+    "failures": 0,
+    "median_line_seconds": 0.359,
+    "median_full_seconds": 1.335,
+    "cases": [
+      {
+        "image_id": "11863e2d22a0dc6f",
+        "phrases_recovered": 0,
+        "phrases_total": 2,
+        "full_seconds": 0.799,
+        "full_empty": false
+      },
+      {
+        "image_id": "30a7208a7004d7f4",
+        "phrases_recovered": 0,
+        "phrases_total": 2,
+        "full_seconds": 0.626,
+        "full_empty": false
+      },
+      {
+        "image_id": "37e0eb8fecffbbac",
+        "phrases_recovered": 1,
+        "phrases_total": 2,
+        "full_seconds": 0.723,
+        "full_empty": false
+      },
+      {
+        "image_id": "38b9387bf8718119",
+        "phrases_recovered": 2,
+        "phrases_total": 2,
+        "full_seconds": 3.014,
+        "full_empty": false
+      },
+      {
+        "image_id": "4ec11f80acf62dd9",
+        "phrases_recovered": 1,
+        "phrases_total": 2,
+        "full_seconds": 1.55,
+        "full_empty": false
+      },
+      {
+        "image_id": "5dabe808217bfd83",
+        "phrases_recovered": 0,
+        "phrases_total": 2,
+        "full_seconds": 0.793,
+        "full_empty": false
+      },
+      {
+        "image_id": "7a7d0f471fe900e2",
+        "phrases_recovered": 0,
+        "phrases_total": 2,
+        "full_seconds": 0.835,
+        "full_empty": false
+      },
+      {
+        "image_id": "8e7b2fac5ee696ce",
+        "phrases_recovered": 0,
+        "phrases_total": 2,
+        "full_seconds": 1.305,
+        "full_empty": false
+      },
+      {
+        "image_id": "95c199bdff1a4128",
+        "phrases_recovered": 1,
+        "phrases_total": 2,
+        "full_seconds": 1.364,
+        "full_empty": false
+      },
+      {
+        "image_id": "a018d36e4dea2053",
+        "phrases_recovered": 0,
+        "phrases_total": 2,
+        "full_seconds": 1.442,
+        "full_empty": false
+      },
+      {
+        "image_id": "dd97f087faa88397",
+        "phrases_recovered": 1,
+        "phrases_total": 2,
+        "full_seconds": 1.469,
+        "full_empty": false
+      },
+      {
+        "image_id": "e1558ad38983d294",
+        "phrases_recovered": 2,
+        "phrases_total": 2,
+        "full_seconds": 2.096,
+        "full_empty": false
+      }
+    ]
+  },
+  "test": {
+    "engine": "production Tesseract.js 7.0.0 through intrusive_ad_model.ocr_image",
+    "reference": "repair_validation\\hiertext_reference_v1.json",
+    "reference_version": "english_ocr_repair_hiertext_v1",
+    "split": "test",
+    "images": 12,
+    "line_crops": 24,
+    "cer": 0.1927,
+    "wer": 0.4472,
+    "character_insertions": 44,
+    "word_insertions": 16,
+    "phrase_recovery": 8,
+    "phrase_total": 24,
+    "empty_line_crops": 0,
+    "empty_full_images": 0,
+    "failures": 0,
+    "median_line_seconds": 0.335,
+    "median_full_seconds": 1.354,
+    "cases": [
+      {
+        "image_id": "3025b88f005c3de4",
+        "phrases_recovered": 1,
+        "phrases_total": 2,
+        "full_seconds": 1.546,
+        "full_empty": false
+      },
+      {
+        "image_id": "48904c0fff1c7fcb",
+        "phrases_recovered": 0,
+        "phrases_total": 2,
+        "full_seconds": 0.664,
+        "full_empty": false
+      },
+      {
+        "image_id": "4976c8479dc54b42",
+        "phrases_recovered": 2,
+        "phrases_total": 2,
+        "full_seconds": 2.353,
+        "full_empty": false
+      },
+      {
+        "image_id": "58a0e272f66d774d",
+        "phrases_recovered": 1,
+        "phrases_total": 2,
+        "full_seconds": 1.764,
+        "full_empty": false
+      },
+      {
+        "image_id": "6a45c292e1c487dc",
+        "phrases_recovered": 1,
+        "phrases_total": 2,
+        "full_seconds": 0.627,
+        "full_empty": false
+      },
+      {
+        "image_id": "7333961186f566fc",
+        "phrases_recovered": 1,
+        "phrases_total": 2,
+        "full_seconds": 0.941,
+        "full_empty": false
+      },
+      {
+        "image_id": "77ae21eab2f51710",
+        "phrases_recovered": 1,
+        "phrases_total": 2,
+        "full_seconds": 1.536,
+        "full_empty": false
+      },
+      {
+        "image_id": "992966bb8f545ecb",
+        "phrases_recovered": 0,
+        "phrases_total": 2,
+        "full_seconds": 1.968,
+        "full_empty": false
+      },
+      {
+        "image_id": "bdc508254b92ff40",
+        "phrases_recovered": 1,
+        "phrases_total": 2,
+        "full_seconds": 1.42,
+        "full_empty": false
+      },
+      {
+        "image_id": "d19b4b14a1d1e02b",
+        "phrases_recovered": 0,
+        "phrases_total": 2,
+        "full_seconds": 0.811,
+        "full_empty": false
+      },
+      {
+        "image_id": "e6038450c7e33596",
+        "phrases_recovered": 0,
+        "phrases_total": 2,
+        "full_seconds": 1.288,
+        "full_empty": false
+      },
+      {
+        "image_id": "f4711b48d0b52640",
+        "phrases_recovered": 0,
+        "phrases_total": 2,
+        "full_seconds": 1.279,
+        "full_empty": false
+      }
+    ]
+  }
+}

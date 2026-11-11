@@ -31,6 +31,8 @@ Thumbs.db
 /phase13_validation/browser_results_v1.json
 /phase14_validation/local_source/
 /phase14_validation/local_results/
+/.paddleocr_env/
+/repair_validation/local_results/
 /.ocr_tmp/
 **/study1_data.xlsx
 **/study2_data.xlsx
