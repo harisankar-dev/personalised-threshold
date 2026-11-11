@@ -1,5 +1,13 @@
 # Changelog
 
+## 11 November 2026 — Phase 13 OCR and creative-cue repair
+
+- Tagged the clean Phase 12 commit `phase13-start-2026-11-11`; preserved 604 protected source/model/result files.
+- Added a bounded conditional English OCR enhancement and explicit partial/garbled review states. On six new real ads, exact phrase recovery increased 4/18→6/18 while complete-headline CER/WER worsened; general OCR reliability is not claimed.
+- Replaced bare phone/email six-point alarms with viewer-ownership context and ambiguous-contact review. Expanded common deadline phrasing while retaining negation, separate cue weights and tier boundaries.
+- Froze 12 new development/test IDs, short AI-assisted references and aggregate evaluation. No real positive urgency or viewer-identity cue occurred in the final split; recall is unevaluated.
+- Added nine Phase 13 regression methods and reproducible OCR/cue/browser scripts; 102 full tests and 21 Chrome checks passed. Original STP/budget, privacy boundaries and five-level abstention remain.
+
 ## 10 November 2026 — Phase 12 real-ad evaluation and test recovery
 
 - Tagged the clean Phase 11 commit `phase12-start-2026-11-09`; the pre-change full suite reproduced 90 tests with four Windows Application Control errors.

@@ -19,6 +19,11 @@ async function main() {
   }
   const worker = await Tess.createWorker('eng', 1, {langPath, gzip: false, cacheMethod: 'none'});
   try {
+    const psm = process.argv[3];
+    if (psm) {
+      if (!['3', '6', '11', '12'].includes(psm)) throw new Error('Unsupported OCR page segmentation mode');
+      await worker.setParameters({tessedit_pageseg_mode: psm});
+    }
     const { data } = await worker.recognize(image);
     process.stdout.write(JSON.stringify({text: (data.text || '').trim(), confidence: data.confidence || 0}));
   } finally { await worker.terminate(); }

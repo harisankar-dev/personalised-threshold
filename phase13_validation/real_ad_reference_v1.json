@@ -1,0 +1,22 @@
+{
+  "version": "phase13_real_ad_reference_v1",
+  "source": "Salem et al. 2026, Advertising Images Dataset for Visual Analysis, Mendeley Data v1, CC BY 4.0 listing, DOI 10.17632/32grwbk6rv.1",
+  "source_csv_sha256": "cd5ad685312e6e365557166ad4b6d8e7a64825519c6edcb0044dfa0de7a8d0ca",
+  "source_zip_sha256": "b397f56216094a616a8e2b7a4b1af84afaf4155447d6f51801a9304406f8337c",
+  "provenance": "AI-assisted visual transcription of selected English regions, checked against displayed source images by one assistant; no independent human verification; publisher CSV not used as OCR ground truth",
+  "metric_scope": "Exact English phrase recovery on full images; CER/WER only on explicitly bounded, complete English text regions, not entire ads",
+  "cases": [
+    {"id": 420, "split": "development", "phrases": ["NOOR&MEME SCARF"], "condition": "tiny angled brand tag", "cue_present": [], "cue_ambiguous": [], "english_complete": false},
+    {"id": 431, "split": "development", "phrases": ["ARGAN OIL", "145 EGP"], "condition": "headline partly occluded by product; only unobscured phrases scored", "cue_present": [], "cue_ambiguous": [], "english_complete": false},
+    {"id": 472, "split": "development", "phrases": ["WHITE FRIDAY", "BUY 2 GET 2"], "condition": "thin low-contrast heading over product row", "cue_present": [], "cue_ambiguous": [], "english_complete": false, "roi": [0, 0, 526, 175], "roi_reference": "WHITE FRIDAY BUY 2 GET 2"},
+    {"id": 483, "split": "development", "phrases": ["BUY 1 GET 2 FREE", "MIX & MATCH ON ALL VACATION PRODUCTS"], "condition": "English promotion plus Arabic text and small footer", "cue_present": [], "cue_ambiguous": [], "english_complete": false, "cue_assessable": false},
+    {"id": 495, "split": "development", "phrases": ["Shop Now!", "Inspired By Burberry her", "SEDUCTION EGYPT", "Get In Touch For Her"], "condition": "small white text over a photograph", "cue_present": [], "cue_ambiguous": [], "english_complete": false},
+    {"id": 516, "split": "development", "phrases": ["For those who can't resist a", "GOOD CRUNCH", "MONSTER CHICKEN", "BIG BOSS"], "condition": "mixed font sizes on red background", "cue_present": [], "cue_ambiguous": [], "english_complete": false},
+    {"id": 450, "split": "test", "phrases": ["NIKE UNITED 001"], "condition": "small rotated lettering on shoes", "cue_present": [], "cue_ambiguous": [], "english_complete": false},
+    {"id": 500, "split": "test", "phrases": ["Curl Wonder Treatment Kit", "Fall Curls Natural Repair", "960 EGP", "1370 EGP"], "condition": "script heading and price over photograph", "cue_present": [], "cue_ambiguous": [], "english_complete": false, "roi": [80, 40, 430, 145], "roi_reference": "Curl Wonder Treatment Kit Fall Curls Natural Repair"},
+    {"id": 503, "split": "test", "phrases": ["Twist & Go", "800 LE", "2340 LE"], "condition": "price and product against pale background, Arabic adjacent", "cue_present": [], "cue_ambiguous": [], "english_complete": false, "cue_assessable": false},
+    {"id": 510, "split": "test", "phrases": ["LILAC FRIDAY", "BUY 2 GET 2", "BUY 4 GET 5"], "condition": "repeated angled promotional banners", "cue_present": [], "cue_ambiguous": [], "english_complete": false},
+    {"id": 517, "split": "test", "phrases": ["WINTER 25/26", "WWW.KHOTWH.COM"], "condition": "small upper-left and vertical edge text", "cue_present": [], "cue_ambiguous": [], "english_complete": false, "roi": [0, 0, 220, 135], "roi_reference": "WINTER 25/26"},
+    {"id": 538, "split": "test", "phrases": ["Donuts", "20%", "Designed by", "Aya ibrahem", "ayasdeek80@gmail.com"], "condition": "curved headline and seller email on pastel artwork", "cue_present": [], "cue_ambiguous": [], "english_complete": false}
+  ]
+}

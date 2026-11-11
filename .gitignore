@@ -25,6 +25,11 @@ Thumbs.db
 /phase10_research/derived_data/
 /phase10_research/restricted_models/
 /phase12_validation/local_source/
+/phase13_validation/local_source/
+/phase13_validation/dev_ocr_*.json
+/phase13_validation/*_evaluation_v1.json
+/phase13_validation/browser_results_v1.json
+/.ocr_tmp/
 **/study1_data.xlsx
 **/study2_data.xlsx
 **/study3_data.xlsx

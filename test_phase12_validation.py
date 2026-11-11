@@ -2,10 +2,11 @@
 
 import json
 import os
+import hashlib
 from pathlib import Path
 import unittest
 
-from phase12_validation.evaluate_real_ads import CUES, LABELS, evaluate, measures
+from phase12_validation.evaluate_real_ads import CUES, LABELS, measures
 
 
 ROOT = Path(__file__).resolve().parent
@@ -31,14 +32,17 @@ class Phase12ValidationTests(unittest.TestCase):
         self.assertEqual(result["recall"], 0)
         self.assertEqual(result["recall_wilson_95"], [0.0, 0.6576])
 
-    def test_real_ad_baseline_reproduces_when_source_files_available(self):
+    def test_frozen_real_ad_baseline_and_sources_are_preserved(self):
         csv_path = os.environ.get("PHASE12_AD_CSV")
         zip_path = os.environ.get("PHASE12_AD_ZIP")
         if not csv_path or not zip_path:
             self.skipTest("Set PHASE12_AD_CSV and PHASE12_AD_ZIP to downloaded licensed source files")
-        current = evaluate(Path(csv_path), Path(zip_path))
         saved = json.loads((ROOT / "phase12_validation" / "real_ad_baseline_v1.json").read_text(encoding="utf-8"))
-        self.assertEqual(current, saved)
+        self.assertEqual(hashlib.sha256(Path(csv_path).read_bytes()).hexdigest(), saved["source_csv_sha256"])
+        self.assertEqual(hashlib.sha256(Path(zip_path).read_bytes()).hexdigest(), saved["source_zip_sha256"])
+        self.assertEqual(saved["n_selected"], 25)
+        # Phase 13 deliberately changes the live rubric. The frozen Phase 12
+        # result remains the comparator, not an assertion about new code.
 
 
 if __name__ == "__main__":

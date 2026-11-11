@@ -1,5 +1,9 @@
 # 49C project status — secondary data only
 
+## Phase 13 status — 11 November 2026
+
+The local OCR pipeline now conditionally adds a bounded enhanced pass and flags partial/garbled output. Seller contacts no longer automatically trigger a six-point viewer-identifier alarm; explicit viewer claims and common promotional deadlines are detected in synthetic functional tests. Six new reserved real ads improved exact checked-phrase recovery 4/18→6/18 and removed one seller-email false high, but two complete headline crops had worse CER/WER. No real positive urgency or viewer-identity examples were present, so real-ad recall is unknown. English image screening remains review-assisted, not generally dependable or consumer-validated. All 21 Chrome checks and 102 regression tests passed; all 604 protected files remained unchanged. STP costs, permission holds, Mode B's offline boundary and five-level `insufficient_evidence` remain. See the seven Phase 13 reports.
+
 ## Phase 12 status — 10 November 2026
 
 An attributed, licensed-dataset-page source yielded 605 actual JPGs and 605 CSV rows, despite its publisher description of 606. The frozen 25-creative Tier B project annotation includes 17 held-out IDs; six mixed-language cases were unassessable, leaving 11 assessable English ads with two explicit time-pressure positives. The unchanged text rubric missed both (test recall 0/2, precision undefined). Its development set falsely flags a seller contact email as a viewer identifier. Ten actual images showed OCR loss and a seller phone yielding a false 6/10 image alert; no verified transcription or consumer-intrusion labels exist. No rule or app code was tuned to this tiny holdout.
