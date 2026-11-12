@@ -1,108 +1,174 @@
-# The Personalization Threshold: Predicting When Hyper-Personalized Advertising Becomes Intrusive (49-C)
+# 49-C · The Personalization Threshold
 
-**Implemented portfolio application:** Privacy-Aware Advertising Analytics, Creative Screening and Budget-Aware Pre-Launch Advisory  
-**Research status:** secondary-data feasibility study. The five-level personalization threshold is **not validated**.
+### Privacy-aware advertising analysis and personalization simulation
 
-**Phase 14 (11 November 2026):** OCR now keeps one transcript and uses a second pass only when the original has no Latin words, avoiding the Phase 13 insertion regression on development material. Two fresh real-ad test regions showed **no CER/WER or phrase-recovery gain** over the original pass (micro CER 0.0514, WER 0.1087, exact phrases 4/6 across all compared OCR modes). A genuine limited-time ad was detected, but a separate real email phrase implying recipient-location knowledge was missed by text screening; privacy-positive image recall is unmeasured. The 23 Chrome checks and 110-test suite passed, with 604 protected artifacts unchanged. See the [accuracy report](PHASE14_ENGLISH_OCR_ACCURACY.md), [cue validation](PHASE14_FRESH_POSITIVE_CUE_VALIDATION.md), [source rights](PHASE14_ENGLISH_AD_DATASET_AND_RIGHTS.md) and [readiness summary](PHASE14_PRODUCT_READINESS_SUMMARY.md). Human review remains essential.
+A local application for reviewing advertising copy, exploring consumer profiles, and comparing campaign changes against data permissions and budget constraints.
 
-**Phase 13 (11 November 2026):** Local English OCR now makes one conditional enhanced pass and warns on partial or severely garbled reads; seller contact details no longer automatically become viewer-identity alerts, and common promotional deadlines are recognized. On six fresh real ads, exact checked-phrase recovery rose 4/18→6/18, but error on two complete headline crops worsened. English OCR remains a **human-review aid**, not validated unattended screening. The 21-case Chrome workflow and 102-test suite passed; the five-level engine still abstains. See the [OCR validation](PHASE13_ENGLISH_OCR_VALIDATION.md), [real-ad evaluation](PHASE13_FRESH_REAL_AD_EVALUATION.md) and [product summary](PHASE13_PRODUCT_VALIDATION_SUMMARY.md).
+49-C brings together **creative screening**, **editable English image OCR**, **synthetic L0–L4 simulations**, and **budget-aware STP decision support**. A separate research dashboard presents findings from secondary datasets with their original sources and measurement scales.
 
-This project combines a local marketer-facing campaign planner with a separate research dashboard. The planner accepts ad text or an image, reads printed English text from images with local OCR, and flags observable privacy references and pressure tactics. It returns a low/moderate/high **screening tier**, an exploratory **0–10 rubric score**, matched cues, and editing suggestions. The score is not a probability, a consumer rating, or a statistically validated prediction of how a particular person will feel. An image with no matched cues abstains with `needs_review`.
+**Project status:** working academic demonstration. Individual discomfort estimates and five-level comparisons use clearly labelled synthetic data. The empirical personalization threshold remains `insufficient_evidence`.
 
-Phase 9 checked the OSF location-targeting experiment's current data rights and privacy status, screened licensed alternatives, and preserved source/model/result hashes. **No new intrusion model was trained:** the OSF workbooks have no explicit dataset reuse license and include direct identifiers, while the licensed alternatives lack the required ad-specific intrusion × assigned-personalization linkage. See the [rights review](PHASE9_DATA_RIGHTS_AND_PRIVACY_REPORT.md), [experimental modelling decision](PHASE9_EXPERIMENTAL_INTRUSIVENESS_REPORT.md), [STP implications](PHASE9_STP_RESEARCH_IMPLICATIONS.md), [verification](PHASE9_VERIFICATION_AND_PRESERVATION.md) and [unsent permission draft](PHASE9_OSF_DATA_PERMISSION_REQUEST.md). The marketer application and its five-level abstention remain unchanged.
+## What you can do
 
-Phase 10 rechecked that source without downloading respondent records or contacting researchers. No source-specific permission for respondent-level modelling and derivative use was verified, so no new experimental model was trained. A separate fail-closed intake and synthetic safeguard tests prepare for a future authorized release. See [data eligibility and privacy](PHASE10_DATA_ELIGIBILITY_AND_PRIVACY_REPORT.md), [experimental analysis](PHASE10_EXPERIMENTAL_ANALYSIS.md), [model decision](PHASE10_INTRUSIVENESS_MODEL_REPORT.md), [STP implications](PHASE10_STP_RESEARCH_IMPLICATIONS.md) and [verification](PHASE10_VERIFICATION_AND_PRESERVATION.md). The marketer screen and five-level threshold are unchanged.
+| Feature | What it provides |
+| --- | --- |
+| Advertisement review | Paste one ad or upload an image; inspect privacy references and advertising-pressure cues. |
+| English OCR correction | Extract printed text locally, edit the transcript, and analyze the corrected copy while retaining the original OCR output. |
+| Individual simulation | Enter four fictional consumer characteristics and compare simulated discomfort and relevance across L0–L4. |
+| Consumer segmentation | Explore four synthetic privacy/relevance profiles alongside source-attributed profiles from real surveys. |
+| Level recommendations | Apply explicit permission, cost, discomfort and relevance criteria; choose the simplest eligible simulated option or abstain. |
+| Campaign planning | Compare keeping the campaign, revising a creative, adjusting targeting, or testing additional variants. |
+| Research evidence | Inspect saved aggregate results, baseline comparisons, uncertainty and documented limitations. |
 
-Phase 11 checked the **product's software and decision rules** with a frozen 26-case synthetic cue set, an 18-state STP matrix, financial stress tests and a real-browser walkthrough. The cue set is not independent consumer validation. Local denial handling, cent-precision money checks and several explanations were improved without changing the score weights or connecting new research data. See the [creative validation](PHASE11_CREATIVE_SCREENING_VALIDATION.md), [decision reliability](PHASE11_STP_DECISION_RELIABILITY.md), [budget stress test](PHASE11_BUDGET_STRESS_TEST.md), [UX/claims audit](PHASE11_MARKETER_UX_AND_CLAIMS_AUDIT.md), [summary](PHASE11_PRODUCT_VALIDATION_SUMMARY.md) and [verification](PHASE11_VERIFICATION_AND_PRESERVATION.md). Its full suite had four Windows Application Control errors at the existing `pyreadstat` native import.
+## Quick start
 
-Phase 12 downloaded an explicitly CC BY 4.0 listed social-ad image dataset for an **internal, bounded** creative evaluation. The publisher describes 606 ads; the actual downloaded files contain 605 images/CSV rows. A 25-creative project-authored annotation set yielded 11 assessable held-out English ads with **two missed time-limit pressure cues**; precision was undefined because the screen predicted none. A separate 10-image observational audit found severe OCR loss and a seller phone falsely treated as the viewer's identifier. These are not independent consumer ratings. The existing blocked native SPSS reader remains blocked, but an explicit, test-only R `foreign` adapter reads the same original SAV, exactly reproduces the saved Phase 7 aggregate, and lets the full regression suite run. The app, scores, threshold and saved research artifacts were not changed. See the [dataset audit](PHASE12_REAL_AD_DATASET_AUDIT.md), [codebook](PHASE12_CREATIVE_CUE_CODEBOOK.md), [real-ad evaluation](PHASE12_REAL_AD_EVALUATION.md), [OCR audit](PHASE12_OCR_RELIABILITY_REPORT.md), [environment recovery](PHASE12_REGRESSION_ENVIRONMENT_RECOVERY.md), [product summary](PHASE12_PRODUCT_VALIDATION_SUMMARY.md) and [verification](PHASE12_VERIFICATION_AND_PRESERVATION.md).
+### Requirements
 
-Phase 8 adds a separate **consumer–ad evidence check** to the default research-informed planner. Marketers can declare a product category, channel and targeting data source; the app checks for source/method/permission conflicts and explains which consumer response measurements are still missing. It does **not** calculate a consumer-fit score or predict relevance, discomfort or conversions. An optional company-audience mode is **designed only**: `phase8_audience_contract.py` validates a strict schema offline, but the app has no customer-file upload or live audience analysis. The [compatibility report](PHASE8_CONSUMER_AD_COMPATIBILITY_REPORT.md), [secondary-evidence search](PHASE8_SECONDARY_EVIDENCE_SEARCH.md), [architecture](PHASE8_HYBRID_STP_ARCHITECTURE.md) and [verification report](PHASE8_VERIFICATION_REPORT.md) document the scope.
-
-Phase 7 adds a **minimum-change advisory** beside the screen. Marketers may supply their campaign objective, declared targeting method, permission/eligibility status, total budget, committed spend, change costs and optional performance context. The planner always compares **keeping the existing campaign** with a single revision, a targeting adjustment and added variants. It calculates budget headroom, option cost, break-even extra conversions and optional *user-defined hypothetical* net-value scenarios when enough inputs are available. It never estimates uplift from these inputs or automatically recommends multiple campaigns. Two source-separated privacy × relevance/benefit survey profiles are shown as **research context only**, not targetable people.
-
-The dashboard displays **saved aggregate results** from isolated secondary-data experiments. It never applies survey or Criteo models to an uploaded ad. The threshold decision engine remains `insufficient_evidence` because no available dataset measures direct intrusiveness and engagement for the five defined personalization levels on the same exposures.
-
-## Start the application
-
-Requirements: Python 3.11+ with the packages in `requirements-research.txt`; Node.js and `tesseract.js` 7.0.0 for image OCR; the existing `models/eng.traineddata` English language file. From the project directory:
+- Python with the packages in `requirements-research.txt`; the inspected development environment uses Python 3.14.6.
+- Node.js and npm for image OCR; the inspected environment uses Node 24.
+- The English language file at `models/eng.traineddata`.
+- A modern browser.
 
 ```powershell
+git clone https://github.com/harisankar-dev/personalised-threshold.git
+cd personalised-threshold
+
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
 python -m pip install -r requirements-research.txt
 npm install
+
 python marketer_app.py
 ```
 
-The app binds to `127.0.0.1` and opens `http://127.0.0.1:8765/`. If that port is occupied, run `python marketer_app.py --no-browser --port 8767` and visit the printed local URL. Text-only screening does not need OCR; image screening does. The current workspace already contains the language file and a bundled OCR dependency fallback. The app does not call a cloud AI service.
+Open **http://127.0.0.1:8765/**. The server binds to localhost and normally opens the browser automatically.
 
-### Marketer walkthrough
+To choose another port:
 
-1. Open **Campaign planner**. Paste the exact ad copy, or switch to **Image ad** and choose a PNG, JPEG, WebP, BMP, or TIFF file under 10 MB. You can also describe important visual details in text; the program does not recognize visual objects itself.
-2. Supply the campaign objective, targeting method and permission/eligibility status if known. Enter your **total budget** and already committed spend for a headroom check; optional change costs, contribution margin and scenario conversions unlock break-even and what-if arithmetic. Blank inputs remain explicitly unknown. The total budget includes current commitments and new implementation costs; no media reallocation is assumed.
-3. Press **Analyze ad**. Read the tier and **Creative Intrusiveness Screening Score — Exploratory (0–10)**, then the **Minimum-change plan**. The plan is an exploratory business-rule advisory. Its additional-conversion scenarios are entered by you, not predicted. A 0 on text means no current rule matched; it is not evidence of consumer comfort.
-4. Review source-labelled **Exploratory consumer profiles** as unrelated survey descriptions only. The app cannot identify your audience members or predict which profile will respond. Read the **Personalization threshold** notice; it still recommends no level. Use **Research evidence** for the separate models and limitations.
+```powershell
+python marketer_app.py --no-browser --port 8774
+```
 
-For a short demonstration, try **Generic offer**, **Cart reminder**, and **Combined signals**. The supplied aggressive ad screenshot gives a high screening tier with a 10/10 displayed cap, driven by countdown, scarcity, extreme discount, urgency and alarmist copy. Its privacy cue total is 0; its pressure cue total is 12 before the display cap. That case is a regression example, not evidence of general accuracy.
+The existing Windows development environment can run the app directly with:
 
-## Architecture
+```powershell
+& 'C:\ProgramData\anaconda3\python.exe' marketer_app.py --no-browser --port 8774
+```
 
-| Layer | Files | Responsibility |
+The large historical Criteo archive uses Git LFS. Retrieving that research archive is not required for the browser demonstration, which uses saved aggregate research results and the included synthetic model artifact. Image OCR needs Node, `tesseract.js` and the local English language file. Ad content is processed locally without paid APIs or cloud OCR.
+
+## A five-minute demonstration
+
+1. **Review a creative.** In Campaign planner, paste one advertisement or upload a supported image under 10 MB. Analyze only the creative copy, rather than an entire explanation containing multiple ads.
+2. **Correct OCR if needed.** Open the extracted-text section, edit the transcript and select **Analyze corrected text**. The analysis uses the revised text; original OCR and its quality warning remain available.
+3. **Add campaign context.** Enter targeting details, permission status, total budget, committed spend and known implementation costs. Inspect the creative cues and A–E campaign options.
+4. **Explore a consumer.** Open **Consumer & levels**, choose a fictional individual or segment, and set maximum simulated discomfort and minimum relevance.
+5. **Compare all five levels.** Confirm which data you possess and may use, enter costs, and select **Compare L0–L4**. Missing permissions, costs or budget information prevent unsupported eligibility claims.
+6. **Inspect the evidence.** Open Research evidence for real-data findings. Those results are kept separate from the fictional consumer simulation.
+
+Campaign inputs persist within the browser session, and current campaign headroom is shared with the simulation. Images must be reselected after navigation; their contents are not stored in browser session storage.
+
+## The five conceptual personalization levels
+
+| Level | Approach | Data considered in the demonstration |
 | --- | --- | --- |
-| Local HTTP app | `marketer_app.py` | Serves the two browser pages and JSON endpoints; validates text/image input; uses temporary image files; binds to localhost. |
-| Creative screen | `intrusive_ad_model.py`, `ocr_ad.cjs` | Local English OCR plus an explicit privacy/pressure cue rubric. No fitted consumer-intrusion classifier. |
-| Browser UI | `web/index.html`, `web/app.js`, `web/app.css` | Accessible text/image workflow, cue explanations, error/loading states, responsive layout. |
-| Research dashboard | `research_dashboard.py`, `web/research.html`, `web/research.js` | Reads **only saved aggregate JSON results** into separate, source-labeled research sections. No respondent pooling or live ML inference. |
-| Survey profile audit | `phase7_segmentation.py`, `results/phase7_segmentation_v1.json` | Separate, source-hash-checked descriptive privacy × relevance/benefit quadrants; aggregate counts only. |
-| Campaign advisory | `stp_advisory.py` | Validated financial arithmetic, conservative permission/eligibility gates and minimum-change business rules; no uplift predictor. |
-| Threshold contract | `threshold_engine.py` | Defines Levels 0–4 and hard evidence/consent/risk gates; current data return `insufficient_evidence`. |
-| Research experiments | `analysis.py`, `survey_phase_v*.py`, `criteo_*.py`, `ad_blockers_intrusion_v1.py`, `vietnam_privacy_trust_v1.py` | Versioned analyses using secondary sources. Research outputs are not application predictors. |
+| **L0** | Generic | No individually tailored targeting |
+| **L1** | Contextual or broad demographic | Content context or broad demographic information |
+| **L2** | Behavioral | Browsing, search or interaction history |
+| **L3** | Historical | Prior purchases or customer relationship history |
+| **L4** | Combined / hyper-personalized | Context, behavioral and historical sources together |
 
-`POST /api/analyze` retains its previous result fields (`tier`, `score_out_of_10`, `privacy_score`, `pressure_score`, `evidence`, `recommendations`, `threshold_decision`, etc.). An optional `campaign` object adds a separate `strategy` response; omitting it retains the previous response shape. `GET /api/research` serves aggregate dashboard data; it sends no respondent records. Static routes are `/`, `/research`, `/app.css`, `/app.js`, and `/research.js`. See `PHASE7_STP_DECISION_LOGIC.md` and `PHASE7_BUDGET_AWARE_STP_REPORT.md` for the economics and evidence limits.
+These are project-defined categories, not five conditions validated by the real research datasets. Increasing complexity does not guarantee increasing discomfort for every consumer.
 
-## Research evidence at a glance
+The simulation checks data possession and permitted use for each required source. Unknown permission holds the affected level for review; L4 requires every combined source. Costs must fit known headroom. Among eligible levels meeting the user's stated simulated response criteria, the demonstration chooses the lowest-complexity option. Otherwise it abstains. Mandatory disclosures remain present across comparisons.
 
-| Component | Supported result | Important limit |
-| --- | --- | --- |
-| Original 49-C actions | On 49,940 user-disjoint held-out recorded actions, logistic click-versus-other-action AUC **0.499** versus constant **0.500**. | No useful gain, no non-action impression denominator, no intrusion labels. |
-| Romano–Han unsolicited-social-ad survey | 837 respondents; 167 held out. General-ad intrusion MAE: training-mean **0.815**, V1 **0.521**, V2 **0.509** on a 1–7 target. | V2's gain interval includes zero; same-wave privacy/intrusion overlap and high-case false reassurance. |
-| Independent Redondo–Aznar web-ad survey | 1,511 respondents; 302 held out. Within-source MAE **0.840** versus baseline **0.955**, on a −3 to +3 target. | Different scale and predictors; negative-intrusion subgroup MAE **2.528**. Not coefficient-level external validation of Romano–Han. |
-| Criteo Uplift | 39,983 held-out rows. Binary-treatment visit prediction beats constant Brier baselines in both arms. | Uplift ranking gain interval includes zero; no intrusion or five-level treatment. |
-| Vietnam online-market survey | 467 selected respondents; online trust/purchase-intention Spearman rho **0.450**. | Descriptive association, no ad or direct intrusion target. |
-| Gen Z personalized-ad survey | 296 self-report records; perceived personalization/privacy rho **0.209**. | No assigned treatment or direct intrusion rating. |
-| Marketer creative screen | Working, explainable text/OCR rubric and three tiers. | No calibrated accuracy against consumer ratings of these creatives. |
-| Five-level threshold | Explicit evidence gate and `insufficient_evidence` outcome. | No scientifically valid recommendation from current secondary data. |
+## Understand the outputs
 
-The dashboard links each source record and shows its saved result file. See `PHASE5_MODEL_VALIDATION_REPORT.md` for the full evidence matrix and extreme-error analysis, `THREE_DATASETS_EVALUATION_REPORT.md` for the supplied ZIP audit, and `PHASE6_PRODUCT_READINESS_REPORT.md` for the implementation and verification record. The Criteo source is **CC BY-NC-SA 4.0**; check its noncommercial/share-alike terms before reusing its data in an external product. The other named survey sources have their own licenses documented in the reports.
+| Output | Meaning |
+| --- | --- |
+| **Creative screening score, 0–10** | An editorial rule rubric for observable privacy and pressure cues. It is not a consumer rating or probability. |
+| **Synthetic discomfort / relevance, 1–7** | A model or descriptive segment result derived from generated fictional consumers. Synthetic outputs carry a small **Synthetic data** label. |
+| **Real research profiles** | Separate, descriptive survey groups with actual counts, source attribution and existing uncertainty estimates. They are not automatically targetable audiences. |
+| **Budget and break-even figures** | Arithmetic using marketer-entered costs and margins. Economic scenarios are explicitly hypothetical. |
+| **Empirical threshold** | `insufficient_evidence`; no validated L0–L4 recommendation for actual people is claimed. |
 
-## Reproduce and verify
+The synthetic recommendation never overrides the real campaign advisor's permission or financial safeguards. Perceived surveillance, general intrusiveness, click intention and observed conversion remain distinct research outcomes.
 
-From the project root, with dependencies installed:
+## Synthetic model
+
+The supplied generator creates **300 fictional consumers × five levels = 1,500 exposures**. A quadratic feature expansion with Ridge regression predicts simulated discomfort and relevance from privacy concern, tracking awareness, relevance preference, personalization preference, conceptual intensity and disclosure.
+
+The split keeps all five records for a consumer together: **240 training consumers and 60 test consumers**. Consumer IDs, generated segment labels and outcomes are excluded from the input features.
+
+| Synthetic holdout target, 1–7 | Model MAE | Model RMSE | Level-mean baseline MAE |
+| --- | ---: | ---: | ---: |
+| Discomfort | 0.512 | 0.667 | 0.765 |
+| Relevance | 0.697 | 0.870 | 0.833 |
+
+These metrics measure learning of the generator's assumed relationships. They do not demonstrate accuracy on real consumers. Only three held-out synthetic exposures have discomfort ≥5; two receive predictions below 5, so high-discomfort reliability is not established. The UI does not invent individual confidence intervals.
+
+To reproduce the artifact with the existing research environment, install scikit-learn if needed and run:
+
+```powershell
+python -m pip install scikit-learn==1.9.0
+python synthetic_demo/train.py
+```
+
+Training reads only `synthetic_demo/exposures.csv`. The standard-library simulation runtime reads the saved coefficients; it does not require scikit-learn. Generator assumptions and the original synthetic-data documentation are in [`synthetic_demo/`](synthetic_demo/).
+
+## Campaign decisions
+
+The STP advisor retains five options:
+
+- **A:** Keep the current campaign.
+- **B:** Revise one creative.
+- **C:** Adjust targeting within the campaign.
+- **D:** Test one extra variant.
+- **E:** Consider multiple variants when justified.
+
+It calculates headroom, incremental implementation costs and break-even additional conversions when the required inputs exist. It does not predict conversion uplift or ROI. Permission status is a marketer declaration, not independent legal clearance.
+
+## Code map
+
+```text
+marketer_app.py                 Local HTTP server and request validation
+intrusive_ad_model.py           Privacy/pressure cue rules and OCR orchestration
+ocr_ad.cjs                     Local English Tesseract.js runner
+synthetic_simulation.py         Synthetic inference and level eligibility
+stp_advisory.py                 A–E campaign and budget decision rules
+threshold_engine.py            Empirical evidence gate and abstention
+research_dashboard.py          Saved aggregate research views
+web/                           Campaign, simulation and research interfaces
+synthetic_demo/                Fictional data, generator and reproducible model
+results/                       Versioned aggregate experiment outputs
+test_*.py                      Regression tests
+final_browser_checks.cjs       Real Chrome demonstration checks
+```
+
+The app serves `/`, `/simulation` and `/research`. JSON interfaces are `POST /api/analyze`, `GET /api/research`, and `GET` / `POST /api/simulation`. Image validation enforces supported types and size limits before OCR.
+
+## Verification
+
+The latest cue-repair regression run completed **128 tests: 127 passed, one skipped**. The completed application also passed **21 real Chrome workflow checks**. All **604 protected research artifacts** matched their recorded hashes during completion verification. These are recorded local results, not a claim that every environment has been tested.
 
 ```powershell
 python -m unittest discover -q
-python -c "from phase6_preservation_audit import verify; print(verify())"
+python phase9_research/preservation.py verify
 ```
 
-On the inspected Windows workspace, bare `python` points to Python 3.15 without the research packages. The earlier Anaconda research command was:
-
-```powershell
-$env:PYTHONPATH = '.phase8_vendor'
-& 'C:\ProgramData\anaconda3\python.exe' -m unittest discover -q
-```
-
-On this machine that original command currently hits four Windows Application Control errors in the native SPSS reader. Phase 12's **test-only** compatible command uses installed R 4.6.1 and `foreign` without changing Windows policy:
+On the inspected Windows machine, Application Control blocks the native SPSS reader. The documented test-only R adapter reads the same SAV through installed R and `foreign`, without changing security policy:
 
 ```powershell
 $env:PYTHONPATH = 'phase12_validation/compat;.phase8_vendor'
-$env:PHASE12_AD_CSV = 'C:\Users\imhar\Downloads\Advertising Image Dataset for Visual Analysis.csv'
-$env:PHASE12_AD_ZIP = 'C:\Users\imhar\Downloads\ad_images.zip'
 & 'C:\ProgramData\anaconda3\python.exe' -m unittest discover -q
 ```
 
-The two `PHASE12_AD_*` variables activate source-file reproducibility checks and can be omitted elsewhere (those tests then skip). Download the files from the linked Mendeley source and check the SHA-256 values in `phase12_validation/real_ad_labels_v1.json`. Original ad images and CSVs are local analysis inputs and are excluded from Git.
+The optional Phase 12 source-archive audit skips when `PHASE12_AD_CSV` and `PHASE12_AD_ZIP` are unset. Those variables must reference the original licensed local source files to enable that check. Browser checks additionally need Playwright, Chrome and the locally held test advertisement. The checked-in browser script uses the inspected Windows paths and port 8774; adjust them for another machine.
 
-The earlier command passed **72 tests** on 8 November 2026 before the Windows policy block appeared; that is a historical result. The Phase 12 R-backed command passed **93/93** with both downloaded source-file variables set. Package versions differ slightly from `requirements.txt`.
+## Research, data and limitations
 
-Saved experiment scripts intentionally refuse to overwrite their versioned outputs. To rerun research, use a **fresh copy** of the project or direct outputs to a new versioned destination. `results/phase6_repro_audit.json` records an exact replay of seven prior research experiments after the Phase 6 product edits. `results/phase6_preservation_audit.json` compares checkpoint hashes for research code, saved outputs, models, and selected original sources. `baselines/phase6-start-2026-11-07/` is the recoverable pre-change checkpoint. The full Criteo source archive is stored with Git LFS; clone with Git LFS enabled to retrieve it.
+The project uses secondary research and explicitly fictional demonstration data. Real sources are analyzed separately; unrelated respondents are never joined to fabricate consumer histories. Local source files, restricted respondent exports, OCR scratch files and caches remain excluded from Git where documented. Dataset and model licenses are source-specific; repository availability does not replace those terms.
 
-No primary survey or participant collection was performed. No unrelated survey respondents were joined, no five-level outcomes were invented, and no experimental survey model was promoted into the marketer screen.
+OCR can omit or corrupt text and requires human review. Cue rules recognize selected wording and can miss paraphrases. Correcting a transcript improves the text supplied for review, not automatic OCR accuracy. The application does not independently recognize image objects, verify targeting permissions, identify real customer segments or establish an individual's personalization threshold.
+
+For implementation details and recorded checks, see the [final project report](49C_FINAL_PROJECT_REPORT.md). For empirical measurement compatibility and error analysis, see the [model validation report](PHASE5_MODEL_VALIDATION_REPORT.md), [linked-condition analysis](CORE_DATASET_RESOLUTION_AND_MODEL_RESULTS.md), and [data/model feasibility audit](STP_DATA_MODEL_FEASIBILITY_AUDIT.md). Historical reports preserve their original scope and dates.
