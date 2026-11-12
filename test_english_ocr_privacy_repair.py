@@ -25,6 +25,22 @@ class PrivacyCueRepairTests(unittest.TestCase):
         self.assertIn("explicit_surveillance", self.cues("We track your browsing history."))
         self.assertFalse(self.cues("We do not track your browsing history."))
 
+    def test_five_level_creatives(self):
+        ads = [
+            'Big Shoe Sale! Get 30% Off This Weekend.',
+            'Looking for Running Shoes? Explore Our Latest Collection.',
+            'Still Thinking About Those Running Shoes You Searched for Yesterday?',
+            'You Bought Running Shoes Six Months Ago. Time for Another Pair?',
+            'We Know You Searched for Running Shoes Last Night, Bought a Pair Six Months Ago, and Usually Run Near Miramar Beach. Your New Shoes Are Waiting!',
+        ]
+        self.assertFalse(self.cues(ads[0]))
+        self.assertFalse(self.cues(ads[1]))
+        self.assertIn('browsing_history', self.cues(ads[2]))
+        self.assertIn('purchase_history', self.cues(ads[3]))
+        self.assertTrue({'browsing_history', 'purchase_history', 'approximate_location', 'combined_signals'} <= self.cues(ads[4]))
+        self.assertNotIn('approximate_location', self.cues('Our shop is near Miramar Beach.'))
+        self.assertNotIn('approximate_location', self.cues('We usually run near Miramar Beach.'))
+
     def test_ordinary_seller_and_form_language(self):
         ordinary = [
             "Visit our store.",
