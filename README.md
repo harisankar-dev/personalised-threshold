@@ -124,16 +124,15 @@ python -m pip install scikit-learn==1.9.0
 python synthetic_demo/train.py
 ```
 
-Run the regression suite and protected-artifact check from the repository root:
+Run the application regression suite from the repository root:
 
 ```powershell
 python -m unittest discover -q
-python phase9_research/preservation.py verify
 ```
 
-The latest recorded regression run completed **128 tests: 127 passed, one skipped**. The optional source-archive audit skips when `PHASE12_AD_CSV` and `PHASE12_AD_ZIP` are unset. Some research tests require original datasets and additional local tools; they are not all portable application-only tests. Windows environments that block the native SPSS reader can use the [documented R-backed test adapter](PHASE12_REGRESSION_ENVIRONMENT_RECOVERY.md).
+The cleaned distribution passes **71 application tests with no failures or skips**, verified in an isolated copy containing only the retained files. These cover creative cues, input validation, empirical abstention, STP budgets/permissions, synthetic simulation and segmentation.
 
-The completion run also passed **21 real Chrome workflow checks**. `final_browser_checks.cjs` requires Playwright, Chrome and a local test image; adjust its machine-specific paths and server port before running it elsewhere.
+The full development workspace previously ran 128 tests (127 passing, one optional research-source audit skipped) and 21 real Chrome workflow checks. Historical research tests, local browser fixtures and machine-specific test scripts are excluded from this application-focused distribution.
 
 ## Research and data use
 
