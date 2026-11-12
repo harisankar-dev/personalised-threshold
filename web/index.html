@@ -15,7 +15,7 @@
         <span class="brand-mark" aria-hidden="true">49<span>C</span></span>
         <span class="brand-name">Privacy-aware advertising analytics</span>
       </div>
-      <nav class="header-nav" aria-label="Main navigation"><a class="header-link" href="/simulation">Consumer & levels</a>
+      <nav class="header-nav" aria-label="Main navigation"><a class="header-link" href="/simulation">Consumers & segments</a>
         <a class="header-link current" href="/" aria-current="page">Campaign planner</a>
         <a class="header-link" href="/research">Research evidence</a>
       </nav>
@@ -24,8 +24,8 @@
     <main>
       <section class="intro" aria-labelledby="page-title">
         <p class="eyebrow">49-C · PRE-LAUNCH REVIEW</p>
-        <h1 id="page-title">Find the smallest campaign improvement.</h1>
-        <p>Review the creative, then compare the smallest practical campaign changes against your budget. The screen flags observable cues; financial results use only the figures you enter.</p>
+        <h1 id="page-title">Review your ad. Understand your audience.</h1>
+        <p>Screen ad copy or an image. Explore consumer segments when you need audience context.</p>
       </section>
 
       <div class="workspace">
@@ -47,7 +47,7 @@
             <div id="text-panel" role="tabpanel" aria-labelledby="text-tab">
               <label for="ad-text" class="field-label">Ad copy</label>
               <textarea id="ad-text" placeholder="Paste the exact words a customer would see…" maxlength="20000" aria-describedby="text-help"></textarea>
-              <p id="text-help" class="field-hint">Analyze one advertisement at a time. Paste its headline, body and call to action; omit lesson notes, level labels and comparison tables. English text is supported.</p>
+              <p id="text-help" class="field-hint">One advertisement at a time · English text</p>
               <div class="field-footer"><span>Include the headline and body copy.</span><span id="char-count">0 characters</span></div>
               <div class="examples">
                 <span class="examples-label">Try an example</span>
@@ -89,6 +89,7 @@
               </div>
             </details>
 
+            <details class="details-block" id="campaign-details"><summary>Campaign permissions & budget <span class="optional">Optional</span></summary>
             <div class="campaign-heading">
               <p class="step-label">CAMPAIGN CONTEXT</p>
               <h3>Plan the smallest change</h3>
@@ -139,7 +140,7 @@
             <p class="field-hint">Budget includes existing media and operations plus any new production, management or segmentation cost. The app assumes no extra media spend or media reallocation.</p>
 
             <details class="details-block" id="economics-details">
-              <summary>Change costs and existing performance <span class="optional">Optional</span></summary>
+              <summary>Implementation costs <span class="optional">Optional</span></summary>
               <div class="details-content campaign-grid">
                 <div class="field-group"><label class="field-label" for="revision-cost">Revise one creative — cost</label><input id="revision-cost" type="number" min="0" step="0.01" inputmode="decimal" placeholder="Unknown"></div>
                 <div class="field-group"><label class="field-label" for="targeting-cost">Targeting change — cost</label><input id="targeting-cost" type="number" min="0" step="0.01" inputmode="decimal" placeholder="Unknown"></div>
@@ -149,11 +150,8 @@
                 <div class="field-group"><label class="field-label" for="variant-count">Additional variants (2+)</label><input id="variant-count" type="number" min="2" step="1" inputmode="numeric" placeholder="Unknown"></div>
                 <div class="field-group"><label class="field-label" for="contribution-margin">Contribution margin per conversion</label><input id="contribution-margin" type="number" min="0" step="0.01" inputmode="decimal" placeholder="Unknown"></div>
                 <div class="field-group"><label class="field-label" for="audience-reach">Eligible audience reach</label><input id="audience-reach" type="number" min="0" step="1" inputmode="numeric" placeholder="Unknown"></div>
-                <div class="field-group"><label class="field-label" for="cpc">Existing cost per click</label><input id="cpc" type="number" min="0" step="0.01" inputmode="decimal" placeholder="Unknown"></div>
-                <div class="field-group"><label class="field-label" for="cpm">Existing cost per 1,000 impressions</label><input id="cpm" type="number" min="0" step="0.01" inputmode="decimal" placeholder="Unknown"></div>
-                <div class="field-group"><label class="field-label" for="conversion-rate-pct">Existing conversion rate (%)</label><input id="conversion-rate-pct" type="number" min="0" max="100" step="0.01" inputmode="decimal" placeholder="Unknown"></div>
               </div>
-              <p class="field-hint">CPC, CPM, conversion rate and reach provide context. They are never turned into a fabricated uplift estimate.</p>
+              <p class="field-hint">Enter only known costs. Leave unknown values blank.</p>
             </details>
 
             <details class="details-block" id="scenario-details">
@@ -170,6 +168,7 @@
               </div>
             </details>
 
+            </details>
             <p id="form-error" class="form-error" role="alert" hidden></p>
             <button id="analyze-btn" class="primary-button" type="submit"><span id="button-text">Analyze ad</span><span class="button-arrow" aria-hidden="true">→</span></button>
           </form>
@@ -196,7 +195,7 @@
           </div>
 
           <div id="result-content" aria-live="polite" hidden>
-            <p class="score-kicker">Creative Intrusiveness Screening Score — Exploratory (0–10)</p>
+            <p class="score-kicker">Creative cue score · 0–10</p>
             <div class="score-topline">
               <span id="tier-pill" class="tier-pill">Low screening tier</span>
               <span id="score-context">Rubric cue points</span>
@@ -224,11 +223,11 @@
               <p id="ocr-text"></p><label class="field-label" for="corrected-ocr">Correct extracted English text</label><textarea id="corrected-ocr" maxlength="20000"></textarea><button id="reanalyze-ocr" type="button" class="text-button">Analyze corrected text</button><p id="ocr-correction-status" class="field-hint"></p>
             </details>
             <p id="result-note" class="result-note"></p>
-            <div class="threshold-note">
+            <details class="threshold-note"><summary>Research scope</summary>
               <strong>Personalization threshold</strong>
               <p id="threshold-status">Insufficient evidence for a consumer-level recommendation from the current data.</p>
               <a href="/research#threshold">See the evidence gap</a>
-            </div>
+            </details>
             <section id="compatibility-result" class="strategy-result" aria-labelledby="compatibility-title" hidden>
               <div class="strategy-heading"><p class="step-label">CONSUMER–AD COMPATIBILITY</p><h3 id="compatibility-title">Evidence check</h3><span class="evidence-tag experimental">Research-informed</span></div>
               <p id="compatibility-summary" class="strategy-reason"></p>

@@ -126,7 +126,6 @@ const campaignFields = {
   variant_cost: 'variant-cost', segmentation_cost: 'segmentation-cost',
   management_cost: 'management-cost', variant_count: 'variant-count',
   contribution_margin: 'contribution-margin', audience_reach: 'audience-reach',
-  cpc: 'cpc', cpm: 'cpm', conversion_rate_pct: 'conversion-rate-pct',
   scenario_option: 'scenario-option',
   worst_incremental_conversions: 'worst-conversions',
   central_incremental_conversions: 'central-conversions',
@@ -303,8 +302,9 @@ function renderResult(data) {
   $('ocr-text').textContent = data.ocr_text || 'No readable text was found.';
   $('result-note').textContent = data.reason || 'Exploratory rubric score only. Not a measured consumer reaction.';
   $('threshold-status').textContent = data.threshold_decision?.reason || 'Insufficient evidence for a consumer-level recommendation from the current data.';
-  renderCompatibility(data.compatibility);
-  renderStrategy(data.strategy);
+  const contextEntered = Object.entries(campaignInput()).some(([key,value]) => !['currency','scenario_option'].includes(key) && value && value !== 'unknown');
+  renderCompatibility(contextEntered ? data.compatibility : null);
+  renderStrategy(contextEntered ? data.strategy : null);
   setResultState('content');
   if (window.matchMedia('(max-width: 850px)').matches) $('result-title').scrollIntoView({behavior: 'smooth', block: 'start'});
 }
