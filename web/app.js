@@ -238,7 +238,9 @@ function renderStrategy(strategy) {
   if (strategy.missing_inputs?.length) notes.push(`Not entered: ${strategy.missing_inputs.map((x) => x.replaceAll('_', ' ')).join(', ')}.`);
   notes.forEach((note) => { const li = document.createElement('li'); li.textContent = note; warnings.append(li); });
 }
+let lastOcr = null;
 function renderResult(data) {
+  if(data.ocr_text !== null && data.ocr_text !== undefined){lastOcr={text:data.ocr_text,warning:data.ocr_warning};$("corrected-ocr").value=data.corrected_ocr_text ?? data.ocr_text;}
   const tier = data.tier || 'needs_review';
   const style = tier.startsWith('low') ? 'low' : tier.startsWith('moderate') ? 'moderate' : tier.startsWith('high') ? 'high' : 'review';
   const tierText = {low: 'Low screening tier', moderate: 'Moderate screening tier', high: 'High screening tier', review: 'Needs review'}[style];
@@ -340,3 +342,8 @@ $('ad-form').addEventListener('submit', async (event) => {
     button.disabled = false; $('button-text').textContent = 'Analyze ad';
   }
 });
+
+$('reanalyze-ocr').addEventListener('click', async()=>{if(!lastOcr)return;const button=$('reanalyze-ocr');button.disabled=true;try{const response=await fetch('/api/analyze',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({text:$('corrected-ocr').value,corrected_ocr_text:$('corrected-ocr').value,original_ocr_text:lastOcr.text,targeting:$('targeting').value,visual_description:$('visual-description').value,campaign:campaignInput()})});const result=await response.json();if(!response.ok)throw Error(result.error);result.ocr_text=lastOcr.text;result.ocr_warning=lastOcr.warning;renderResult(result);$('ocr-correction-status').textContent='Analysis uses your corrected text. Original OCR is preserved above. '+(lastOcr.warning||'');}catch(e){showError(e.message);}finally{button.disabled=false;}});
+// Preserve campaign and creative inputs across navigation without storing images.
+const saved=JSON.parse(sessionStorage.getItem('49c-form')||'{}');for(const [id,value] of Object.entries(saved)){const node=$(id);if(node&&node.type!=='file')node.value=value;}
+window.addEventListener('pagehide',()=>{const values={};document.querySelectorAll('#ad-form input:not([type=file]),#ad-form select,#ad-form textarea').forEach(n=>{if(n.id)values[n.id]=n.value;});sessionStorage.setItem('49c-form',JSON.stringify(values));sessionStorage.setItem('49c-campaign',JSON.stringify(campaignInput()));});

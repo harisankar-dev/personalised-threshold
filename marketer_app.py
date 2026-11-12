@@ -19,11 +19,14 @@ from pathlib import Path
 from intrusive_ad_model import predict
 from phase8_compatibility import assess as assess_compatibility
 from research_dashboard import dashboard_data
+from synthetic_simulation import evaluate as simulate, MODEL as SIMULATION_MODEL
 from stp_advisory import evaluate as evaluate_strategy, survey_personas
 
 
 ROOT = Path(__file__).resolve().parent
 ASSETS = {
+    "/simulation": (ROOT / "web" / "simulation.html", "text/html; charset=utf-8"),
+    "/simulation.js": (ROOT / "web" / "simulation.js", "text/javascript; charset=utf-8"),
     "/": (ROOT / "web" / "index.html", "text/html; charset=utf-8"),
     "/app.css": (ROOT / "web" / "app.css", "text/css; charset=utf-8"),
     "/app.js": (ROOT / "web" / "app.js", "text/javascript; charset=utf-8"),
@@ -98,6 +101,9 @@ class Handler(BaseHTTPRequestHandler):
 
     def do_GET(self) -> None:
         route = self.path.split("?", 1)[0]
+        if route == "/api/simulation":
+            self.send_json(HTTPStatus.OK, {"segments": SIMULATION_MODEL["segments"], "metrics": SIMULATION_MODEL["metrics"], "real_profiles": json.loads((ROOT / "results/phase7_segmentation_v1.json").read_text(encoding="utf-8"))})
+            return
         if route == "/api/research":
             try:
                 self.send_json(HTTPStatus.OK, dashboard_data())
@@ -111,7 +117,7 @@ class Handler(BaseHTTPRequestHandler):
         self.send_bytes(HTTPStatus.OK, path.read_bytes(), mime)
 
     def do_POST(self) -> None:
-        if self.path != "/api/analyze":
+        if self.path not in ("/api/analyze", "/api/simulation"):
             self.send_json(HTTPStatus.NOT_FOUND, {"error": "Endpoint not found"})
             return
         try:
@@ -127,7 +133,16 @@ class Handler(BaseHTTPRequestHandler):
                 self.send_json(HTTPStatus.REQUEST_ENTITY_TOO_LARGE, {"error": "The request is too large. Choose an image under 10 MB."})
                 return
             payload = json.loads(self.rfile.read(length))
+            if self.path == "/api/simulation":
+                self.send_json(HTTPStatus.OK, simulate(payload))
+                return
             text, targeting, visual, raw, mime = validate_payload(payload)
+            if "corrected_ocr_text" in payload:
+                corrected = payload["corrected_ocr_text"]
+                original = payload.get("original_ocr_text", "")
+                if not isinstance(corrected,str) or not corrected.strip() or len(corrected)>20000 or not isinstance(original,str) or len(original)>20000:
+                    raise ValueError("Corrected OCR must be non-empty text under 20,000 characters.")
+                text, raw = corrected.strip(), None
             if raw is not None:
                 with tempfile.TemporaryDirectory(prefix="49c-ad-", dir=ROOT) as tmp:
                     path = Path(tmp) / ("ad" + MIME_EXT[mime])
@@ -136,6 +151,10 @@ class Handler(BaseHTTPRequestHandler):
                     result["image"] = None  # never return a temporary server path
             else:
                 result = predict(text=text, targeting=targeting, visual_description=visual)
+            if "corrected_ocr_text" in payload:
+                result["corrected_ocr_text"] = text
+                result["original_ocr_text"] = original
+                result["analysis_text_source"] = "manual_ocr_correction"
             if "campaign" in payload:
                 result["strategy"] = evaluate_strategy(payload["campaign"], result)
                 result["strategy"]["survey_personas"] = survey_personas()

@@ -15,7 +15,7 @@
         <span class="brand-mark" aria-hidden="true">49<span>C</span></span>
         <span class="brand-name">Privacy-aware advertising analytics</span>
       </div>
-      <nav class="header-nav" aria-label="Main navigation">
+      <nav class="header-nav" aria-label="Main navigation"><a class="header-link" href="/simulation">Consumer & levels</a>
         <a class="header-link current" href="/" aria-current="page">Campaign planner</a>
         <a class="header-link" href="/research">Research evidence</a>
       </nav>
@@ -221,7 +221,7 @@
             </div>
             <details id="ocr-details" class="ocr-details" hidden>
               <summary>Text read from the image</summary>
-              <p id="ocr-text"></p>
+              <p id="ocr-text"></p><label class="field-label" for="corrected-ocr">Correct extracted English text</label><textarea id="corrected-ocr" maxlength="20000"></textarea><button id="reanalyze-ocr" type="button" class="text-button">Analyze corrected text</button><p id="ocr-correction-status" class="field-hint"></p>
             </details>
             <p id="result-note" class="result-note"></p>
             <div class="threshold-note">

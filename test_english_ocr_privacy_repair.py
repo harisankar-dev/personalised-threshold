@@ -20,6 +20,11 @@ class PrivacyCueRepairTests(unittest.TestCase):
         self.assertIn("explicit_surveillance", self.cues("We've tracked your activity across our site."))
         self.assertIn("direct_identifier", self.cues("We know your home address."))
 
+    def test_exact_location_and_tracking_variants(self):
+        self.assertIn("precise_location", self.cues("We know your exact location."))
+        self.assertIn("explicit_surveillance", self.cues("We track your browsing history."))
+        self.assertFalse(self.cues("We do not track your browsing history."))
+
     def test_ordinary_seller_and_form_language(self):
         ordinary = [
             "Visit our store.",

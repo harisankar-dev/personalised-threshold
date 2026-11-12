@@ -318,3 +318,7 @@ footer { border-top: 1px solid var(--line); padding: 23px 0 34px; color: var(--s
   .primary-button { color: #082527; background: var(--accent); border-color: var(--accent); }
   .primary-button:hover:not(:disabled) { color: #fff; }
 }
+
+.synthetic-label{display:inline-block;font-size:11px;font-weight:600;padding:3px 7px;border:1px solid #87949b;border-radius:20px;vertical-align:middle;white-space:nowrap} .table-scroll{overflow-x:auto} #sim-levels td{padding:14px 8px;vertical-align:top} #sim-levels meter{width:100%;max-width:120px} #sim-metrics{white-space:pre-wrap} #compare{margin-top:20px} #sim-error{color:#b53b35}
+
+@media(max-width:600px){#sim-comparison-table,#sim-levels,#sim-levels tr,#sim-levels td{display:block;width:100%}#sim-comparison-table thead{display:none}#sim-levels tr{border-bottom:1px solid #d7e1e2;padding:12px 0}#sim-levels td{padding:5px 0}#sim-levels td:nth-child(2)::before{content:"Discomfort 1–7: ";font-weight:600}#sim-levels td:nth-child(3)::before{content:"Relevance 1–7: ";font-weight:600}}
