@@ -23,6 +23,7 @@ MODEL_VERSION = (ROOT / "VERSION").read_text(encoding="utf-8").strip()
 # A cue contributes at most once, even if different phrases express it. The
 # weights are an explicit design rubric, not fitted coefficients or survey means.
 COPY_CUES = [
+    ("private_activity_claim", 5, re.compile(r"\bwe (?:know|noticed|saw|observed) (?:that )?you(?:(?:'|’)ve| have)? (?:been )?(?:checked|checking|looked|looking|spent|spending|woke|wake|slept|sleep|visited|visiting|ignoring|skipping|avoiding)[^.!?\n]{0,110}?\b(?:mirror|bedroom|bathroom|outdoors|at home|sun protection|sunscreen|medication|clinic|hospital)\b", re.I)),
     ("sensitive_personal_fact", 6, re.compile(r"\b(?:your|you have|we know (?:your|about your))\s+(?:diagnosis|medical history|pregnancy|fertility|debt|credit score|income|religion|sexual orientation|mental health|prescription|bank balance)\b", re.I)),
     ("explicit_surveillance", 5, re.compile(r"\b(?:we(?:'|’)ve been keeping track|we (?:are )?(?:tracking|monitoring|watching|tracked|monitored|track|monitor|watch) (?:you|your)|we (?:keep|kept) track of your (?:activity|visits)|keeping track of your activity|we know (?:where you are|what you did|you (?:are|(?:'|’)re) in [A-Z][a-z]+)|we(?:'|’)ve (?:tracked|monitored|followed) your activity)\b", re.I)),
     ("precise_location", 6, re.compile(r"\b(?:near your (?:home|office|current location)|at your (?:address|home)|you are (?:now |currently )?(?:at|near)|we know (?:your (?:exact|current) location|where you live|you(?:'|’)re currently at))\b", re.I)),
@@ -36,10 +37,11 @@ COPY_CUES = [
 # Pressure tactics are scored separately from privacy cues so a marketer can
 # see why a non-personalized but aggressive creative received a high score.
 PRESSURE_CUES = [
+    ("attention_demand", 2, re.compile(r"\b(?:stop scrolling|don(?:'|’)t scroll (?:past|away)|read this now|pay attention now)\b", re.I)),
     ("countdown_pressure", 3, re.compile(r"\b\d{1,2}\s*:\s*\d{2}\s*:\s*\d{2}(?:\s*:\s*\d{2})?\b|\b(?:timer|countdown)\s+(?:runs?\s+out|ends?|expires?)\b", re.I)),
     ("scarcity_claim", 2, re.compile(r"\b(?:limited stock|only\s+\d+\s+(?:left|remaining)|while stocks last|selling out)\b", re.I)),
     ("extreme_discount", 2, re.compile(r"\b(?:8\d|9\d|100)\s*%\s*off\b", re.I)),
-    ("urgent_call_to_action", 2, re.compile(r"\b(?:last chance|today only|click (?:the )?link now|act now|hurry|before the timer runs out|limited[ -]time (?:offers?|deals?|sale)|limited time only|(?:offer|sale|deal) ends? (?:tonight|tomorrow|today|at midnight|on (?:monday|tuesday|wednesday|thursday|friday|saturday|sunday))|this weekend only|final day|(?:offer|sale|deal) valid until (?:monday|tuesday|wednesday|thursday|friday|saturday|sunday|tonight|tomorrow)|ends? at midnight|\d{1,2}[ -]hour special|only until (?:monday|tuesday|wednesday|thursday|friday|saturday|sunday|tonight|tomorrow)|last day to claim)\b", re.I)),
+    ("urgent_call_to_action", 2, re.compile(r"\b(?:before it(?:'|’)s too late|last chance|today only|click (?:the )?link now|act now|hurry|before the timer runs out|limited[ -]time (?:offers?|deals?|sale)|limited time only|(?:offer|sale|deal) ends? (?:tonight|tomorrow|today|at midnight|on (?:monday|tuesday|wednesday|thursday|friday|saturday|sunday))|this weekend only|final day|(?:offer|sale|deal) valid until (?:monday|tuesday|wednesday|thursday|friday|saturday|sunday|tonight|tomorrow)|ends? at midnight|\d{1,2}[ -]hour special|only until (?:monday|tuesday|wednesday|thursday|friday|saturday|sunday|tonight|tomorrow)|last day to claim)\b", re.I)),
     ("alarmist_claim", 2, re.compile(r"\b(?:they do not want you to see|we get taken down|taken down|alert!{2,})\b", re.I)),
 ]
 EXCESSIVE_EXCLAMATION_PATTERN = re.compile(r"!{3,}")
@@ -62,7 +64,7 @@ TARGETING_CUES = [
     ("broad_targeting", 1, re.compile(r"\b(?:age|country|city|region|interest)\s*[:=]", re.I)),
 ]
 
-DETAIL_PATTERN = re.compile(r"\b(?:last night|yesterday|compared prices|left without buying|didn(?:'|’)t purchase|did not purchase|several .{0,30}? websites)\b", re.I)
+DETAIL_PATTERN = re.compile(r"\b(?:this morning|last night|yesterday|compared prices|left without buying|didn(?:'|’)t purchase|did not purchase|several .{0,30}? websites)\b", re.I)
 NO_CONSENT_PATTERN = re.compile(r"\b(?:without (?:your )?(?:consent|permission)|you (?:did not|didn(?:'|’)t|haven(?:'|’)t) (?:agree|consent)|consent\s*[:=]\s*(?:no|false)|not knowingly agreed)\b", re.I)
 
 # Advice is linked to observed cues. These are editorial proposals, not
@@ -70,6 +72,8 @@ NO_CONSENT_PATTERN = re.compile(r"\b(?:without (?:your )?(?:consent|permission)|
 REPAIR_ADVICE = {
     "direct_identifier": "Remove claims that identify the viewer by phone, email, account or home address; use a general offer instead.",
     "sensitive_personal_fact": "Remove references to sensitive personal facts and review whether that targeting should be used at all.",
+    "private_activity_claim": "Remove claims of observing private offline routines; describe the product benefit without asserting knowledge of the viewer's activities.",
+    "attention_demand": "Use a clear invitation instead of commands demanding the viewer's attention.",
     "explicit_surveillance": "Remove language that says the person was tracked or watched; describe the product benefit directly.",
     "precise_location": "Remove references to the person's home or exact whereabouts; use broad availability wording if location is relevant.",
     "approximate_location": "Use a general regional offer instead of telling the person that their location was observed.",
@@ -151,11 +155,11 @@ def classify(text: str, targeting: str = "") -> dict:
     if any(k in found for k in ("browsing_history", "purchase_history", "approximate_location", "precise_location")):
         found.pop("personalized_claim", None)
     evidence = list(found.values())
-    signal_types = {k for k in found if k in ("browsing_history", "purchase_history", "approximate_location", "precise_location", "sensitive_personal_fact")}
+    signal_types = {k for k in found if k in ("browsing_history", "purchase_history", "approximate_location", "precise_location", "sensitive_personal_fact", "private_activity_claim")}
     if len(signal_types) >= 2:
         evidence.append({"cue": "combined_signals", "source": "derived", "matched": "Multiple personal-data signals", "weight": 1})
     detail = DETAIL_PATTERN.search(text)
-    if detail and "browsing_history" in found:
+    if detail and ("browsing_history" in found or "private_activity_claim" in found):
         evidence.append({"cue": "specific_activity_detail", "source": "ad_copy", "matched": detail.group(0), "weight": 1})
     no_consent = NO_CONSENT_PATTERN.search(text + " " + targeting)
     if no_consent:

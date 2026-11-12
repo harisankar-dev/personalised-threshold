@@ -20,7 +20,7 @@ METHOD_FOR_SOURCE = {
     "first_party_purchase": {"historical", "combined"},
     "combined": {"combined"},
 }
-SURVEILLANCE_CUES = {"direct_identifier", "observed_behavior", "sensitive_personal_fact",
+SURVEILLANCE_CUES = {"private_activity_claim", "direct_identifier", "observed_behavior", "sensitive_personal_fact",
                      "precise_location", "purchase_history", "browsing_history", "explicit_surveillance",
                      "combined_signals", "specific_activity_detail", "no_consent", "sensitive_targeting",
                      "behavioral_targeting", "precise_location_targeting"}

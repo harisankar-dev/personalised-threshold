@@ -41,6 +41,22 @@ class PrivacyCueRepairTests(unittest.TestCase):
         self.assertNotIn('approximate_location', self.cues('Our shop is near Miramar Beach.'))
         self.assertNotIn('approximate_location', self.cues('We usually run near Miramar Beach.'))
 
+    def test_private_offline_activity_claims(self):
+        ad = "We know you checked your skin in the mirror this morning. We know you searched for ways to control your oily skin. And we know you've been ignoring sun protection despite spending hours outdoors. Sounds creepy? Maybe. But your skin deserves better."
+        result = classify(ad)
+        self.assertEqual(result['tier'], 'high_intrusive')
+        self.assertIn('private_activity_claim', self.cues(ad))
+        for text in ['We observed you spending time outdoors.', 'We know you visited the clinic yesterday.']:
+            self.assertIn('private_activity_claim', self.cues(text))
+        for text in ['Check your skin in the mirror each morning.', 'Enjoy spending time outdoors.', 'We know you want better sun protection.', "The phrase 'we know you checked the mirror' is misleading.", 'We do not know you checked your skin in the mirror.']:
+            self.assertNotIn('private_activity_claim', self.cues(text))
+
+    def test_promotion_pressure_without_private_knowledge(self):
+        result = classify("STOP SCROLLING! Your skin deserves better! Don't let oily skin, sweat, and harsh sunlight ruin your day. Get instant confidence with our revolutionary sunscreen! Limited-time offer — BUY NOW before it's too late! Your skin won't wait, so why should you?")
+        self.assertEqual(result['privacy_score'], 0)
+        self.assertEqual({e['cue'] for e in result['evidence']}, {'attention_demand', 'urgent_call_to_action'})
+        self.assertFalse(self.cues('A sunscreen for oily skin. Explore the collection.'))
+
     def test_ordinary_seller_and_form_language(self):
         ordinary = [
             "Visit our store.",

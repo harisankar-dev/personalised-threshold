@@ -17,6 +17,8 @@ const examples = {
   combined: 'Based on your recent running-shoe searches, previous footwear purchases and location in Goa, we selected these styles for you.'
 };
 const cueNames = {
+  private_activity_claim: 'Claimed knowledge of private offline activity',
+  attention_demand: 'Demand for attention',
   direct_identifier: 'Direct personal identifier',
   observed_behavior: 'Observed browsing or search',
   sensitive_personal_fact: 'Sensitive personal fact',
