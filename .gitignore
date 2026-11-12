@@ -84,7 +84,3 @@ Thumbs.db
 !/results/survey_phase_v2.json
 !/results/survey_phase_v3_uncertainty.json
 !/results/vietnam_privacy_trust_v1.json
-
-!/streamlit_app.py
-!/packages.txt
-!/test_streamlit_app.py

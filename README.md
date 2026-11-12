@@ -13,31 +13,6 @@ A local web application for reviewing advertisements, exploring fictional consum
 
 **Scope:** this is an academic demonstration. Consumer simulations use generated data and are labelled **Synthetic data**. The creative score is an editorial screening rubric. Neither is a validated prediction of a real person's response.
 
-## Streamlit deployment
-
-The Streamlit interface includes advertisement review, editable English OCR, A–E STP planning, synthetic consumer/segment comparisons, L0–L4 eligibility and the research dashboard.
-
-Run locally:
-
-```powershell
-python -m pip install -r requirements.txt
-npm install
-streamlit run streamlit_app.py
-```
-
-Open the URL Streamlit prints, normally **http://localhost:8501**.
-
-To deploy on **Streamlit Community Cloud**:
-
-1. Sign in at [share.streamlit.io](https://share.streamlit.io/) and choose **Create app**.
-2. Select repository `harisankar-dev/personalised-threshold`, branch `main`.
-3. Set the entrypoint to **`streamlit_app.py`** and choose **Python 3.12** in the advanced settings.
-4. Deploy. Root `requirements.txt` supplies Python packages; `packages.txt` supplies Node.js/npm for local Tesseract.js OCR. The first OCR request installs the npm dependency if needed, so it can take longer.
-
-No API keys or secrets are required. On a hosted deployment, uploaded images and entered text are processed on the hosting server; do not submit private customer records. Synthetic demonstrations remain labelled and the empirical threshold still abstains. Actual Cloud deployment requires your Streamlit/GitHub account access; local compatibility tests do not establish that a hosted instance has been deployed.
-
-The original local HTTP interface remains available as described below.
-
 ## Install and run
 
 You need Python, Node.js/npm, and a modern browser. The application was tested with Python 3.14.6 and Node.js 24 on Windows. Other environments have not been verified.
@@ -155,7 +130,7 @@ Run the application regression suite from the repository root:
 python -m unittest discover -q
 ```
 
-The cleaned distribution passes **73 application tests with no failures or skips**, verified in an isolated copy containing only the retained files. These include Streamlit render/interaction checks and cover creative cues, input validation, empirical abstention, STP budgets/permissions, synthetic simulation and segmentation.
+The cleaned distribution passes **71 application tests with no failures or skips**, verified in an isolated copy containing only the retained files. These cover creative cues, input validation, empirical abstention, STP budgets/permissions, synthetic simulation and segmentation.
 
 The full development workspace previously ran 128 tests (127 passing, one optional research-source audit skipped) and 21 real Chrome workflow checks. Historical research tests, local browser fixtures and machine-specific test scripts are excluded from this application-focused distribution.
 
