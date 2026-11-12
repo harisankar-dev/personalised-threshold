@@ -84,3 +84,13 @@ Thumbs.db
 !/results/survey_phase_v2.json
 !/results/survey_phase_v3_uncertainty.json
 !/results/vietnam_privacy_trust_v1.json
+
+!/api/
+!/vercel.json
+!/.vercelignore
+.vercel/
+
+!/package-lock.json
+!/test_vercel_routes.py
+
+!/.python-version

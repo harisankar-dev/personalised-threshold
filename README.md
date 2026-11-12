@@ -13,6 +13,14 @@ A local web application for reviewing advertisements, exploring fictional consum
 
 **Scope:** this is an academic demonstration. Consumer simulations use generated data and are labelled **Synthetic data**. The creative score is an editorial screening rubric. Neither is a validated prediction of a real person's response.
 
+## Vercel deployment
+
+The repository includes `vercel.json` and adapters for Vercel Python and Node Functions. The existing interface is served as static assets; Python handles creative analysis, simulations and research summaries; Node runs the same local Tesseract.js engine for hosted images. No Streamlit or paid AI API is required.
+
+Hosted OCR accepts images up to **3 MB**, allowing for Vercel's encoded request-size limit. The original local interface continues to accept images up to 10 MB. Images and text on the hosted version are processed on Vercel servers; avoid submitting private customer records. OCR may be slower on a cold start. Original OCR and manual correction remain separate.
+
+The deployment upload is allowlisted by `.vercelignore` so local datasets, checkpoints, caches and archived research are excluded. Python 3.12 is selected in `.python-version`. Use Vercel's **Other** framework preset; the configuration supplies the static output and API rewrites. Choose and approve the public project/domain name before production deployment.
+
 ## Install and run
 
 You need Python, Node.js/npm, and a modern browser. The application was tested with Python 3.14.6 and Node.js 24 on Windows. Other environments have not been verified.
@@ -130,7 +138,7 @@ Run the application regression suite from the repository root:
 python -m unittest discover -q
 ```
 
-The cleaned distribution passes **71 application tests with no failures or skips**, verified in an isolated copy containing only the retained files. These cover creative cues, input validation, empirical abstention, STP budgets/permissions, synthetic simulation and segmentation.
+The cleaned distribution passes **75 application tests with no failures or skips**, verified in an isolated copy containing only the retained files. These cover creative cues, input validation, empirical abstention, STP budgets/permissions, synthetic simulation and segmentation.
 
 The full development workspace previously ran 128 tests (127 passing, one optional research-source audit skipped) and 21 real Chrome workflow checks. Historical research tests, local browser fixtures and machine-specific test scripts are excluded from this application-focused distribution.
 

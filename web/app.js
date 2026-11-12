@@ -328,13 +328,26 @@ $('ad-form').addEventListener('submit', async (event) => {
   $('button-text').textContent = 'Analyzing…'; setResultState('loading');
   try {
     const imageData = mode === 'image' && selectedFile ? await readDataUrl(selectedFile) : null;
+    let hostedOcr = null;
+    let analysisImage = imageData;
+    if (imageData) {
+      const config = await fetch('/api/config').then(r => r.json());
+      if (config.hosted_ocr) {
+        if (selectedFile.size > 3 * 1024 * 1024) throw new Error('Hosted image OCR supports up to 3 MB. Resize the image or paste its copy.');
+        const response = await fetch('/api/ocr', {method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({image_data:imageData})});
+        hostedOcr = await response.json();
+        if (!response.ok) throw new Error(hostedOcr.error);
+        analysisImage = null;
+      }
+    }
     const response = await fetch('/api/analyze', {
       method: 'POST', headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify({text: copy, image_data: imageData, targeting: $('targeting').value.trim(),
+      body: JSON.stringify({text: hostedOcr ? [copy,hostedOcr.text].filter(Boolean).join(" ") : copy, image_data: analysisImage, targeting: $('targeting').value.trim(),
         visual_description: visual, campaign: campaignInput()})
     });
     const data = await response.json();
     if (!response.ok) throw new Error(data.error || 'The ad could not be analyzed.');
+    if(hostedOcr){data.ocr_text=hostedOcr.text;data.ocr_confidence=hostedOcr.confidence;data.ocr_warning=hostedOcr.quality_warning;}
     renderResult(data);
   } catch (error) {
     setResultState('empty'); showError(error.message || 'The ad could not be analyzed. Try again.');

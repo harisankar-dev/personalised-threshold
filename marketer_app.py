@@ -9,6 +9,7 @@ import argparse
 import base64
 import binascii
 import json
+import os
 import tempfile
 import threading
 import webbrowser
@@ -101,6 +102,9 @@ class Handler(BaseHTTPRequestHandler):
 
     def do_GET(self) -> None:
         route = self.path.split("?", 1)[0]
+        if route == "/api/config":
+            self.send_json(HTTPStatus.OK, {"hosted_ocr": bool(os.environ.get("VERCEL"))})
+            return
         if route == "/api/simulation":
             self.send_json(HTTPStatus.OK, {"segments": SIMULATION_MODEL["segments"], "metrics": SIMULATION_MODEL["metrics"], "real_profiles": json.loads((ROOT / "results/phase7_segmentation_v1.json").read_text(encoding="utf-8"))})
             return
@@ -143,6 +147,8 @@ class Handler(BaseHTTPRequestHandler):
                 if not isinstance(corrected,str) or not corrected.strip() or len(corrected)>20000 or not isinstance(original,str) or len(original)>20000:
                     raise ValueError("Corrected OCR must be non-empty text under 20,000 characters.")
                 text, raw = corrected.strip(), None
+            if raw is not None and os.environ.get("VERCEL"):
+                raise ValueError("Use /api/ocr for hosted image extraction, then analyze the reviewed text.")
             if raw is not None:
                 with tempfile.TemporaryDirectory(prefix="49c-ad-", dir=ROOT) as tmp:
                     path = Path(tmp) / ("ad" + MIME_EXT[mime])

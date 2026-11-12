@@ -1,0 +1,31 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": null,
+  "buildCommand": "echo Static assets ready",
+  "outputDirectory": "web",
+  "functions": {
+    "api/index.py": {
+      "maxDuration": 60,
+      "includeFiles": "{*.py,VERSION,results/*.json,synthetic_demo/model.json}",
+      "excludeFiles": "{node_modules/**,models/**}"
+    },
+    "api/ocr.js": {
+      "maxDuration": 60,
+      "includeFiles": "{models/eng.traineddata,node_modules/tesseract.js-core/**,node_modules/tesseract.js/src/worker-script/**}"
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/api/:route(analyze|research|simulation|config)",
+      "destination": "/api?route=:route"
+    },
+    {
+      "source": "/simulation",
+      "destination": "/simulation.html"
+    },
+    {
+      "source": "/research",
+      "destination": "/research.html"
+    }
+  ]
+}
