@@ -57,6 +57,19 @@ class PrivacyCueRepairTests(unittest.TestCase):
         self.assertEqual({e['cue'] for e in result['evidence']}, {'attention_demand', 'urgent_call_to_action'})
         self.assertFalse(self.cues('A sunscreen for oily skin. Explore the collection.'))
 
+    def test_explicit_knowledge_paraphrases(self):
+        text = "WE KNOW MORE ABOUT YOU THAN YOU THINK. We know what time you woke up today. We know which websites you visited last night. We know how long you spent looking at your ex's Instagram profile. We know what you searched for and then deleted from your browsing history. We know your location, your shopping habits, and the products you've been secretly comparing."
+        result = classify(text)
+        self.assertEqual(result['score_out_of_10'], 10)
+        self.assertEqual(result['tier'], 'high_intrusive')
+        self.assertTrue({'private_activity_claim','explicit_surveillance','browsing_history','approximate_location'} <= self.cues(text))
+        for text in ['We know when you wake up.', 'We know how long you spent watching your neighbors.', 'We know which pages you viewed.']:
+            self.assertTrue(self.cues(text))
+        for text in ['We know what you want: comfortable shoes.', 'Choose when you wake up.', 'Find out how long you spent outdoors.', 'We do not know your location.', "The phrase 'we know when you wake' is misleading."]:
+            self.assertFalse(self.cues(text),text)
+        for text in ['Explore the collection.',text]:
+            score=classify(text)['score_out_of_10'];self.assertTrue(score is None or 0<=score<=10)
+
     def test_ordinary_seller_and_form_language(self):
         ordinary = [
             "Visit our store.",

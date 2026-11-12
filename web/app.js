@@ -249,7 +249,7 @@ function renderResult(data) {
   $('tier-pill').textContent = tierText;
   $('tier-pill').className = `tier-pill ${style}`;
   $('score-number').textContent = data.score_out_of_10 ?? '—';
-  $('score-context').textContent = data.score_out_of_10 === null ? 'No score available' : 'Rubric cue points';
+  $('score-context').textContent = data.score_out_of_10 === null ? 'No score available' : 'Rubric cue points' + (data.model_version ? ' · v' + data.model_version : '');
   $('score-breakdown').hidden = data.score_out_of_10 === null;
   $('privacy-score').textContent = data.privacy_score ?? '—';
   $('pressure-score').textContent = data.pressure_score ?? '—';
